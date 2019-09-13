@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>订单详细 - {$shop_name}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="ecy.cc">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="style/base2013.css" />
+<link rel="stylesheet" type="text/css" href="style/all_html5.css" />
+<link rel="stylesheet" type="text/css" href="style/chapter.css" />
+<script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="js/common1.js" type="text/javascript"></script>
+</head>
+<body>
+{include file='head2.dwt'}
+<div class="mc radius">
+	<p style="padding:8px 0"><span>订单状态：</span>{$order.order_status}&nbsp;&nbsp;{$order.confirm_time}</p>
+	<p style="padding:8px 0"><span>支付状态：</span>{$order.pay_status}&nbsp;&nbsp;{if $order.order_amount gt 0}<div class="pay_online_bot">{$order.pay_online}</div>{/if}{$order.pay_time}</p>
+	<p style="padding:8px 0"><span>配送状态：</span>{$order.shipping_status}&nbsp;&nbsp;{$order.shipping_time}</p>
+	{if $order.invoice_no}发货单号：{$order.invoice_no}{/if}
+	<h3>商品列表</h3>
+	<!-- {foreach from=$goods_list item=goods} -->
+	<!-- {if $goods.goods_id gt 0 && $goods.extension_code neq 'package_buy'} 商品 -->
+	<a href="goods.php?id={$goods.goods_id}&sid={$sid}" target="_blank" class="f6">{$goods.goods_name}</a>
+	<!-- {elseif $goods.goods_id gt 0 && $goods.extension_code eq 'package_buy'} -->
+	<a  class="f6">{$goods.goods_name}<span style="color:#FF0000;">（礼包）</span></a>
+	<div id="suit_{$goods.goods_id}" style="display:none">
+		<!-- {foreach from=$goods.package_goods_list item=package_goods_list} -->
+		<a href="goods.php?id={$package_goods_list.goods_id}&sid={$sid}" target="_blank" class="f6">{$package_goods_list.goods_name}</a><br />
+		<!-- {/foreach} -->
+	</div>
+	<!-- {/if} -->
+	&nbsp;&nbsp;{$goods.goods_attr}&nbsp;&nbsp;{$goods.goods_number}&nbsp;&nbsp;{$goods.subtotal}
+	<br />
+	<!-- {/foreach} -->
+	{$lang.goods_all_price}
+	<!-- {if $order.extension_code eq "group_buy"} -->
+	保证金
+	<!-- {/if} -->
+	商品总价：{$order.formated_goods_amount}
+	<!-- {if $order.discount gt 0} 折扣 -->
+	- {$lang.discount}: {$order.formated_discount}
+	<!-- {/if} -->
+	<!-- {if $order.tax gt 0} -->
+	+ {$lang.tax}: {$order.formated_tax}
+	<!-- {/if} -->
+	<!-- {if $order.shipping_fee > 0} -->
+	+ 配送费用: {$order.formated_shipping_fee}
+	<!-- {/if} -->
+	<!-- {if $order.insure_fee > 0} -->
+	+ {$lang.insure_fee}: {$order.formated_insure_fee}
+	<!-- {/if} -->
+	<!-- {if $order.pay_fee > 0} -->
+	+ {$lang.pay_fee}: {$order.formated_pay_fee}
+	<!-- {/if} -->
+	<!-- {if $order.pack_fee > 0} -->
+	+ {$lang.pack_fee}: {$order.formated_pack_fee}
+	<!-- {/if} -->
+	<!-- {if $order.card_fee > 0} -->
+	+ {$lang.card_fee}: {$order.formated_card_fee}
+	<!-- {/if} -->
+	<!-- {if $order.money_paid > 0} -->
+	- {$lang.order_money_paid}: {$order.formated_money_paid}
+	<!-- {/if} -->
+	<!-- {if $order.surplus > 0} -->
+	- {$lang.use_surplus}: {$order.formated_surplus}
+	<!-- {/if} -->
+	<!-- {if $order.integral_money > 0} -->
+	- {$lang.use_integral}: {$order.formated_integral_money}
+	<!-- {/if} -->
+	<!-- {if $order.bonus > 0} -->
+	- {$lang.use_bonus}: {$order.formated_bonus}
+	<!-- {/if} -->
+	<br>
+	{$lang.order_amount}: {$order.formated_order_amount}
+	<!-- {if $order.extension_code eq "group_buy"} -->
+	<br />
+	{$lang.notice_gb_order_amount}
+	<!-- {/if} -->
+	<h3>收货人信息</h3>
+	收货人：{$order.consignee}，电话：{$order.tel}/{$order.mobile}<br/>
+	详细地址：{$order.address}
+	<!-- {if $order.zipcode} -->
+	[{$order.zipcode}]
+	<!-- {/if} -->
+	<h3>其它信息</h3>
+	<!-- {if $order.shipping_id > 0} -->
+	配送方式：{$order.shipping_name}<br/>
+	<!-- {/if} -->
+	支付方式：{$order.pay_name}<br/>
+	<!-- {if $order.pack_name} 是否使用包装 -->
+	包装：{$order.pack_name} <br/>
+	<!-- {/if} 是否使用包装 -->
+	<!-- {if $order.card_name} 是否使用贺卡 -->
+	贺卡：{$order.card_name}<br/>
+	<!-- {/if} -->
+	<!-- {if $order.card_message} 是否使用贺卡 -->
+	祝福语：{$order.card_message}<br/>
+	<!-- {/if} 是否使用贺卡 -->
+	<!-- {if $order.surplus > 0} 是否使用余额 -->
+	<!-- {/if} -->
+	<!-- {if $order.integral > 0} 是否使用积分 -->
+	使用是积分：{$order.integral}<br/>
+	<!-- {/if} 是否使用积分 -->
+	<!-- {if $order.bonus > 0} 是否使用红包 -->
+	<!-- {/if} -->
+	<!-- {if $order.inv_payee && $order.inv_content} 是否开发票 -->
+	发票抬头：{$order.inv_payee}发票内容：{$order.inv_content}<br/>
+	<!-- {/if} -->
+	<!-- {if $order.postscript} 是否有订单附言 -->
+	订单附言：{$order.postscript}<br/>
+	<!-- {/if} -->
+	缺货处理：{$order.how_oos_name}<br/>
+</div>
+{include file='foot.dwt'}
+</body>
+</html>

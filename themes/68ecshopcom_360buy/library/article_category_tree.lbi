@@ -1,0 +1,20 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $article_categories} -->
+<div class="box">
+  <h3 class="mod1tit" style="border:#E4E4E4 1px solid; border-bottom:none; height:32px; line-height:32px;"><span>{$lang.article_cat}</span></h3>
+  
+<div class="cagegoryConNew clearfix box_1" style="border-top:none;">
+		 <!--{foreach from=$article_categories item=cat}-->
+
+			 <div class="helpTit1"><a href="{$cat.url}">{$cat.name|escape:html}</a></div>
+			 <div class="helpList1 tl">
+				 <!--{foreach from=$cat.children item=child}-->
+				·&nbsp;<a href="{$child.url}" title="{$child.name|escape:html}">{$child.name|truncate:16}</a><br />
+				 <!--{/foreach}-->
+
+			</div>
+		 <!-- {/foreach} -->	
+		</div>
+</div>
+<div class="blank5"></div>
+<!-- {/if} -->

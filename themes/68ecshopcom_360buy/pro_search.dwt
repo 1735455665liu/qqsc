@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link rel="stylesheet" type="text/css" href="themes/68ecshopcom_360buy/css/pro_search.css"/>
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/jquery-lazyload.js" ></script>
+{insert_scripts files='jquery.json.js,transport.js'}
+{* 包含脚本文件 *}
+{insert_scripts files='utils.js,common.js'}
+</head>
+<body >
+<div id="site-nav"> 
+  <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+  <div class="wdiv">
+    <div class="blank"></div>
+    <div class="w">
+      <div class="l">
+        <div class="pro"> 
+          <!--{foreach from=$goods_list item=goods name=name key=key}--> 
+          <!--{if $goods.goods_name neq ''}-->
+          <DIV class=product onmouseover="this.className='product hover1'" onmouseout="this.className='product'">
+            <DIV class=pic> 
+            	<A href="pro_goods.php?id={$goods.goods_id}" target="_blank"> 
+                	<IMG title="{$goods.goods_name|escape:html}" height=185 alt="{$goods.goods_name|escape:html}" width=185  data-original="{$goods.goods_img}"  src="themes/68ecshopcom_360buy/images/loading.gif"> 
+                </A> 
+                {if $goods.is_best}
+              	<DIV class=t_icon_st></DIV>
+              	{/if} 
+            </DIV>
+            <DIV class=title>
+            	 <A title="{$goods.goods_name|escape:html}" href="pro_goods.php?id={$goods.goods_id}" target="_blank">{$goods.goods_name|truncate:16} </A> 
+            </DIV>
+            <!--非团购专场-->
+            <DIV class=buy3>
+              <DIV class=n-tg><A title="查看详情" href="pro_goods.php?id={$goods.goods_id}" target="_blank"></A></DIV>
+              <DIV class=n-price> 
+                <!--{if $goods.promote_price neq "" } --> 
+                {$goods.promote_price} 
+                <!--{else}--> 
+                {$goods.shop_price} 
+                <!--{/if}--> 
+              </DIV>
+            </DIV>
+            <DIV class=price3>
+              <DIV class=y-price><SPAN>{$goods.zhekou}折</SPAN> <SPAN class=yp>{$goods.shop_price}</SPAN> </DIV>
+              <span>{$goods.count1}人已购买</span> </DIV>
+          </DIV>
+          <!--{/if}--> 
+          <!--{/foreach}-->
+          <div class="clr"></div>
+        </div>
+        <!-- #BeginLibraryItem "/library/pages.lbi" --><!-- #EndLibraryItem -->
+      </div>
+    </div>
+  </div>
+  <div class="clr"></div>
+  <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
+  <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem --> 
+  <!-- #BeginLibraryItem "/library/site_bar.lbi" --><!-- #EndLibraryItem --> 
+</div>
+<script type="text/javascript">
+$("img").lazyload({
+    effect       : "fadeIn",
+	 skip_invisible : true,
+	 failure_limit : 20
+});
+</script>
+</body>
+</html>

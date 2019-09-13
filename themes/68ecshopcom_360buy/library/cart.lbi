@@ -1,0 +1,13 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{if $is_goods_page eq 1}
+{insert_scripts files='transport_jquery.js'}
+{else}
+{insert_scripts files='transport.js'}
+{/if}
+<div class="cart" id="ECS_CARTINFO">
+ {insert name='cart_info'}
+</div>
+
+
+
+

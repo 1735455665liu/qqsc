@@ -1,0 +1,302 @@
+@charset "utf-8";
+#wdiv {
+	BACKGROUND: #f8f8f8;
+	width: 100%;
+	display: inline-block
+}
+/*link*/
+a {
+	color: #333;
+	text-decoration: none;
+}
+a:hover {
+	color: #c00;
+	text-decoration: underline;
+}
+a:active {
+	color: #900;
+}
+.btn-or {
+	background: none;
+	border: none;
+	cursor: pointer;
+	float: left;
+	padding: 4px 0px 0px 10px;
+	width: 55px;
+}
+*+html .btn-or {
+	background: none;
+	border: none;
+	cursor: pointer;
+	float: left;
+	padding: 5px 0px 0px 10px;
+	width: 55px;
+}
+.w {
+	width: 1210px;
+	height: auto;
+	margin: 0 auto;
+}
+.l {
+	width: 1210px;
+	float: left;
+	padding-top: 10px;
+	overflow: hidden;
+}
+.l .pro {
+	width: 1410px;
+	float: left;
+	height: auto;
+	z-index: 1;
+	overflow: hidden;
+}
+.product {
+	BORDER-RIGHT: #ddd 1px solid;
+	PADDING-RIGHT: 10px;
+	BORDER-TOP: #ddd 1px solid;
+	PADDING-LEFT: 10px;
+	BACKGROUND: #fff;
+	FLOAT: left;
+	PADDING-BOTTOM: 10px;
+	MARGIN: 0px 15px 15px 0px;
+	OVERFLOW: hidden;
+	BORDER-LEFT: #ddd 1px solid;
+	WIDTH: 268px;
+	PADDING-TOP: 20px;
+	BORDER-BOTTOM: #ddd 1px solid;
+	HEIGHT: auto
+}
+.product .title {
+	PADDING-RIGHT: 0px;
+	PADDING-LEFT: 0px;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 14px;
+	FLOAT: left;
+	PADDING-BOTTOM: 0px;
+	WIDTH: 268px;
+	LINE-HEIGHT: 20px;
+	PADDING-TOP: 5px;
+	FONT-FAMILY: "microsoft yahei";
+	HEIGHT: 25px;
+	OVERFLOW: hidden;
+}
+.product .title SPAN {
+	PADDING-RIGHT: 4px;
+	DISPLAY: inline;
+	PADDING-LEFT: 4px;
+	BACKGROUND: #cb0000;
+	PADDING-BOTTOM: 0px;
+	WIDTH: 33px;
+	COLOR: #fff;
+	LINE-HEIGHT: 18px;
+	PADDING-TOP: 0px;
+	HEIGHT: 18px;
+	TEXT-ALIGN: center;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px
+}
+.product .pic {
+	PADDING-RIGHT: 0px;
+	PADDING-LEFT: 0px;
+	Z-INDEX: 1;
+	FLOAT: left;
+	PADDING-BOTTOM: 0px;
+	WIDTH: 268px;
+	PADDING-TOP: 0px;
+	POSITION: relative;
+	HEIGHT: 185px;
+	text-align: center;
+}
+.product .price {
+	PADDING-RIGHT: 5px;
+	PADDING-LEFT: 5px;
+	FLOAT: left;
+	PADDING-BOTTOM: 0px;
+	WIDTH: 268px;
+	COLOR: #676767;
+	LINE-HEIGHT: 12px;
+	PADDING-TOP: 8px;
+	HEIGHT: 12px
+}
+.product .price FONT {
+	FONT-SIZE: 12px;
+	TEXT-DECORATION: line-through
+}
+.product .price FONT.zhe {
+	PADDING-LEFT: 10px;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 12px;
+	COLOR: #e43a3b;
+	TEXT-DECORATION: none
+}
+.product .price SPAN {
+	PADDING-RIGHT: 0px;
+	PADDING-LEFT: 0px;
+	FONT-WEIGHT: normal;
+	FLOAT: right;
+	PADDING-BOTTOM: 0px;
+	PADDING-TOP: 0px
+}
+.product .price SPAN FONT {
+	FONT-SIZE: 12px;
+	TEXT-DECORATION: none
+}
+.product .address {
+	PADDING-RIGHT: 5px;
+	PADDING-LEFT: 5px;
+	FLOAT: left;
+	PADDING-BOTTOM: 0px;
+	OVERFLOW: hidden;
+	WIDTH: 268px;
+	LINE-HEIGHT: 0px;
+	PADDING-TOP: 0px;
+	HEIGHT: 0px
+}
+.product .address FONT {
+	FONT-SIZE: 12px
+}
+.product .address SPAN {
+	FLOAT: right;
+	COLOR: #999
+}
+.product .buy {
+	PADDING-LEFT: 20px;
+	BACKGROUND: url(../images/tuangou/tuan7.bg.png) 0px -69px;
+	FLOAT: left;
+	WIDTH: 258px;
+	LINE-HEIGHT: 45px;
+	HEIGHT: 45px
+}
+.product .buy SPAN {
+	DISPLAY: block;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 30px;
+	FLOAT: left;
+	WIDTH: 158px;
+	COLOR: #e6393b;
+	FONT-FAMILY: "microsoft yahei"
+}
+.product .buy3 {
+	PADDING-RIGHT: 0px;
+	PADDING-LEFT: 0px;
+	FLOAT: left;
+	PADDING-BOTTOM: 11px;
+	WIDTH: 268px;
+	PADDING-TOP: 15px
+}
+.product .buy3 .n-price {
+	PADDING-LEFT: 0px;
+	FONT-WEIGHT: bold;
+	FONT-SIZE: 28px;
+	FLOAT: left;
+	COLOR: #e6393b;
+	LINE-HEIGHT: 30px;
+	FONT-FAMILY: "microsoft yahei";
+	HEIGHT: 30px
+}
+.product .buy3 .n-zk {
+	FONT-SIZE: 24px;
+	FLOAT: left;
+	COLOR: #e6393b;
+	LINE-HEIGHT: 30px;
+	FONT-FAMILY: "microsoft yahei";
+	HEIGHT: 30px
+}
+.product .buy3 .g {
+	BACKGROUND: url(../images/tuangou/tuan7.bg.png) no-repeat -308px -746px;
+	COLOR: #ccc
+}
+
+.product .buy3 .n-tg {
+	FLOAT: right;
+	WIDTH: 89px;
+	HEIGHT: 30px
+}
+.product .buy3 .gm {
+	BACKGROUND: url(../images/tuangou/menu-bg1.png) no-repeat 0px -60px;
+	WIDTH: 74px
+}
+.product .buy3 .n-tg A {
+	DISPLAY: block;
+	BACKGROUND: url(../images/tuangou/menu-bg1.png) no-repeat 0px 0px;
+	WIDTH: 89px;
+	HEIGHT: 30px
+}
+.product .buy .n-tg A.ja {
+	DISPLAY: block;
+	BACKGROUND: url(../images/tuangou/menu-bg1.png) no-repeat 0px 0px;
+	WIDTH: 89px;
+	HEIGHT: 30px
+}
+.product .buy3 .n-tg A.ja {
+	BACKGROUND: url(../images/tuangou/menu-bg1.png) no-repeat 0px -30px
+}
+.product .buy3 .n-tg A:hover {
+	BACKGROUND: url(../images/tuangou/menu-bg1.png) no-repeat -130px 0px
+}
+.product .buy3 .n-tg A.ja:hover {
+	BACKGROUND: url(../images/tuangou/menu-bg1.png) no-repeat -130px -30px
+}
+.product .price3 {
+	PADDING-RIGHT: 0px;
+	PADDING-LEFT: 0px;
+	FLOAT: left;
+	PADDING-BOTTOM: 0px;
+	WIDTH: 268px;
+	COLOR: #656565;
+	LINE-HEIGHT: 24px;
+	PADDING-TOP: 0px;
+	HEIGHT: 24px;
+	TEXT-ALIGN: right
+}
+.product .price3 .y-price {
+	PADDING-LEFT: 8px;
+	FLOAT: left;
+	text-align:left;
+	width:150px;
+	LINE-HEIGHT: 24px;
+	HEIGHT: 24px
+}
+.product .price3 .y-price SPAN {
+	DISPLAY: block;
+	FONT-WEIGHT: bold;
+	COLOR: #e6393b;
+	float:left;
+	margin-right:15px
+}
+.product .price3 .y-price SPAN.yp {
+	FONT-WEIGHT: normal;
+	COLOR: #999;
+	TEXT-DECORATION: line-through;
+	float:left
+}
+.product .p-name {
+	BACKGROUND: #f5f5f5;
+	MARGIN-LEFT: -20px;
+	OVERFLOW: hidden;
+	WIDTH: 318px;
+	LINE-HEIGHT: 24px;
+	POSITION: relative;
+	TOP: 10px;
+	HEIGHT: 24px;
+	TEXT-ALIGN: center;
+	_width: 278px;
+	_margin-left: 0
+}
+.product .buy SPAN.tg {
+	DISPLAY: block;
+	FLOAT: left;
+	WIDTH: 100px;
+	CURSOR: pointer;
+	HEIGHT: 45px
+}
+.product .buy SPAN.tg A {
+	DISPLAY: block;
+	FLOAT: left;
+	WIDTH: 100px;
+	CURSOR: pointer;
+	HEIGHT: 45px
+}
+.hover1 {
+	border-color: #E31939;
+}

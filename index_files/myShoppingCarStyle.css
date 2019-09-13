@@ -1,0 +1,195 @@
+﻿.navigationDiv {
+	font-size: 12px;
+	height: 40px;
+	float: left;
+	width: 100%;
+	margin-top: 8px;
+	border: 1px solid #DDDDDD;
+}
+
+.myCarMainDiv {
+	float: left;
+	width: 1200px;
+	margin: 10px 0px 10px 0px;
+	height: 100%;
+}
+
+.myCarMainDiv table {
+	float: left;
+	height: 100%;
+}
+
+.myCarMainDiv .tb-main .addsubstract {
+	position: relative;
+	width: 40px;
+	height: 23px;
+	padding: 0px 20px;
+	border: 1px solid #dddddd;
+}
+
+.myCarMainDiv .tb-main .addsubstract input {
+	width: 32px;
+	height: 16px;
+	line-height: 16px;
+	padding: 3px 3px;
+	border-left: 1px solid #dddddd;
+	border-right: 1px solid #dddddd;
+	outline: medium none;
+	text-align: center;
+	border-top: 0px;
+	border-bottom: 0px;
+}
+
+.myCarMainDiv .tb-main .addsubstract .addnum {
+	right: 0px;
+	background-position: -2px -299px;
+}
+
+.myCarMainDiv .tb-main .addsubstract a {
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	overflow: hidden;
+	top: 3px;
+	background: url(/Content/images/i/sprite_listpage.png) no-repeat scroll 3px -250px transparent;
+}
+
+.myCarMainDiv .tb-main .addsubstract .subnum {
+	left: 0px;
+}
+
+.myCarMainDiv .tb-main .tr-total td {
+	border-bottom: medium none;
+	vertical-align: top;
+}
+
+.myCarMainDiv .f-check li,.myCarMainDiv .f-radio li {
+	float: left;
+	display: inline;
+	margin-right: 10px;
+}
+
+.myCarMainDiv .tb-main .tr-total .td-total {
+	text-align: right;
+	padding-right: 30px;
+}
+
+.setFontColor {
+	color: #333333;
+	background: #dddddd;
+}
+
+.setFontColor span {
+	background: #dddddd;
+}
+
+.setFontColor:hover {
+	color: #333333;
+	background: #dddddd;
+}
+
+.pt30 .setFontColor:hover {
+	color: #333333;
+}
+
+
+
+.setEM {
+	margin-right: 20px;
+}
+
+.pt30 .setFontColor span {
+	color: #333333;
+	background: #dddddd;
+}
+
+.setLeftMarg {
+	float: right;
+	display: block;
+	width: auto;
+	color: #666666;
+	margin-left: 35px;
+	padding-right: 65px;
+	text-align: left;
+}
+
+.setLeftMarg i {
+	font-size: 12px;
+}
+
+.setLeftMargCount {
+	display: block;
+	float: right;
+	width: auto;
+	color: #666666;
+	text-align: left;
+	margin-left: 35px;
+}
+
+.td-total .countBottom {
+	line-height: 40px;
+	height: 40px;
+	background: #f7f7f7;
+	width: 100%;
+}
+
+.myCarMainDiv .td-total {
+	border-bottom: 1px solid #dddddd;
+}
+
+.mukDownSpan {
+	float: right;
+	color: #D71635;
+	font-size: 12px;
+	margin-top: -45px;
+	margin-right: 20px;
+	width: auto;
+	background: url(/Content/images/i/djDown.jpg) no-repeat right;
+	background-position-x: 168px;
+	padding: 5px 70px 5px 0px;
+	position: relative;
+}
+
+.mukDownSpan a {
+	display: block;
+	position: absolute;
+	width: 80px;
+	height: 20px;
+	top: 0;
+	right: 0;
+}
+
+.myCarMainDiv .tb-main .tr-total .td-total {
+	padding-right: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

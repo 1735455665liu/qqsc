@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link rel="Stylesheet" type="text/css" href="themes/360buy/images/misc/201007/skin/df/allsort20120221.css" />
+
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<script type="text/javascript" src="themes/360buy/images/misc/lib/js/2012/base-2011.js"></script>
+<div class="w">
+  <ul class="tab" id="tab-link">
+    <li class="curr"><a href="catalog.php">全部商品分类</a></li>
+    <li><a href="brand.php">全部品牌</a></li>
+    <li><a href="search.php">全部商品</a></li>
+  </ul>
+  <!--tab end-->
+</div>
+ <?php
+	  $GLOBALS['smarty']->assign('categories',       get_categories_tree(0)); // 分类树
+	  ?>
+<div class="w" id="tab-sort">
+  <div class="i-w">
+    <div class="text">更多产品，请进入以下二级分类页面</div>
+    <ul class="tab">
+      <!--{foreach from=$categories item=cat name=categories}-->
+      <li><a href="{$cat.url}">{$cat.name|escape:html}</a></li>
+      <!--{/foreach}-->
+    </ul>
+  </div>
+</div>
+<div class="w" id="allsort">
+  <div class="fl">
+    <!--{foreach from=$categories item=cat name=categories}-->
+    <!-- {if $smarty.foreach.categories.iteration % 2 eq 1} -->
+    <div class="m">
+      <div class="mt">
+        <h2><a href="{$cat.url}">{$cat.name|escape:html}</a></h2>
+      </div>
+      <div class="mc">
+        <!--{foreach from=$cat.cat_id item=child name=cat_cat_id}-->
+        <dl 
+        <!-- {if $smarty.foreach.cat_cat_id.iteration eq 1} -->
+        class="fore"
+        <!-- {/if} -->
+        >
+        <dt><a href="{$child.url}">{$child.name|escape:html}</a></dt>
+        <dd>
+          <!--{foreach from=$child.cat_id item=childer}-->
+          <em><a href="{$childer.url}">{$childer.name|escape:html}</a></em>
+          <!--{/foreach}-->
+        </dd>
+        </dl>
+        <!--{/foreach}-->
+      </div>
+    </div>
+    <!-- {/if} -->
+    <!--{/foreach}-->
+  </div>
+  <!--fl end-->
+  <div class="fr">
+    <!--{foreach from=$categories item=cat name=categories}-->
+    <!-- {if $smarty.foreach.categories.iteration % 2 eq 0} -->
+    <div class="m">
+      <div class="mt">
+        <h2><a href="{$cat.url}">{$cat.name|escape:html}</a></h2>
+      </div>
+      <div class="mc">
+        <!--{foreach from=$cat.cat_id item=child name=cat_cat_id}-->
+        <dl 
+        <!-- {if $smarty.foreach.cat_cat_id.iteration eq 1} -->
+        class="fore"
+        <!-- {/if} -->
+        >
+        <dt><a href="{$child.url}">{$child.name|escape:html}</a></dt>
+        <dd>
+          <!--{foreach from=$child.cat_id item=childer}-->
+          <em><a href="{$childer.url}">{$childer.name|escape:html}</a></em>
+          <!--{/foreach}-->
+        </dd>
+        </dl>
+        <!--{/foreach}-->
+      </div>
+    </div>
+    <!-- {/if} -->
+    <!--{/foreach}-->
+  </div>
+  <!--fr end-->
+  <span class="clr"></span> </div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<script type="text/javascript" src="themes/360buy/images/misc/lib/js/2012/lib-v1.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{if $type eq 'best'}精品推荐{elseif $type eq 'promote'}商家促销{elseif $type eq 'hot'}热门商品{else}最新商品{/if} - {$shop_name}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="ecy.cc">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="style/base2013.css" />
+<link rel="stylesheet" type="text/css" href="style/all_html5.css" />
+<link rel="stylesheet" type="text/css" href="style/chapter.css" />
+<link rel="stylesheet" type="text/css" href="style/view.css" />
+<script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="js/common1.js" type="text/javascript"></script>
+</head>
+<body>
+{include file='head2.dwt'}
+<div style="margin-top: 8px;padding: 10px;background-color: #fafafa;border-top: 1px solid #ccc;border-bottom: 1px solid #ccc;box-shadow: inset 0 1px 0 #fff;"><a href='goods_list.php?type=best'{if $type eq 'best'} class="red"{/if} style="display: inline-table;width: 24%;padding: 6px 0;text-align: center;font-size: .75em;">精品</a> <a href='goods_list.php?type=hot'{if $type eq 'hot'} class="red"{/if} style="display: inline-table;width: 24%;padding: 6px 0;text-align: center;font-size: .75em;">热门</a> <a href='goods_list.php?type=promote'{if $type eq 'promote'} class="red"{/if} style="display: inline-table;width: 24%;padding: 6px 0;text-align: center;font-size: .75em;">促销</a> <a href='goods_list.php?type=new'{if $type eq 'new'} class="red"{/if} style="display: inline-table;width: 24%;padding: 6px 0;text-align: center;font-size: .75em;">最新</a></div>
+<div class="mc radius">
+	<ul class="mu-l2w">
+		{foreach from=$goods_data item=goods name=goodsit}
+		<li style="padding: 10px;border-top: none;overflow: hidden;{if $smarty.foreach.goodsit.iteration neq 1}border-top: 1px solid #eee;{/if}line-height: 1.6em;"> <a href="goods.php?id={$goods.id}" style="display: block;overflow: hidden;lear: both;padding: .22em 0;"> <span class="mu-tmb" style="float:left;margin-right:8px;">{if $goods.i <= 3}<b style="position:absolute;padding:2px 2px 2px 2px;font-size:.65em;background:red;color:white;">HOT</b>{/if}<img src="./../{$goods.thumb}" alt="{$goods.name}" width="100" height="100"> </span> <span>{$goods.name}</span><span class="red" style="display: block;">{$goods.price}</span><span><img title="购买" src="./../mobile/images/buy.png"></span></a> </li>
+		{foreachelse}
+		暂无此类商品
+		{/foreach}
+	</ul>
+</div>
+{if $pagebar}
+{$pagebar}
+{/if}
+{include file='foot.dwt'}
+</body>
+</html>

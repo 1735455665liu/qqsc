@@ -1,0 +1,26 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="hide m m0" id="finalbuy" style="display: block;">
+      <div class="mt">
+        <h2>新品推荐</h2>
+      </div>
+      <div class="mc">
+	  <!-- {if $new_goods} -->
+        <ul>
+		<!--{foreach from=$new_goods item=goods name=hot_goods}-->
+          <li class="fore">
+            <div class="p-img"><a target="_blank" title="{$goods.name|escape:html}" href="{$goods.url}"><img width="100" height="100" alt="" src="{$goods.thumb}"/></a>
+			<!-- {if $goods.is_promote} -->
+              <div class="pi7"></div>
+			 <!-- {elseif $goods.is_hot}-->
+			 <div class="pi2"></div>
+			 <!--{/if}--> 
+            </div>
+            <div class="rate"><a target="_blank" title="{$goods.name|escape:html}" href="{$goods.url}">{$goods.short_style_name}</a></div>
+            <div class="p-price"><strong><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></strong></div>
+          </li>
+         <!--{/foreach}-->
+        </ul>
+        <div class="more"><a href="search.php?intro=new&category={$top_cat_id}" title="查看更多" target="_blank">查看更多新品</a></div>
+		<!--{/if}-->
+      </div>
+    </div>

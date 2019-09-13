@@ -1,0 +1,64 @@
+<meta http-equiv="Content-Type" content="text/html; charset=gbk">
+<!-- {if $promotion_goods} -->
+<script >
+var Tday = new Array();
+var daysms = 24 * 60 * 60 * 1000
+var hoursms = 60 * 60 * 1000
+var Secondms = 60 * 1000
+var microsecond = 1000
+var DifferHour = -1
+var DifferMinute = -1
+var DifferSecond = -1
+function clock(key)
+  {
+   var time = new Date()
+   var hour = time.getHours()
+   var minute = time.getMinutes()
+   var second = time.getSeconds()
+   var timevalue = ""+((hour > 12) ? hour-12:hour)
+   timevalue +=((minute < 10) ? ":0":":")+minute
+   timevalue +=((second < 10) ? ":0":":")+second
+   timevalue +=((hour >12 ) ? " PM":" AM")
+   var convertHour = DifferHour
+   var convertMinute = DifferMinute
+   var convertSecond = DifferSecond
+   var Diffms = Tday[key].getTime() - time.getTime()
+   DifferHour = Math.floor(Diffms / daysms)
+   Diffms -= DifferHour * daysms
+   DifferMinute = Math.floor(Diffms / hoursms)
+   Diffms -= DifferMinute * hoursms
+   DifferSecond = Math.floor(Diffms / Secondms)
+   Diffms -= DifferSecond * Secondms
+   var dSecs = Math.floor(Diffms / microsecond)
+   
+   if(convertHour != DifferHour) a="<font color=red>"+DifferHour+"</font>天";
+   if(convertMinute != DifferMinute) b="<font color=red>"+DifferMinute+"</font>时";
+   if(convertSecond != DifferSecond) c="<font color=red>"+DifferSecond+"</font>分"
+     d="<font color=red>"+dSecs+"</font>秒"
+     if (DifferHour>0) {a=a} 
+     else {a=''}
+   document.getElementById("leftTime"+key).innerHTML = a + b + c + d; //显示倒计时信息
+  
+  }
+</script>
+<div id="sales" class="f_l clearfix">
+      <h1><a href="../search.php?intro=promotion"><img src="../改前/images/more.gif" /></a></h1>
+       <div class="clearfix goodBox">
+         <!--{foreach from=$promotion_goods key=key item=goods name="promotion_foreach"}-->
+         {if $smarty.foreach.promotion_foreach.index <= 5}
+           <div class="goodList">
+           <a href="{$goods.url}"><img src="{$goods.thumb}" border="0" alt="{$goods.name|escape:html}"/></a><br />
+      <p><a href="{$goods.url}" title="{$goods.name|escape:html}">{$goods.short_name|escape:html}</a></p>
+           {$lang.promote_price}<font class="f1">{$goods.promote_price}</font><br><font class="f4" id="leftTime{$key}">{$lang.please_waiting}</font>
+           </div>
+         {/if}
+<script>
+Tday[{$key}] = new Date("{$goods.gmt_end_time}");   
+window.setInterval(function()     
+{clock({$key});}, 1000);     
+</script>
+         <!--{/foreach}-->
+       </div>
+      </div>
+     
+<!-- {/if} -->

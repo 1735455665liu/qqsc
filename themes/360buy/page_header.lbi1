@@ -1,0 +1,66 @@
+<link href="/suggest.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/suggest.js"></script>
+<div id="search_suggest" style="display:none;top:200px;left:757px;" onmouseover='javascript:_over();' onmouseout='javascript:_out();'></div>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+<link href="/suggest.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="/suggest.js"></script>
+<div id="search_suggest" style="display:none;top:200px;left:757px;" onmouseover='javascript:_over();' onmouseout='javascript:_out();'></div>
+<div id="header">
+  <div class="top_nav">
+    <!--- top_nav --->
+    <ul class="nav">
+      <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+      <li><a href="{$nav.url}" <!-- {if $nav.opennew eq 1} -->target="_blank"<!-- {/if} -->>{$nav.name}</a></li>
+      <!-- {/foreach} -->
+    </ul>
+    <!--- end-top_nav --->
+    <div class="vip">{insert_scripts files='transport.js,utils.js'}{* ECSHOP 提醒您：根据用户id来调用member_info.lbi显示不同的界面  *}{insert name='member_info'}</div>
+  </div>
+  <div class="logo">
+    <a href="../index.php" name="top" title="{$page_title}">
+      <img src="/images/logo.jpg" />
+    </a>
+  </div>
+  <div class="bottom">
+    <!--- main_nav --->
+    <ul class="main_nav">
+      <li{if $navigator_list.config.index eq 1} id="currentPage"{/if}><a href="../index.php">{$lang.home}</a></li>
+      <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+      <li{if $nav.active eq 1} id="currentPage"{/if}><a href="{$nav.url}" <!-- {if $nav.opennew eq 1} -->target="_blank"<!-- {/if} -->>{$nav.name}</a></li>
+      <!-- {/foreach} -->
+    </ul>
+    <!--- end-main_nav --->
+    <!--- search --->
+    <div id="search">
+      <form id="searchForm" name="searchForm" method="get" action="/search.php" onSubmit="return checkSearchForm()">
+        <!-- {if $searchkeywords} -->
+        <p id="globalSearchKeywords" class="linkSkyblue">
+        {$lang.hot_search}：
+        <!-- {foreach from=$searchkeywords item=val} -->
+        <a href="search.php?keywords={$val|escape:url}">{$val}</a>
+        <!-- {/foreach} -->
+        </p>
+        <!-- {/if} -->
+        <div id="search_box">
+          <select name="category" id="category" style="vertical-align:top;">
+          <option value="0">{$lang.all_category}</option>
+          {$category_list}
+          </select>
+          <input name="keywords" type="text" id="keyword" value="{$search_keywords|escape}"  onkeyup="keyupdeal(event,this.value);" onkeydown="keydowndeal(event);" onclick="keyupdeal(event,this.value);" onblur="closediv();"  autocomplete="off"   style="vertical-align:top;"/>      
+          <input type="image" src="../images/search_go.gif" class="go"  style="vertical-align:top;"/>
+          <a href="/search.php?act=advanced_search" id="adsearch">{$lang.advanced_search}</a>
+        </div>      
+      </form>
+    <!--- cart --->
+    {insert_scripts files='transport.js'}
+    <div class="cart" id="ECS_CARTINFO">
+      {insert name='cart_info'}<span></span>
+    </div>
+    <!--- end-cart --->
+    </div>
+    <!--- end-search --->
+  </div>
+</div>

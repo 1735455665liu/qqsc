@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link rel="stylesheet" type="text/css" href="themes/68ecshopcom_360buy/css/category_index.css" />
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/jquery_006.js"></script>
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/search_goods.js"></script>
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/base-2011.js"></script>
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/jquery-lazyload.js" ></script>
+{insert_scripts files='jquery.json.js,transport.js'}
+{insert_scripts files='common.js'}
+</head>
+<body>
+<div id="site-nav"> 
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+  <div class="first-show"> 
+  <!-- #BeginLibraryItem "/library/ad.lbi" --><!-- #EndLibraryItem -->
+    <div class="w">
+      <div id="main-nav" class="mainnav">
+        <div class="navbox">
+          <div class="float-list" id="float-list"> 
+            <!--{foreach from=get_categories_tree(0) item=cat name=cat0}--> 
+            <!--{if $current_cat_pr_id eq $cat.id}--> 
+            <!--{foreach from=$cat.cat_id item=child name=namechild}-->
+            <!--{if $smarty.foreach.namechild.iteration lt 6}--> 
+            <dl style="background: none repeat scroll 0% 0% rgb(240, 240, 240);" id="webf{$smarty.foreach.namechild.iteration}">
+              <dt> 
+                <strong><a href="{$child.url}">{$child.name|escape:html}</a></strong>
+                <p> 
+                  <!--{foreach from=$child.cat_id item=childer}--> 
+                  <a href="{$childer.url}" class="" title="{$childer.name}">{$childer.name}</a> 
+                  <!--{/foreach}--> 
+                </p>
+                <b class="arrow-right"></b> 
+              </dt>
+              <dd style="top: 0px; min-height:108px;">
+                <ul class="secondlist">
+                  <li> 
+                    <strong style="background-position: -464px -80px;"><a href="{$child.url}">{$child.name|escape:html}</a></strong>
+                    <div class="float-list-cont"> 
+                      <!--{foreach from=$child.cat_id item=childer}--> 
+                      <a href="{$childer.url}" class="" title="{$childer.name}">{$childer.name}</a> 
+                      <!--{/foreach}--> 
+                    </div>
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+            <!--{/if}--> 
+            <!--{/foreach}--> 
+            <!--{/if}--> 
+            <!--{/foreach}--> 
+          </div>
+        </div>
+      </div>
+      <script type="text/javascript" src="themes/68ecshopcom_360buy/js/categories_nav.js"></script>
+      <div class="image-box1"  style="display:none">
+        <h2>环球闪购</h2>
+        <script type="text/javascript">
+$(document).ready(function(){
+  var a = $(".image-box1").children("a");
+  var b = $(".image-box1"); 
+  if($(a).length > 0){ 
+		b.css({"display":"block"});
+
+	} 
+	else{ 
+		b.css({"display":"none"});
+	} 
+});
+</script>
+        <?php
+		 $GLOBALS['smarty']->assign('index_image1',get_advlist('频道页-分类ID'.$GLOBALS['smarty']->_var['category'].'-图片1', 1));
+	  ?>
+        {foreach from=$index_image1 item=ad name=index_image} <a href="{$ad.url}" target="_blank"><img data-original="{$ad.image}" src="themes/68ecshopcom_360buy/images/loading.gif"  height="350" width="295"></a> {/foreach}
+        <?php
+		 $GLOBALS['smarty']->assign('index_image2',get_advlist('频道页-分类ID'.$GLOBALS['smarty']->_var['category'].'-图片2', 1));
+	  ?>
+        {foreach from=$index_image2 item=ad name=index_image} <a href="{$ad.url}" target="_blank"><img data-original="{$ad.image}" src="themes/68ecshopcom_360buy/images/loading.gif" height="350" width="295"></a> {/foreach}
+        <?php
+		 $GLOBALS['smarty']->assign('index_image3',get_advlist('频道页-分类ID'.$GLOBALS['smarty']->_var['category'].'-图片3', 1));
+	  ?>
+        {foreach from=$index_image3 item=ad name=index_image} <a href="{$ad.url}" target="_blank"><img data-original="{$ad.image}" src="themes/68ecshopcom_360buy/images/loading.gif"  height="350" width="295"></a> {/foreach}
+        <?php
+		 $GLOBALS['smarty']->assign('index_image4',get_advlist('频道页-分类ID'.$GLOBALS['smarty']->_var['category'].'-图片4', 1));
+	  ?>
+        {foreach from=$index_image4 item=ad name=index_image} <a href="{$ad.url}" target="_blank" style="margin-right:0px"><img data-original="{$ad.image}" src="themes/68ecshopcom_360buy/images/loading.gif"  height="350" width="295"></a> {/foreach} </div>
+    </div>
+  </div>
+  <div class="blank10"></div>
+  
+  {foreach  from=$childcat_goods item=cat name=name}
+  <div class="floorWrapper floorWrapper{$smarty.foreach.name.iteration}">
+    <div class="mt">
+      <h2>{$smarty.foreach.name.iteration}F<span>{$cat.cat_name}</span></h2>
+      <?php
+			$GLOBALS['smarty']->assign('child_cat',get_subcat_list($GLOBALS['smarty']->_var['cat']['cat_id']));
+	    ?>
+      <div class="key"> 
+        <!--{foreach from=$child_cat item=cat1 name=name112}--> 
+        <!--{if $smarty.foreach.name112.iteration lt 6}--> 
+        <a target="_blank" href="{$cat1.url}">{$cat1.cat_name|escape:html}</a>{if $smarty.foreach.name112.last}{else}&nbsp;⋅&nbsp;{/if} 
+        <!-- {/if} --> 
+        <!--{/foreach}--> 
+        <a href="{$cat.url}" target="_blank" title="更多{$cat.cat_name}" class="category_more">更多&nbsp;&gt;</a> 
+      </div>
+    </div>
+    <div class="floorContent">
+      <div class="itemleft"> 
+        <!--{foreach from=$child_cat item=cat1 name=name112}--> 
+        <a target="_blank" href="{$cat1.url}">{$cat1.cat_name|escape:html}</a> 
+        <!--{/foreach}--> 
+      </div>
+      <div class="itemmiddle">
+        <?php
+$GLOBALS['smarty']->assign('index_xiao_you',get_advlist('频道页面-小分类ID'.$GLOBALS['smarty']->_var['cat']['cat_id'].'-广告', 1));
+?>
+        {foreach from=$index_xiao_you item=ad name=index_image} 
+        	<a href="{$ad.url}" target="_blank" title=""><img data-original="{$ad.image}" src="themes/68ecshopcom_360buy/images/loading.gif" alt="" /></a> 
+        {/foreach} 
+      </div>
+      {foreach  from=$cat.children  name="cat_children"  item=catgoods}
+      <div class="itemOuter">
+        <div class="itemWrapper"> 
+          <a href="{$catgoods.url}" title='{$catgoods.goods_name|escape:html}' target="_blank" class="itemImg">
+            <img data-original="{$catgoods.goods_thumb}" src="themes/68ecshopcom_360buy/images/loading.gif" ="{$catgoods.goods_name|escape:html}" height="160" width="160"> 
+          </a>
+          <p><a href="{$catgoods.url}" title='{$catgoods.goods_name|escape:html}' target="_blank" class="itemName">{$catgoods.goods_name}</a></p>
+          <div class="priceSection">
+            <div class="priceNumber"> <span class="mainPrice"> {if $catgoods.promote_price > 0}
+              {$catgoods.promote_price}
+              {else}
+              {$catgoods.shop_price}
+              {/if} </span> <span class="subPrice"><del>{$catgoods.market_price}</del></span> 
+            </div>
+          </div>
+        </div>
+      </div>
+      {/foreach} 
+    </div>
+  </div>
+  {/foreach}
+<div class="blank"></div>
+<!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem -->
+<div class="blank"></div>
+<!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem --> 
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem --> 
+<!-- #BeginLibraryItem "/library/site_bar.lbi" --><!-- #EndLibraryItem -->
+</div>
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/lib-v1.js"></script> 
+<script type="text/javascript">
+$("img").lazyload({
+    effect       : "fadeIn",
+	 skip_invisible : true,
+	 failure_limit : 20
+});
+</script>
+</body>
+</html>

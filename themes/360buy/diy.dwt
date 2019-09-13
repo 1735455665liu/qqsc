@@ -1,0 +1,536 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="icon" href="/animated_favicon.gif" type="image/gif" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+
+<link href="../../diy/css/diy.css" rel="stylesheet" type="text/css" />
+<SCRIPT src="/diy/js/nav.js" type=text/javascript></SCRIPT>
+<SCRIPT src="/diy/js/jscook.js" type=text/javascript></SCRIPT>
+<SCRIPT src="/diy/js/xiangdao.js" type=text/javascript></SCRIPT>
+<script language="javascript">
+function remove(id, url)
+{
+  if (document.getCookie("compareItems") != null)
+  {
+    var obj = document.getCookie("compareItems").parseJSON();
+    delete obj[id];
+    var date = new Date();
+    date.setTime(date.getTime() + 99999999);
+    document.setCookie("compareItems", obj.toJSONString());
+  }
+}
+
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+</script>
+</head>
+
+<body> 
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->  
+<div id="content">
+
+<div class="container">
+<div class="block clearfix " >
+<div class="main diymain">
+	<div class=diynav>
+<ul>
+<li id="index">
+<a href="/index.php">首页</a>
+</li>
+<li id="self" class="curr">
+<a href="/diy.php">自选装机</a> 
+</li>
+<li id="recom">
+<a href="http://77sc.com.cn/category.php?id=937">Intel平台配置推荐</a>
+</li>
+<li id="recom2">
+<a href="http://77sc.com.cn/category.php?id=938">AMD平台配置推荐</a>
+<span class="hot"></span>
+</li>
+<li id="recom3">
+<!--a href="http://77sc.com.cn/search.php?encode=YToyOntzOjg6ImtleXdvcmRzIjtzOjY6IuS4u%2biQpSI7czoxODoic2VhcmNoX2VuY29kZV90aW1lIjtpOjE0NDI2NTk2MDE7fQ==">第三方加盟</a-->
+</li>
+</ul>
+		
+	</div>
+	<!--[if !ie]>正文左侧开始<![endif]-->
+	<div class=left>
+		<div class=pzd_t><img src="/diy/images/b1.gif" width=426 height=98></div>
+		<div class=pzd_c>
+			<div class=pzdlist_wrap>
+				<div class=pzdlist_thead>
+					<table border=0 cellspacing=0 cellpadding=0 width="100%">
+						<tbody>
+							<tr>
+								<td class=first width=60>配件</td>
+								<td>名称</td>
+								<td width=66>价格</td>
+								<td width=54>数量</td>
+								<td width=45>取消</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+								<div class="pzdlist_td machineFittingsItem">
+					<table border=0 cellspacing=0 cellpadding=0 width="100%">
+						<tbody>
+							<tr>
+								<td class=first width=60>CPU</td>
+								<td class=align_left><SPAN id=span_M_CPU1 style="margin-left:10px">&nbsp;</SPAN></td>
+								<td class="machineFittingsPrice price" width=66><SPAN class=￥ id=span_M_CPU2>&nbsp;</SPAN></td>
+								<td width=54><SPAN id=span_M_CPU3>&nbsp;</SPAN></td>
+								<td width=45><A onclick='javascript:deltitle("M_CPU")' href="javascript:;">
+                                <IMG height=22 src="/diy/images/DIY_ZX_26.gif" width=22></A>
+                                <INPUT id=Id_M_CPU type=hidden name=Id_M_CPU>
+                                <INPUT id=Price_M_CPU  type=hidden value=0 name=Price_M_CPU>
+                                <INPUT id=Price1_M_CPU type=hidden value=0 name=Price1_M_CPU>
+                                <INPUT id=num_M_CPU type=hidden value=0 name=num_M_CPU>
+								</td>
+							</tr>
+						</tbody>        
+					</table>
+				</div>
+                <div class="pzdlist_td machineFittingsItem">
+					<table border=0 cellspacing=0 cellpadding=0 width="100%">
+						<tbody>
+							<tr>
+								<td class=first width=60>散热器</td>
+								<td class=align_left><SPAN id=span_M_N11 style="margin-left:10px">&nbsp;</SPAN></td>
+								<td class="machineFittingsPrice price" width=66><SPAN class=￥ id=span_M_N12>&nbsp;</SPAN></td>
+								<td width=54><SPAN id=span_M_N13>&nbsp;</SPAN></td>
+								<td width=45><A onclick="javascript:deltitle('M_N1')" href="javascript:;">
+                  <IMG height=22 src="/diy/images/DIY_ZX_26.gif" width=22></A>
+                    <INPUT id=Id_M_N1 type=hidden name=Id_M_N1>
+                    <INPUT id=Price_radiator type=hidden value=0 name=Price_M_N1>
+                    <INPUT id=Price1_M_N1 type=hidden value=0 name=Price1_M_N1>
+                    <INPUT id=num_M_N1 type=hidden value=0 name=num_M_N1>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+								<div class="pzdlist_td machineFittingsItem">
+					<table border=0 cellspacing=0 cellpadding=0 width="100%">
+						<tbody>
+							<tr>
+								<td class=first width=60>主板</td>
+								<td class=align_left><SPAN id=span_M_MainBoard1 style="margin-left:10px">&nbsp;</SPAN></td>
+								<td class="machineFittingsPrice price" width=66><SPAN class=￥ id=span_M_MainBoard2>&nbsp;</SPAN></td>
+								<td width=54><SPAN id=span_M_MainBoard3>&nbsp;</SPAN></td>
+								<td width=45>
+									<A onclick='javascript:deltitle("M_MainBoard")' href="javascript:;">
+                  <IMG height=22 src="/diy/images/DIY_ZX_26.gif" width=22></A>
+                    <INPUT id=Id_M_MainBoard type=hidden name=Id_M_MainBoard>
+                    <INPUT id=Price_M_MainBoard type=hidden value=0 name=Price_M_MainBoard>
+                    <INPUT id=Price1_M_MainBoard type=hidden value=0 name=Price1_M_MainBoard>
+                    <INPUT id=num_M_MainBoard type=hidden value=0 name=num_M_MainBoard>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+								<div class="pzdlist_td machineFittingsItem">
+					<table border=0 cellspacing=0 cellpadding=0 width="100%">
+						<tbody>
+							<tr>
+								<td class=first width=60>内存</td>
+								<td class=align_left><SPAN id=span_M_Memory1 style="margin-left:10px">&nbsp;</SPAN></td>
+								<td class="machineFittingsPrice price" width=66><SPAN class=￥ id=span_M_Memory2>&nbsp;</SPAN></td>
+								<td width=54><SPAN id=span_M_Memory3>&nbsp;</SPAN></td>
+								<td width=45><A onclick='javascript:deltitle("M_Memory")' href="javascript:;">
+                  <IMG height=22 src="/diy/images/DIY_ZX_26.gif" width=22></A>
+                    <INPUT id=Id_M_Memory type=hidden name=Id_M_Memory>
+                    <INPUT id=Price_M_Memory type=hidden value=0 name=Price_M_Memory>
+                    <INPUT id=Price1_M_Memory type=hidden value=0 name=Price1_M_Memory>
+                    <INPUT id=num_M_Memory type=hidden value=0 name=num_M_Memory>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+								<div class="pzdlist_td machineFittingsItem">
+					<table border=0 cellspacing=0 cellpadding=0 width="100%">
+						<tbody>
+							<tr>
+								<td class=first width=60>显卡</td>
+								<td class=align_left><SPAN id=span_M_ShowCard1 style="margin-left:10px">&nbsp;</SPAN></td>
+								<td class="machineFittingsPrice price" width=66><SPAN class=￥ id=span_M_ShowCard2>&nbsp;</SPAN></td>
+								<td width=54><SPAN id=span_M_ShowCard3>&nbsp;</SPAN></td>
+								<td width=45><A onclick='javascript:deltitle("M_ShowCard")' href="javascript:;">
+                  <IMG height=22 src="/diy/images/DIY_ZX_26.gif" width=22></A>
+                    <INPUT id=Id_M_ShowCard type=hidden name=Id_M_ShowCard>
+                    <INPUT id=Price_M_ShowCard type=hidden value=0 name=Price_M_ShowCard>
+                    <INPUT id=Price1_M_ShowCard type=hidden value=0 name=Price1_M_ShowCard>
+                    <INPUT id=num_M_ShowCard type=hidden value=0 name=num_M_ShowCard>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+								<div class="pzdlist_td machineFittingsItem">
+					<table border=0 cellspacing=0 cellpadding=0 width="100%">
+						<tbody>
+							<tr>
+								<td class=first width=60>硬盘</td>
+								<td class=align_left><SPAN id=span_M_HD1 style="margin-left:10px">&nbsp;</SPAN></td>
+								<td class="machineFittingsPrice price" width=66><SPAN class=￥ id=span_M_HD2>&nbsp;</SPAN></td>
+								<td width=54><SPAN id=span_M_HD3>&nbsp;</SPAN></td>
+								<td width=45><A onclick="javascript:deltitle('M_HD')" href="javascript:;">
+                  <IMG height=22 src="/diy/images/DIY_ZX_26.gif" width=22></A>
+                    <INPUT id=Id_M_HD type=hidden name=Id_M_HD>  
+                    <INPUT id=Price_M_HD type=hidden value=0 name=Price_M_HD>
+                    <INPUT id=Price1_M_HD type=hidden value=0 name=Price1_M_HD>
+                    <input id=num_M_HD type=hidden value=0 name=num_M_HD />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+                <div class="pzdlist_td machineFittingsItem">
+					<table border=0 cellspacing=0 cellpadding=0 width="100%">
+						<tbody>
+							<tr>
+								<td class=first width=60>电源</td>
+								<td class=align_left><SPAN id=span_powersupply1 style="margin-left:10px">&nbsp;</SPAN></td>
+								<td class="machineFittingsPrice price" width=66><SPAN class=￥ id=span_powersupply2>&nbsp;</SPAN></td>
+								<td width=54><SPAN id=span_powersupply3>&nbsp;</SPAN></td>
+								<td width=45><A onclick="javascript:deltitle('powersupply')" href="javascript:;">
+                  <IMG height=22 src="/diy/images/DIY_ZX_26.gif" width=22></A>
+                    <INPUT id=Id_powersupply type=hidden name=Id_powersupply>
+                    <INPUT id=Price_powersupply type=hidden value=0 name=Price_powersupply>
+                    <INPUT id=Price1_powersupply type=hidden value=0 name=Price1_powersupply>
+                    <INPUT id=num_powersupply type=hidden value=0 name=num_powersupply>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+                <div class="pzdlist_td machineFittingsItem">
+					<table border=0 cellspacing=0 cellpadding=0 width="100%">
+						<tbody>
+							<tr>
+								<td class=first width=60>机箱</td>
+								<td class=align_left><SPAN id=span_M_Box1 style="margin-left:10px">&nbsp;</SPAN></td>
+								<td class="machineFittingsPrice price" width=66><SPAN class=￥ id=span_M_Box2>&nbsp;</SPAN></td>
+								<td width=54><SPAN id=span_M_Box3>&nbsp;</SPAN></td>
+								<td width=45><A onclick="javascript:deltitle('M_Box')" href="javascript:;">
+                  <IMG height=22 src="/diy/images/DIY_ZX_26.gif" width=22></A>
+                    <INPUT id=Id_M_Box type=hidden name=Id_M_Box>
+                    <INPUT id=Price_M_Box type=hidden value=0 name=Price_M_Box>
+                    <INPUT id=Price1_M_Box type=hidden value=0 name=Price1_M_Box>
+                    <INPUT id=num_M_Box type=hidden value=0 name=num_M_Box>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+                <div class="pzdlist_td machineFittingsItem">
+					<table border=0 cellspacing=0 cellpadding=0 width="100%">
+						<tbody>
+							<tr>
+								<td class=first width=60>显示器</td>
+								<td class=align_left><SPAN id=span_display1 style="margin-left:10px">&nbsp;</SPAN></td>
+								<td class="machineFittingsPrice price" width=66><SPAN class=￥ id=span_display2>&nbsp;</SPAN></td>
+								<td width=54><SPAN id=span_display3>&nbsp;</SPAN></td>
+								<td width=45><A onclick="javascript:deltitle('display')" href="javascript:;">
+                  <IMG height=22 src="/diy/images/DIY_ZX_26.gif" width=22></A>
+                    <INPUT id=Id_display type=hidden name=Id_display>
+                    <INPUT id=Price_display type=hidden value=0 name=Price_display>
+                    <INPUT id=Price1_display type=hidden value=0 name=Price1_display>
+                    <INPUT id=num_display type=hidden value=0 name=num_display>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+                <div class="pzdlist_td machineFittingsItem">
+					<table border=0 cellspacing=0 cellpadding=0 width="100%">
+						<tbody>
+							<tr>
+								<td class=first width=60>键鼠</td>
+								<td class=align_left><SPAN id=span_keyboard1 style="margin-left:10px">&nbsp;</SPAN></td>
+								<td class="machineFittingsPrice price" width=66><SPAN class=￥ id=span_keyboard2>&nbsp;</SPAN></td>
+								<td width=54><SPAN id=span_keyboard3>&nbsp;</SPAN></td>
+								<td width=45><A onclick="javascript:deltitle('keyboard')" href="javascript:;">
+                  <IMG height=22 src="/diy/images/DIY_ZX_26.gif" width=22></A>
+                    <INPUT id=Id_keyboard type=hidden name=Id_keyboard>
+                    <INPUT id=Price_keyboard type=hidden value=0 name=Price_keyboard>
+                    <INPUT id=Price1_keyboard type=hidden value=0 name=Price1_keyboard>
+                    <INPUT id=num_keyboard type=hidden value=0 name=num_keyboard>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+                <div class="pzdlist_td machineFittingsItem">
+					<table border=0 cellspacing=0 cellpadding=0 width="100%">
+						<tbody>
+							<tr>
+								<td class=first width=60>路由器</td>
+								<td class=align_left><SPAN id=span_mouse1 style="margin-left:10px">&nbsp;</SPAN></td>
+								<td class="machineFittingsPrice price" width=66><SPAN class=￥ id=span_mouse2>&nbsp;</SPAN></td>
+								<td width=54><SPAN id=span_mouse3>&nbsp;</SPAN></td>
+								<td width=45><A onclick="javascript:deltitle('mouse')" href="javascript:;">
+                  <IMG height=22 src="/diy/images/DIY_ZX_26.gif" width=22></A>
+                    <INPUT id=Id_mouse type=hidden name=Id_mouse>
+                    <INPUT id=Price_mouse type=hidden value=0 name=Price_mouse>
+                    <INPUT id=Price1_mouse type=hidden value=0 name=Price1_mouse>
+                    <INPUT id=num_mouse type=hidden value=0 name=num_mouse>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+                <div class="pzdlist_td machineFittingsItem">
+					<table border=0 cellspacing=0 cellpadding=0 width="100%">
+						<tbody>
+							<tr>
+								<td class=first width=60>光驱</td>
+								<td class=align_left><SPAN id=span_cddriver1 style="margin-left:10px">&nbsp;</SPAN></td>
+								<td class="machineFittingsPrice price" width=66><SPAN class=￥ id=span_cddriver2>&nbsp;</SPAN></td>
+								<td width=54><SPAN id=span_cddriver3>&nbsp;</SPAN></td>
+								<td width=45><A onclick="javascript:deltitle('cddriver')" href="javascript:;">
+                                <IMG height=22 src="/diy/images/DIY_ZX_26.gif" width=22></A>
+                    <INPUT id=Id_cddriver type=hidden name=Id_cddriver>
+                    <INPUT id=Price_cddriver type=hidden value=0 name=Price_cddriver>
+                    <INPUT id=Price1_cddriver type=hidden value=0 name=Price1_cddriver>
+                    <INPUT id=num_cddriver type=hidden value=0 name=num_cddriver>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+                <div class="pzdlist_td machineFittingsItem">
+					<table border=0 cellspacing=0 cellpadding=0 width="100%">
+						<tbody>
+							<tr>
+								<td class=first width=60>SSD</td>
+								<td class=align_left><SPAN id=span_keymouse1 style="margin-left:10px">&nbsp;</SPAN></td>
+								<td class="machineFittingsPrice price" width=66><SPAN class=￥ id=span_keymouse2>&nbsp;</SPAN></td>
+								<td width=54><SPAN id=span_keymouse3>&nbsp;</SPAN></td>
+								<td width=45><A onclick="javascript:deltitle('keymouse')" href="javascript:;">
+                    <IMG height=22 src="/diy/images/DIY_ZX_26.gif" width=22></A>
+                    <INPUT id=Id_keymouse type=hidden name=Id_keymouse>
+                    <INPUT id=Price_keymouse type=hidden value=0 name=Price_keymouse>
+                    <INPUT id=Price1_keymouse type=hidden value=0 name=Price1_keymouse>
+                    <INPUT id=num_keymouse type=hidden value=0 name=num_keymouse>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+                <div class="pzdlist_td machineFittingsItem">
+					<table border=0 cellspacing=0 cellpadding=0 width="100%">
+						<tbody>
+							<tr>
+								<td class=first width=60>音箱</td>
+								<td class=align_left><SPAN id=span_soundbox1 style="margin-left:10px">&nbsp;</SPAN></td>
+								<td class="machineFittingsPrice price" width=66><SPAN class=￥ id=span_soundbox2>&nbsp;</SPAN></td>
+								<td width=54><SPAN id=span_soundbox3>&nbsp;</SPAN></td>
+								<td width=45><A onclick="javascript:deltitle('soundbox')" href="javascript:;">
+                  <IMG height=22 src="/diy/images/DIY_ZX_26.gif" width=22></A>
+                    <INPUT id=Id_soundbox type=hidden name=Id_soundbox>
+                    <INPUT id=Price_soundbox type=hidden value=0 name=Price_soundbox>
+                    <INPUT id=Price1_soundbox type=hidden value=0 name=Price1_soundbox>
+                    <INPUT id=num_soundbox type=hidden value=0 name=num_soundbox>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+								<div class="pzdlist_td machineFittingsItem">
+					<table border=0 cellspacing=0 cellpadding=0 width="100%">
+						<tbody>
+							<tr>
+								<td class=first width=60>摄像头</td>
+								<td class=align_left><SPAN id=span_sound1 style="margin-left:10px">&nbsp;</SPAN></td>
+								<td class="machineFittingsPrice price" width=66><SPAN class=￥ id=span_sound2>&nbsp;</SPAN></td>
+								<td width=54><SPAN id=span_sound3>&nbsp;</SPAN></td>
+								<td width=45><A onclick="javascript:deltitle('sound')" href="javascript:;">
+                  <IMG height=22 src="/diy/images/DIY_ZX_26.gif" width=22></A>
+                    <INPUT id=Id_sound type=hidden name=Id_sound>
+                    <INPUT id=Price_sound type=hidden value=0 name=Price_sound>
+                    <INPUT id=Price1_sound type=hidden value=0 name=Price1_sound>
+                    <INPUT id=num_sound type=hidden value=0 name=num_sound>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+								
+								<div class="pzdlist_td machineFittingsItem">
+					<table border=0 cellspacing=0 cellpadding=0 width="100%">
+						<tbody>
+							<tr>
+								<td class=first width=60>其它</td>
+								<td class=align_left><SPAN id=span_network1 style="margin-left:10px">&nbsp;</SPAN></td>
+								<td class="machineFittingsPrice price" width=66><SPAN class=￥ id=span_network2>&nbsp;</SPAN></td>
+								<td width=54><SPAN id=span_network3>&nbsp;</SPAN></td>
+								<td width=45><A onclick="javascript:deltitle('network')" href="javascript:;">
+                  <IMG height=22 src="/diy/images/DIY_ZX_26.gif" width=22></A>
+                    <INPUT id=Id_network type=hidden name=Id_network>
+                    <INPUT id=Price_network type=hidden value=0 name=Price_network>
+                    <INPUT id=Price1_network type=hidden value=0 name=Price1_network>
+                    <INPUT id=num_network type=hidden value=0 name=num_network>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+								
+								
+								
+								
+								
+								                
+								
+								
+				<div class="forms1">
+       				<FORM name=Form12 action=/diy.php?act=diy_print method=post autocomplete="off">  
+					<input type="image" src="/diy/images/b6.gif" value="打印"  onClick="javascript:return diy_print();"  style=""/>
+					<INPUT id=strwareid3 type=hidden name=strwareid3>
+					<INPUT id=strwarenum3 type=hidden name=strwarenum3> 
+				</FORM> 
+				</div>	
+				<div class="forms2">	
+				<FORM name=Form11 action=/diy.php?act=add_to_collect method=post autocomplete="off">  
+					<input type="image" src="/diy/images/b8.gif" onClick="javascript:return ispost2();"  style=""/>
+					<INPUT id=strwarename type=hidden name=strwarename>
+					<INPUT id=strwareid2 type=hidden name=strwareid2>
+					<INPUT id=strwarenum2 type=hidden name=strwarenum2>  
+				</FORM> 
+				</div>				
+				<div class="forms3">				
+				 <FORM name=Form1 action=/diy.php?act=add_to_cart1 method=post autocomplete="off">                
+				<div class=collect>
+					<strong id=wareallprice class=price>总价：￥<SPAN id=spanallprice>0</SPAN></strong>
+				</div>
+					<div class=operate>
+						<input class="button_qk" onclick="javascript:isclsall();" type="button"/>
+						<input type="image" src="/diy/images/b13.gif" onClick="javascript:return ispost();"  style="float:right;margin:5px 0 0 20px"/>
+					</div>
+					
+                    <INPUT id=strwareid type=hidden name=strwareid>
+                    <INPUT id=strwarenum type=hidden name=strwarenum>  
+					<INPUT id=Price_M_N1 type=hidden>  					  
+                </FORM> 
+</div>
+<div class="clearfix"></div>
+			</div> 
+		</div> 
+	</div>
+	<!--[if !ie]>正文左侧结束<![endif]-->
+	<!--[if !ie]>正文右侧开始<![endif]-->
+	<div class=right> 
+		<ul class=pzlist> 
+
+          <div class="txt_14 diy_kinds">
+	  					<a id="btn_1" onclick="btn_change(1)" class="curr" href="javascript:ifrurlcpu();">C&nbsp;P&nbsp;U&nbsp;</a>
+                        <a id="btn_16" onclick="btn_change(16)" href="javascript:ifrurlzx('M_N1');">散热器</a>
+						<a id="btn_2" onclick="btn_change(2)" class="" href="javascript:ifrurlmainboard();">主　板</a> 
+						<a id="btn_3" onclick="btn_change(3)" href="javascript:ifrurlzx('M_Memory');">内　存</a> 
+						<a id="btn_4" onclick="btn_change(4)" href="javascript:ifrurlzx('M_ShowCard');">显　卡</a> 
+						<a id="btn_5" onclick="btn_change(5)" href="javascript:ifrurlzx('M_HD');">硬　盘</a> 
+                        <a id="btn_11" onclick="btn_change(11)" href="javascript:ifurl('powersupply');">电　源</a>
+                        <a id="btn_10" onclick="btn_change(10)" href="javascript:ifrurlzx('M_Box');">机　箱</a>
+						 
+       </div>
+
+          <div class="txt_14 diy_kinds">
+						<a id="btn_9"  onclick="btn_change(9)" href="javascript:ifurl('display');">显示器</a> 
+						<a id="btn_13" onclick="btn_change(13)" href="javascript:ifurl('keyboard');">键　鼠</a>						 
+						<a id="btn_12" onclick="btn_change(12)" href="javascript:ifurl('mouse');">路由器</a> 
+						<a id="btn_7" onclick="btn_change(7)" href="javascript:ifurl('cddriver');">光驱</a> 
+                        <a id="btn_14" onclick="btn_change(14)" href="javascript:ifurl('keymouse');">SSD</a> 
+						<a id="btn_15" onclick="btn_change(15)" href="javascript:ifurl('soundbox');">音　箱</a> 
+                        <a id="btn_6" onclick="btn_change(6)" href="javascript:ifurl('sound');">摄像头</a> 
+						<a id="btn_8" onclick="btn_change(8)" href="javascript:ifurl('network');">其　它</a>
+						
+	  </div>
+        
+					</ul>
+		<div class="GoodsListBox">
+			<div class="listloading"></div>
+			<div>
+            <IFRAME id=if1 name=if1 src="diy.php?act=showdata&step=M_CPU" frameBorder=0 width=557 style="float:left; overflow:hidden; height:810px"></IFRAME>
+            </div>
+{if $cookie_M_CPU_id}
+{$cookie_M_CPU_id}
+{/if}
+{if $cookie_M_MainBoard_id}
+{$cookie_M_MainBoard_id}
+{/if}
+{if $cookie_M_Memory_id}
+{$cookie_M_Memory_id}
+{/if}
+{if $cookie_M_ShowCard_id}
+{$cookie_M_ShowCard_id}
+{/if}
+{if $cookie_M_HD_id}
+{$cookie_M_HD_id}
+{/if}
+{if $cookie_sound_id}
+{$cookie_sound_id}
+{/if}
+{if $cookie_cddriver_id}
+{$cookie_cddriver_id}
+{/if}
+{if $cookie_network_id}
+{$cookie_network_id}
+{/if}
+{if $cookie_display_id}
+{$cookie_display_id}
+{/if}
+{if $cookie_M_Box_id}
+{$cookie_M_Box_id}
+{/if}
+{if $cookie_powersupply_id}
+{$cookie_powersupply_id}
+{/if}
+{if $cookie_mouse_id}
+{$cookie_mouse_id}
+{/if}
+{if $cookie_keyboard_id}
+{$cookie_keyboard_id}
+{/if}
+{if $cookie_keymouse_id}
+{$cookie_keymouse_id}
+{/if}
+{if $cookie_soundbox_id}
+{$cookie_soundbox_id}
+{/if}
+{if $cookie_M_N1_id}
+{$cookie_M_N1_id}
+{/if}
+
+<SCRIPT>
+addprice1();
+</SCRIPT> 
+ 
+      
+      <!--{if $img_links  or $txt_links }-->
+
+      <!--{/if}-->
+		</div>
+	</div>
+	<!--[if !ie]>正文右侧结束<![endif]-->
+</div>
+      </div>  
+</div>  
+	</div>
+<span class="clr"></span>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<!-- footer end -->
+    <!-- footer end -->
+</body>
+</html>

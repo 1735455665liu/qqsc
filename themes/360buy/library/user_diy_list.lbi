@@ -1,0 +1,56 @@
+<div class="tab_able_box box">
+	<div class="hd"><h3>我的装机配置清单</h3></div>
+	<div class="bd goods_list display_text user_diy_list">
+<script type="text/javascript">
+function delete_diy($id){
+	if(confirm('您确认要删除此配置吗'))
+	{
+	window.location='user.php?act=delete_diy_list&diy_id='+$id;
+	}
+	else
+	{
+	return false;
+	}
+}
+</script>
+<table width="100%" cellspacing="1" cellpadding="5" border="0" bgcolor="#dddddd">
+    <tbody><tr align="center">
+      <td bgcolor="#ffffff">装机清单名称</td>
+      <td bgcolor="#ffffff">操作</td>
+    </tr>
+	{if $diy_list}    
+	{foreach from=$diy_list item=goods name=goods_list}
+        <tr align="center">
+      <td bgcolor="#ffffff">	<a href="user.php?act=diy_list_goods&diy_id={$goods.diy_id}" title="{$goods.diy_name|escape:html}" >{$goods.diy_name}</a></td>
+      <td bgcolor="#ffffff"><a href="user.php?act=diy_list_goods&diy_id={$goods.diy_id}" class="button"><span>查看清单</span></a>
+					<a href="javascript:;" class="button text_button" onclick="javascript:delete_diy({$goods.diy_id})"><span>{$lang.drop}</span></a></td>
+
+    </tr>
+	{/foreach}
+		{else}
+		<p class="empty">{$lang.collection_empty}</p>
+		{/if}
+      </tbody></table>
+
+		{if $diy_list}          
+		<ul>
+			{foreach from=$diy_list item=goods name=goods_list}
+			<li{if $smarty.foreach.goods_list.first} class="first"{/if}> 
+				<span class="info2">  
+					<a href="user.php?act=diy_list_goods&diy_id={$goods.diy_id}" title="{$goods.diy_name|escape:html}" >{$goods.diy_name}</a>
+				</span>
+				<span class="actions2">
+					<a href="user.php?act=diy_list_goods&diy_id={$goods.diy_id}" class="button"><span>查看清单</span></a>
+					<a href="javascript:;" class="button text_button" onclick="javascript:delete_diy({$goods.diy_id})"><span>{$lang.drop}</span></a>
+				</span>
+			</li>
+			{/foreach}
+		</ul>
+		{else}
+		<p class="empty">{$lang.collection_empty}</p>
+		{/if}
+		
+		
+	
+	</div>
+</div>

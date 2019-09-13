@@ -1,0 +1,26 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+<div class="mt">
+      <h2>{$articles_cat.name|escape:html}</h2>
+      <div class="extra"><a href="{$articles_cat.url}" target="_blank">更多&nbsp;&gt;</a></div>
+    </div>
+    <div class="mc">
+	<div class="p-img">
+	<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-在线读书-左侧图片', 1));
+	  ?>
+	  {foreach from=$index_image item=ad name=index_image}
+<a href="{$ad.url}" target="_blank" title=""><img class="err-product" src="{$ad.image}" alt="" data-img="1" height="100" width="100"></a>
+      {/foreach}
+</div>
+      <ul>
+	  <!--{foreach from=$articles item=article_item name=articles}-->
+        <li {if $smarty.foreach.articles.iteration%2 eq 1}class="odd"{/if}><a href="{$article_item.url}" title="{$article_item.title|escape:html}" target="_blank">{$article_item.short_title}</a></li>
+      <!--{/foreach}-->
+      </ul>
+    </div>
+
+
+
+

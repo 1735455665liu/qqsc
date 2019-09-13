@@ -1,0 +1,166 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+{if $fitting_array} 
+<script>
+/*详情页配件价格计算*/
+function formatPrice(numstr) {
+    var nm = String(numstr).split('.');
+    if (nm.length == 2) return nm[0] + '.' + (nm[1].length < 2 ? nm[1] + "0" : nm[1])
+    return nm[0] + '.00';
+}
+function detailPrice() {
+    var sppr = $("#spprice").html().replace(/\D+.\D{2}/g, "");
+    sppr = parseFloat(sppr);
+    $("#zongprice,#yuanprice").html(formatPrice(sppr));
+    var pjpr = "";
+    var pricecheckbox = $("#zuhe input[type=checkbox]");
+	
+    pricecheckbox.click(function () {
+		
+        var priceTotal = 0;
+        var cjPrice = 0;
+        var geshu = 0;
+        pricecheckbox.each(function (index, element) {
+            if (element.checked == true) {
+                var danmai = $(this).prev().find("del").html();
+                danmai = danmai.substring(1, danmai.length);
+                cjPrice += parseFloat(danmai);
+                priceTotal += parseFloat(element.value);
+                geshu += 1;
+            }
+        });
+        var temp = sppr + priceTotal;
+        $("#zongjiesheng").html(formatPrice(cjPrice + sppr/*（原价）*/ - temp));
+        //$("#pj_jiesheng").html(formatPrice(cjPrice - priceTotal));
+        //$("#pj_zongprice").html(formatPrice(priceTotal))
+        $("#yuanprice").html(formatPrice(cjPrice + sppr))
+        $("#zongprice").html(formatPrice(temp))
+        $("#geshu").html(geshu);
+    });
+    $("#clearcheck").click(function () {
+        var sppr = $("#spprice").html().replace(/\D+.\D{2}/g, "");
+        $("#zuhe input[type=checkbox]").attr("checked", false);
+        $("#zongprice,#yuanprice").html(formatPrice(sppr));
+        //$("#pj_jiesheng").html(formatPrice(0));
+        $("#zongjiesheng").html(formatPrice(0));
+       // $("#pj_zongprice").html(formatPrice(0));
+        $("#geshu").html(0);
+    });
+
+}
+
+/*组合购买*/
+function ZuheBuy(parent_id) {
+	var goods        = new Object();
+    var spec_arr     = new Array();
+    goods.spec     = spec_arr;
+    goods.goods_id = parent_id;
+    goods.number   = 1;
+	goods.quick    = 1;
+	Ajax.call('flow.php?step=add_to_cart', 'goods=' + $.toJSON(goods), addToCartResponse_fit, 'POST', 'JSON');        
+}
+function addToCartResponse_fit(result)
+{
+	iii_count=0;
+	$('#zuhe input[type=checkbox]').each(function () {
+		 if (this.checked == true) {
+		iii_count = iii_count+1;
+		 }
+	});
+	//alert(iii_count);
+	jjj_count=1;
+	 $('#zuhe input[type=checkbox]').each(function () {
+        if (this.checked == true) {
+			var goods        = new Object();
+			var spec_arr     = new Array();
+			goods.spec     = spec_arr;
+			goods.goods_id = $(this).attr('ppid');
+			goods.number   = 1;
+			goods.parent   = result.goods_id;
+			goods.quick    = 1;
+			if(jjj_count==iii_count)
+			{
+				Ajax.call('flow.php?step=add_to_cart', 'goods=' + $.toJSON(goods),fittings_to_flow_response, 'POST', 'JSON');  
+			}
+			else
+			{
+				Ajax.call('flow.php?step=add_to_cart', 'goods=' + $.toJSON(goods),'', 'POST', 'JSON'); 
+			}
+			jjj_count=jjj_count+1;
+        }
+    });
+}
+  function fittings_to_flow_response(result)
+  { 
+    if (result.error > 0)
+    {
+      // 如果需要缺货登记，跳转
+      if (result.error == 2)
+      {
+        if (confirm(result.message))
+        {
+          location.href = 'user.php?act=add_booking&id=' + result.goods_id;
+        }
+      }
+      else if (result.error == 6)
+      {
+        openSpeDiv(result.message, result.goods_id, result.parent);
+      }
+      else
+      {
+        alert(result.message);
+      }
+    }
+    else
+    {
+      location.href = 'flow.php';
+    }
+  }
+
+</script>
+<div id="zuhe" class="zuhe">
+  <dl id="zuhe_tab" class="zuhe_tab">
+    <dt class="ztab">
+      <h3>推荐组合</h3>
+      {foreach from=$fitting_array name="fitting_list" item=fitting} <span id="t{$smarty.foreach.fitting_list.iteration}" {if $smarty.foreach.fitting_list.iteration eq 1}class="zhover"{/if}>{$fitting.cat_name}({$fitting.goods_count})</span> {/foreach} 
+    </dt>
+    {foreach from=$fitting_array name="fitting_list" item=fitting}
+    <dd class="{if $smarty.foreach.fitting_list.iteration gt 1}containerzh {/if}t{$smarty.foreach.fitting_list.iteration}" style="display:{if $smarty.foreach.fitting_list.iteration eq 1}block;{else}none;{/if}">
+      <ul>
+        {foreach from=$fitting.goods_list item=fgoods}
+        <li><a href="{$fgoods.goods_url}" title="{$fgoods.goods_name}"><img src="{$fgoods.goods_thumb}" width="120" height="120" title="{$fgoods.goods_name}" />
+          <p>{$fgoods.goods_name}</p>
+          </a> <span>原价：<del id="danmai">¥{$fgoods.shop_price}</del></span>
+          <input name="" type="checkbox" value="{$fgoods.promotion_price}" ppid="{$fgoods.goods_id}" />
+          <strong>¥{$fgoods.promotion_price}</strong></li>
+        {/foreach}
+      </ul>
+    </dd>
+    {/foreach}
+  </dl>
+  <div class="zuhe_price">
+    <h4>超值优惠套装</h4>
+    <h2>已选择：<span id="geshu">0</span>个套餐商品<a href="javascript:;" id="clearcheck"> [清除选择]</a></h2>
+    <div class="z_pr_info">
+      <p>套装价：<strong>¥<b id="zongprice">0.00</b></strong></p>
+      <p>原价：<del>¥<b id="yuanprice">0.00</b></del></p>
+      <p>已节省：¥<b id="zongjiesheng">0.00</b></p>
+      <a href="javascript:void(0);" onclick="ZuheBuy('{$goods.goods_id}')">立即购买</a> 
+    </div>
+  </div>
+</div>
+<!--配件开始--> 
+<div class="blank"></div>
+{if $f_count gt 1}
+<script>
+    /*详情页配件组合切换*/
+    $(".ztab span").mouseover(function () {
+		$(this).addClass("zhover").siblings().removeClass("zhover").parent().siblings().hide().siblings("." + $(this).attr("id")).show(); });
+    $("#zuhe_tab ul").each(function (index, the) { $(the).css({ 'width': $(the).find('li').length * 140 + 'px' }); });
+    detailPrice();
+    /*详情页菜单浮动*/
+
+</script> 
+{/if}
+{/if} 
+<!--配件结束--> 

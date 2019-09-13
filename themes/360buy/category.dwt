@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link rel="stylesheet" type="text/css" href="themes/360buy/images/misc/201007/skin/df/plist20120221.css" media="all" />
+
+</head>
+<body>
+
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+
+<div class="w">
+  <div class="breadcrumb"> <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --> </div>
+</div>
+<!--crumb end-->
+<div class="w main">
+  <div class="right-extra">
+   <?php
+		 $top_cat_id = get_top_class_cat($GLOBALS['smarty']->_var['category']);
+		 $GLOBALS['smarty']->assign('best_goods', get_cat_recommend_goods('best', get_children($top_cat_id), 3));
+		?>
+  <!-- {if $best_goods} -->
+    <div class="m" id="i-right">
+      <div id="hotsale" clstag="thirdtype|keycount|thirdtype|hotsaleM">
+        <div class="mt">
+          <h2>热卖推荐</h2>
+        </div>
+        <div class="mc list-h" rfid=326>
+		<!--{foreach from=$best_goods item=goods name=best_goods}-->
+          <dl>
+            <dt><a target="_blank" href='{$goods.url}'  title="{$goods.name|escape:html}"><img src="{$goods.thumb}" width="100" height="100" alt='{$goods.name|escape:html}' /></a></dt>
+            <dd>
+              <div class="p-name"><a target="_blank" href='{$goods.url}' title="{$goods.name|escape:html}">{$goods.name}</a></div>
+              <div class="p-price" >特价：<strong><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}-->
+              </strong></div>
+              <div class="btns"><a target="_blank" href="{$goods.url}">立即抢购</a></div>
+            </dd>
+          </dl>
+         <!--{/foreach}-->
+          
+		  
+        </div>
+      </div>
+    </div>
+    <!--i-right end-->
+	<!--{/if}-->
+	
+	<!--{if $brands.1 || $price_grade.1 || $filter_attr_list}-->
+	<?php
+			  $cat_info = get_cat_info_ex($GLOBALS['smarty']->_var['category']);
+			 $GLOBALS['smarty']->assign('cat_name',$cat_info['cat_name']);
+    ?>
+    <div id="select" class="m" clstag="thirdtype|keycount|thirdtype|select">
+      <div class="mt">
+        <h1>{$cat_name}</h1>
+        <strong>&nbsp;-&nbsp;商品筛选</strong>
+        <div class="extra"><a href="category.php?id={$category}">重置筛选条件</a></div>
+      </div>
+	  <!--{if $brands.1}-->
+      <dl  class='fore'  id='select-brand'>
+        <dt>品牌：</dt>
+        <dd>
+          <div class='content'>
+		  <!--{foreach from=$brands item=brand}-->
+            <div><a href='{$brand.url}' <!-- {if $brand.selected} -->class="curr"<!-- {/if} -->>{$brand.brand_name}</a></div>
+          <!--{/foreach}-->
+          </div>
+        </dd>
+      </dl>
+	  <!--{/if}-->
+	  <!--{if $price_grade.1}-->
+      <dl  >
+        <dt>价格：</dt>
+        <dd>
+		<!--{foreach from=$price_grade item=grade}-->
+          <div><a href='{$grade.url}' <!-- {if $grade.selected} -->class="curr"<!-- {/if} -->>{$grade.price_range}</a></div>
+        <!--{/foreach}-->
+        </dd>
+      </dl>
+	  <!--{/if}-->
+	  
+	 <!--{foreach from=$filter_attr_list item=filter_attr}-->
+      <dl  >
+        <dt>{$filter_attr.filter_attr_name|escape:html} ：</dt>
+        <dd>
+		<!--{foreach from=$filter_attr.attr_list item=attr}-->
+          <div><a href='{$attr.url}' <!-- {if $attr.selected} -->class="curr"<!-- {/if} -->>{$attr.attr_value}</a></div>
+        <!--{/foreach}-->
+        </dd>
+      </dl>
+	  <!--{/foreach}-->
+    </div>
+    <!--select end -->
+    <div id="advanced" style="border:0px; margin-bottom:10px"> </div>
+	<!-- {/if} -->
+	
+	
+	
+	<!-- #BeginLibraryItem "/library/goods_list.lbi" --><!-- #EndLibraryItem -->
+    
+	<!-- #BeginLibraryItem "/library/pages_cat.lbi" --><!-- #EndLibraryItem -->
+	
+  </div>
+  <!--right-extra end-->
+
+  <div class="left">
+    <?php
+      $GLOBALS['smarty']->assign('top_cat_id', get_top_class_cat($GLOBALS['smarty']->_var['category']));
+	  $GLOBALS['smarty']->assign('categories',       get_categories_tree($GLOBALS['smarty']->_var['top_cat_id'])); // 分类树
+	  ?>
+    <!-- #BeginLibraryItem "/library/cat_tree.lbi" --><!-- #EndLibraryItem -->
+    <div class="m limitbuy hide" id="limitbuy537" clstag="thirdtype|keycount|thirdtype|limitbuy536">
+      <div class="mt">
+        <h2>消费电子限时抢购</h2>
+      </div>
+      <div class="mc">
+        <div class="clock" id="clock537">正在加载…</div>
+        <div id="limit537"></div>
+      </div>
+    </div>
+    <!--limitbuy end -->
+	<?php
+		 $top_cat_id = get_top_class_cat($GLOBALS['smarty']->_var['category']);
+		 $GLOBALS['smarty']->assign('top_cat_id', $top_cat_id);
+		 $GLOBALS['smarty']->assign('new_goods', get_cat_recommend_goods('new', get_children($top_cat_id), 5));
+		?>
+    <!-- #BeginLibraryItem "/library/goods_new.lbi" --><!-- #EndLibraryItem -->
+    <!--关注手机最终购买-->
+    <?php
+		 $top_cat_id = get_top_class_cat($GLOBALS['smarty']->_var['category']);
+		 $GLOBALS['smarty']->assign('hot_goods', get_cat_recommend_goods('hot', get_children($top_cat_id), 10));
+		?>
+    <!-- #BeginLibraryItem "/library/goods_hot.lbi" --><!-- #EndLibraryItem -->
+    <!--rank end-->
+    <div id="alsobuy" class="hide m m0"></div>
+    <!--关注手机为您推荐-->
+    <!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem -->
+    <div class="m" clstag="thirdtype|keycount|thirdtype|m" id="da211x261-1"> </div>
+  </div>
+  <!--left end-->
+  <span class="clr"></span>
+  <div id="Collect_Tip" class="Tip360 w260"></div>
+</div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+
+</body>
+</html>
+

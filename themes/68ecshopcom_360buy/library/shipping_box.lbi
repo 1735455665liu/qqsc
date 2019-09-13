@@ -1,0 +1,35 @@
+<ul class="shipping_jm">
+<!--{if $real_goods_count neq 0}-->
+	<!-- {foreach from=$shipping_list item=shipping} 循环配送方式 -->
+	<li><input name="shipping" type="radio" value="{$shipping.shipping_id}" {if $order.shipping_id eq $shipping.shipping_id}checked="true"{/if} supportCod="{$shipping.support_cod}" supoortPickup="{$shipping.support_pickup}" insure="{$shipping.insure}" onclick="selectShipping(this,1)" /> {$shipping.shipping_name} （{$shipping.format_shipping_fee} 免费额度：{$shipping.free_money}  {$shipping.shipping_desc|truncate:25}）</li>
+	<!-- {/foreach} -->
+    <div class="flowBox" id="pickup_point_box_1" style="display:none;">
+    <h6><span>{$lang.pickup_point_list}</span></h6>
+    <table width="99%" align="center" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
+        <tr>
+            <th width="5%" scope="col" bgcolor="#ffffff">&nbsp;</th>
+            <th width="35%" scope="col" bgcolor="#ffffff">{$lang.shop_name}</th>
+            <th width="32%" scope="col" bgcolor="#ffffff">{$lang.address}</th>
+            <th width="16%" scope="col" bgcolor="#ffffff">{$lang.contact}</th>
+            <th width="16%" scope="col" bgcolor="#ffffff">{$lang.phone}</th>
+        </tr>
+        <!-- {foreach from=$pickup_point_list item=pickup_point name=pickup_point} -->
+        <tr>
+            <td valign="top" bgcolor="#ffffff"><input type="radio"{if $smarty.foreach.pickup_point.index eq 0} checked="checked"{/if} name="pickup_point" value="{$pickup_point.id}" /></td>
+            <td valign="top" bgcolor="#ffffff">{$pickup_point.shop_name}</td>
+            <td valign="top" bgcolor="#ffffff">{$pickup_point.address}</td>
+            <td valign="top" bgcolor="#ffffff">{$pickup_point.contact}</td>
+            <td valign="top" bgcolor="#ffffff">{$pickup_point.phone}</td>
+        </tr>
+        <!--{foreachelse} -->
+        <tr>
+            <td colspan="5" bgcolor="#ffffff" align="center">{$lang.empty_pickup_point}</td>
+        </tr>
+        <!-- {/foreach} -->
+    </table>
+    </div>
+	<li style="text-align:right;"><input name="need_insure" id="ECS_NEEDINSURE" type="checkbox"  onclick="selectInsure(this.checked)" value="1" {if $order.need_insure}checked="true"{/if} {if $insure_disabled}disabled="true"{/if}  />{$lang.need_insure}</li>
+    <!--{else}-->
+    <li style="text-align:right;"><input name = "shipping" type="radio" value = "-1" checked="checked"  style="display:none"/></li>
+    <!--{/if}-->
+</ul>

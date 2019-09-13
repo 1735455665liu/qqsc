@@ -1,0 +1,71 @@
+
+.diy_goods_list td{text-align:center;    vertical-align: middle;}
+.diy_goods_list .diy_1{width:10%;}
+.diy_goods_list .diy_2{width:20%;}
+.diy_goods_list .diy_2 img{width:80px;height:60px;margin:3px;}
+.diy_goods_list .diy_3{width:35%;}
+.diy_goods_list .diy_4{width:10%;}
+.diy_goods_list .diy_5{width:10%;}
+.diy_goods_list .diy_6{width:10%;}
+.table_04 input {
+    background-image: url("../images/arrow_101.gif");
+    background-repeat: no-repeat;
+    border: 0 none;
+    height: 17px;
+    margin-left: 3px;
+    width: 14px;
+}
+.table_04 input {
+    background-image: url("../images/arrow_101.gif");
+    background-repeat: no-repeat;
+    border: 0 none;
+    height: 17px;
+    margin-left: 3px;
+    width: 14px;
+}
+.table_04 .asc_curr {
+    background-position: -17px -18px;
+}
+.table_04 .asc {
+    background-position: -17px 0;
+    cursor: pointer;
+}
+.table_04 .desc {
+    background-position: 0 0;
+    cursor: pointer;
+}
+.table_04 .asc_curr {
+    background-position: -17px -18px;
+}
+.table_04 .desc_curr {
+    background-position: 0 -18px;
+}
+.diy_body .table_04{
+	background:url("../images/bg01.gif") repeat-x scroll 0 -600px transparent;
+	color:#ffffff;
+}
+.diy_body td{
+	vertical-align:middle;
+}
+.diy_info{
+font-size:14px;
+line-height:37px;
+
+}
+
+.user_diy_list ul{
+
+}
+.user_diy_list li{
+	
+
+}
+.diy_goods_list table{
+background-color:#ddd;
+}
+.diy_goods_list td{
+background-color:#fff;
+}
+.diy_goods_list .firstl td{
+background-color:#ddd;
+}

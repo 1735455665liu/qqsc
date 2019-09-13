@@ -1,0 +1,140 @@
+@charset "utf-8";
+.zuhe {
+	width: 988px;
+	background: #ffffff;
+	margin: 0 auto;
+	border: solid 1px #ddd;
+	border-top: solid 2px #E31939;
+	overflow: hidden;
+}
+.zuhe a:hover {
+	text-decoration: none;
+}
+.zuhe_tab {
+	float: left;
+	width: 620px;
+	height: 290px;
+}
+.zhover {
+	color: #FF6600;
+	font-weight: bold;
+}
+.ztab {
+	padding-top: 0px;
+}
+.ztab h3 {
+	font-size: 14px;
+	font-weight: bold;
+	color: #333;
+	font-family: 微软雅黑;
+	line-height: 40px;
+	background: none;
+	text-indent: 15px;
+	float: left;
+	margin-right: 40px;
+}
+.ztab span {
+	line-height: 43px;
+	margin: 0px 8px;
+	cursor: pointer;
+}
+.zuhe_tab dd {
+	height: 245px;
+	width: 620px;
+	margin-left: 25px;
+	overflow-x:auto;
+	scrollbar-3dlight-color: #D8D8D8;
+	scrollbar-arrow-color: #CF0F02;
+	scrollbar-base-color: #ffffff;
+	scrollbar-darkshadow-color: #ffffff;
+	scrollbar-face-color: Transparent;
+	scrollbar-highlight-color: Transparent;
+	scrollbar-shadow-color: #D8D8D8;
+	scrollbar-track-color: #f7f7f7;
+}
+.zuhe_tab dd ul li {
+	width: 130px;
+	float: left;
+	margin: 5px;
+	_margin: 4px;
+}
+.zuhe_tab dd ul li a {
+	text-decoration: none;
+}
+.zuhe_tab dd ul li a p {
+	height: 36px;
+	overflow: hidden;
+	line-height: 18px;
+	margin-top: 3px;
+	color: #666666;
+}
+.zuhe_tab dd ul li span {
+	display: block;
+	margin: 5px 0;
+	color: #666;
+}
+.zuhe_tab dd ul li strong {
+	color: #E31939;
+	font-size: 16px;
+	margin-left: 10px;
+}
+.zuhe_price {
+	width: 290px;
+	float: right;
+	margin-top: 30px;
+	background: url(../images/goods/zuhe_arrow.png) no-repeat left center;
+	height: 234px;
+}
+.zuhe_price h4 {
+	font-size: 14px;
+	font-weight: bold;
+	color: #E31939;
+	line-height: 60px;
+	margin-left: 100px;
+	background: url(../images/goods/zuhetz_bg.png) no-repeat left 21px;
+	padding-left: 20px;
+}
+.zuhe_price h2 {
+	color: #666;
+	margin-left: 100px;
+	font-size: 12px;
+}
+.zuhe_price h2 span {
+	color: #E31939;
+}
+.zuhe_price h2 a {
+	color: #E31939;
+	font-weight: normal;
+	text-decoration: none;
+}
+.z_pr_info {
+	height: 100px;
+	margin-top: 10px;
+	margin-left: 100px;
+}
+.z_pr_info p {
+	color: #666;
+	margin-top: 8px;
+}
+.z_pr_info p strong {
+	color: #E31939;
+	font-size: 16px;
+}
+.z_pr_info a {
+	width: 90px;
+	height: 30px;
+	line-height:30px;
+	text-align:center;
+	color:#fff;
+	display: block;
+	float: left;
+	margin-top: 15px;
+	background: #FF6500;
+}
+.z_pr_info a:hover{
+	color:#fff;	
+}
+.z_pr_info span {
+	line-height: 45px;
+	margin-left: 30px;
+}

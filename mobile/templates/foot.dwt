@@ -1,0 +1,13 @@
+﻿<div class="new-footer">
+        	<div class="new-f-login">
+			{if $user_name}
+	<a href='user.php?act=user_center'>用户中心</a><span class="new-bar2">|</span><a href='user.php?act=logout'>退出</a>
+	{else}
+	<a href='user.php?act=login'>登录</a><span class="new-bar2">|</span><a href='user.php?act=register'>注册</a>
+	{/if}|
+    												<span class="new-back-top"><a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=1850302635@qq.com">反馈</a><span class="new-bar2">|</span><a href="#top">回到顶部</a></span>
+            </div>
+        	<div class="new-f-section"><a href="kefu.php">在线客服</a><em>&nbsp;&nbsp; | &nbsp;&nbsp;</em><span style="color:red;"><a href="http://115.29.45.61/mobile/article.php?act=detail&a_id=47">购物流程</a></span><em>&nbsp;&nbsp;|</em><a href="http://115.29.45.61/mobile/article.php?act=detail&a_id=4">联系我们</a></div>
+             <div class="ft"><a href="http://115.29.45.61/">电脑版</a><em>|</em><span style="color:red;"><a href="http://115.29.45.61/mobile/index.php">触屏版</a></span></div>
+            <div class="new-f-section2">Copyright © 2012-2016  {$shop_name} 版权所有</div>
+        </div>

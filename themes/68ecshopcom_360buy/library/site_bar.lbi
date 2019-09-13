@@ -1,0 +1,66 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div style="right: 0px;" id="ncToolbar" class="nc-appbar">
+  <div class="nc-appbar-tabs" id="appBarTabs">
+    <div class="user">
+    	<a href="user.php" title="我的用户中心" target="_blank">
+      		<div class="avatar"></div>
+      		<p>我</p>
+        </a>
+    </div>
+    <div class="user1" nctype="a-barLoginBox1">
+      <div class="avatar1"></div>
+      <p>聊天</p>
+    </div>
+    <div class="user-login-box1" nctype="barLoginBox1" style="display: none;"> 
+    	<i class="arrow"></i> <a href="javascript:void(0);" class="close" nctype="close-barLoginBox1" title="关闭">X</a>
+      	<div class="dropdown">
+        	<div class="button-bar"> 
+            {include file='library/customer_service.lbi'} 
+            </div>
+        </div>
+    </div>
+    <ul class="tools">
+       <li><a href="javascript:void(0);" id="collectBox" class="cart">购物车</a></li>
+       <li><a href="user.php?act=collection_list" title="我的收藏" id="collectGoods" class="chat">收藏</a></li>
+       <li><a href="user.php?act=bonus" title="我的红包" class="compare">红包</a></li>
+       <li><a href="user.php?act=account_log" title="我的资产" class="chat">资产</a></li>
+       <li><a href="javascript:void(0);" class="gotop">顶部</a></li>
+    </ul>
+    <div class="content-box" id="ECS_CARTINFO">{insert name='cart_info'}</div>
+   </div> 
+</div>
+<script type="text/javascript">
+//动画显示边条内容区域
+$(function() {
+    $("#collectBox").click(function(){
+        if ($("#ECS_CARTINFO").css('right') == '-230px') {
+    		$("#ECS_CARTINFO").animate({right:'50px'});
+        }
+        else
+        {
+        	$("#ECS_CARTINFO").animate({right:'-230px'});
+        }
+	});
+	$(".close").click(function(){
+		$(".content-box").animate({right:'-230px'});
+      });
+	$(".quick-menu dl").hover(function() {
+		$(this).addClass("hover");
+	},
+	function() {
+		$(this).removeClass("hover");
+	});
+	// 右侧bar客服
+    $('div[nctype="a-barLoginBox1"]').click(function(){
+        $('div[nctype="barLoginBox1"]').toggle();
+    });
+    $('a[nctype="close-barLoginBox1"]').click(function(){
+        $('div[nctype="barLoginBox1"]').toggle();
+    });
+    });
+$(".gotop").click(function(){
+$('body,html').animate({scrollTop:0},800);
+return false;
+});
+</script> 
+

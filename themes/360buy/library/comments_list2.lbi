@@ -1,0 +1,368 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div id="qa_b1" class="mc tabcon fore" style="display: block;">
+        <!-- {foreach from=$comments item=comment name=user_qa1} -->
+         <?php
+	       $cmt = assign_commentex($GLOBALS['smarty']->_var['id'],   $GLOBALS['smarty']->_var['comment_type'], $GLOBALS['smarty']->_var['pager']['page'], 1);
+    		 $GLOBALS['smarty']->assign('comments',     $cmt['comments']);
+    		 $GLOBALS['smarty']->assign('pager',        $cmt['pager']);
+	  ?>
+        <div class="item <!-- {if $smarty.foreach.user_qa1.iteration % 2 eq 0} -->odd<!-- {/if} -->">
+          <div class="user"> <span class="u-name">用户名：<!-- {if $comment.username} -->{$comment.username|escape:html}<!-- {else} -->{$lang.anonymous}<!-- {/if} --></span>
+             <span class="date-ask">{$comment.add_time}</span> </div>
+          <dl class="ask">
+            <dt>咨询内容：</dt>
+            <dd>{$comment.content}</dd>
+          </dl>
+<!-- {if $comment.re_content} -->
+          <dl class="answer">
+            <dt> 回复： </dt>
+            <dd>
+              <div class="content"> {$comment.re_content}</div>
+           
+            </dd>
+          </dl>
+	<!-- {/if} -->
+        </div>
+		<!-- {/foreach} -->
+		
+		
+		
+       <div class="extra clearfix" style="padding-right:0px">
+           <div id="commentsPage0" class="pagin fr">
+		<form name="selectPageForm" action="{$smarty.server.PHP_SELF}" method="get" style="margin:0px;">
+        <table width="380px" align="right">
+          <tr>
+            <td align="right">{$lang.pager_1}{$pager.record_count}{$lang.pager_2} {$pager.page}/{$pager.page_count}</td>
+            <td align="right"><a href="{$pager.page_first}">{$lang.page_first}</a> <a href="{$pager.page_prev}">{$lang.page_prev}</a> <a href="{$pager.page_next}">{$lang.page_next}</a> <a href="{$pager.page_last}">{$lang.page_last}</a></td>
+          </tr>
+        </table>
+        <!--{foreach from=$pager.search key=key item=item}-->
+        <input type="hidden" name="{$key}" value="{$item}" />
+        <!--{/foreach}-->
+      </form>
+		</div>  
+          <div class="join"> 购买之前，如有问题，请咨询。 <a href="#qa_form">[发表咨询]</a> </div>
+        </div> 
+        
+        
+      </div>  
+    
+<!--tabcon end-->
+
+    <div class="mc tabcon hide" id="qa_b2">
+      <?php
+	         $cmt = assign_commentex($GLOBALS['smarty']->_var['id'],   $GLOBALS['smarty']->_var['comment_type'], $GLOBALS['smarty']->_var['pager']['page'], 2);
+    		 $GLOBALS['smarty']->assign('comments',     $cmt['comments']);
+    		
+    		 $GLOBALS['smarty']->assign('pager',        $cmt['pager']);
+	  ?>
+	  
+	  
+        <!-- {foreach from=$comments item=comment name=user_qa2} -->
+        <div class="item <!-- {if $smarty.foreach.user_qa2.iteration % 2 eq 0} -->odd<!-- {/if} -->">
+          <div class="user"> <span class="u-name">用户名：{$comment.username}</span>
+             <span class="date-ask">{$comment.add_time}</span> </div>
+          <dl class="ask">
+            <dt>咨询内容：</dt>
+            <dd>{$comment.content}</dd>
+          </dl>
+		  <!-- {if $comment.re_content} -->
+          <dl class="answer">
+            <dt> 回复： </dt>
+            <dd>
+              <div class="content"> {$comment.re_content}</div>
+           
+            </dd>
+          </dl>
+		  <!-- {/if} -->
+        </div>
+		<!-- {/foreach} -->
+       <div class="extra clearfix" style="padding-right:0px">
+           <div id="commentsPage0" class="pagin fr">
+		<form name="selectPageForm" action="{$smarty.server.PHP_SELF}" method="get" style="margin:0px;">
+        <table width="380px" align="right">
+          <tr>
+            <td align="right">{$lang.pager_1}{$pager.record_count}{$lang.pager_2} {$pager.page}/{$pager.page_count}</td>
+            <td align="right"><a href="{$pager.page_first}">{$lang.page_first}</a> <a href="{$pager.page_prev}">{$lang.page_prev}</a> <a href="{$pager.page_next}">{$lang.page_next}</a> <a href="{$pager.page_last}">{$lang.page_last}</a></td>
+          </tr>
+        </table>
+        <!--{foreach from=$pager.search key=key item=item}-->
+        <input type="hidden" name="{$key}" value="{$item}" />
+        <!--{/foreach}-->
+      </form>
+		</div>  
+          <div class="join"> 购买之前，如有问题，请咨询。 <a href="#qa_form" id="">[发表咨询]</a> </div>
+        </div> 
+    </div>
+    <div class="mc tabcon hide" id="qa_b3">
+      <?php
+	         $cmt = assign_commentex($GLOBALS['smarty']->_var['id'],   $GLOBALS['smarty']->_var['comment_type'], $GLOBALS['smarty']->_var['pager']['page'], 3);
+    		 $GLOBALS['smarty']->assign('comments',     $cmt['comments']);
+    		 $GLOBALS['smarty']->assign('pager',        $cmt['pager']);
+	  ?>
+        <!-- {foreach from=$comments item=comment name=user_qa3} -->
+        <div class="item <!-- {if $smarty.foreach.user_qa3.iteration % 2 eq 0} -->odd<!-- {/if} -->">
+          <div class="user"> <span class="u-name">用户名：{$comment.username}</span>
+             <span class="date-ask">{$comment.add_time}</span> </div>
+          <dl class="ask">
+            <dt>咨询内容：</dt>
+            <dd>{$comment.content}</dd>
+          </dl>
+		  <!-- {if $comment.re_content} -->
+          <dl class="answer">
+            <dt> 回复： </dt>
+            <dd>
+              <div class="content"> {$comment.re_content}</div>
+           
+            </dd>
+          </dl>
+		  <!-- {/if} -->
+        </div>
+		<!-- {/foreach} -->
+       <div class="extra clearfix" style="padding-right:0px">
+           <div id="commentsPage0" class="pagin fr">
+		<form name="selectPageForm" action="{$smarty.server.PHP_SELF}" method="get" style="margin:0px;">
+        <table width="380px" align="right">
+          <tr>
+            <td align="right">{$lang.pager_1}{$pager.record_count}{$lang.pager_2} {$pager.page}/{$pager.page_count}</td>
+            <td align="right"><a href="{$pager.page_first}">{$lang.page_first}</a> <a href="{$pager.page_prev}">{$lang.page_prev}</a> <a href="{$pager.page_next}">{$lang.page_next}</a> <a href="{$pager.page_last}">{$lang.page_last}</a></td>
+          </tr>
+        </table>
+        <!--{foreach from=$pager.search key=key item=item}-->
+        <input type="hidden" name="{$key}" value="{$item}" />
+        <!--{/foreach}-->
+      </form>
+		</div>  
+          <div class="join"> 购买之前，如有问题，请咨询。 <a href="#qa_form" id="">[发表咨询]</a> </div>
+        </div> 
+    </div>
+    <div class="mc tabcon hide" id="qa_b4">
+      <?php
+	         $cmt = assign_commentex($GLOBALS['smarty']->_var['id'],   $GLOBALS['smarty']->_var['comment_type'], $GLOBALS['smarty']->_var['pager']['page'], 4);
+    		 $GLOBALS['smarty']->assign('comments',     $cmt['comments']);
+    		 $GLOBALS['smarty']->assign('pager',        $cmt['pager']);
+	  ?>
+        <!-- {foreach from=$comments item=comment name=user_qa4} -->
+        <div class="item <!-- {if $smarty.foreach.user_qa4.iteration % 2 eq 0} -->odd<!-- {/if} -->">
+          <div class="user"> <span class="u-name">用户名：{$comment.username}</span>
+             <span class="date-ask">{$comment.add_time}</span> </div>
+          <dl class="ask">
+            <dt>咨询内容：</dt>
+            <dd>{$comment.content}</dd>
+          </dl>
+		  <!-- {if $comment.re_content} -->
+          <dl class="answer">
+            <dt> 回复： </dt>
+            <dd>
+              <div class="content"> {$comment.re_content}</div>
+           
+            </dd>
+          </dl>
+		  <!-- {/if} -->
+        </div>
+		<!-- {/foreach} -->
+       <div class="extra clearfix" style="padding-right:0px">
+           <div id="commentsPage0" class="pagin fr">
+		<form name="selectPageForm" action="{$smarty.server.PHP_SELF}" method="get" style="margin:0px;">
+        <table width="380px" align="right">
+          <tr>
+            <td align="right">{$lang.pager_1}{$pager.record_count}{$lang.pager_2} {$pager.page}/{$pager.page_count}</td>
+            <td align="right"><a href="{$pager.page_first}">{$lang.page_first}</a> <a href="{$pager.page_prev}">{$lang.page_prev}</a> <a href="{$pager.page_next}">{$lang.page_next}</a> <a href="{$pager.page_last}">{$lang.page_last}</a></td>
+          </tr>
+        </table>
+        <!--{foreach from=$pager.search key=key item=item}-->
+        <input type="hidden" name="{$key}" value="{$item}" />
+        <!--{/foreach}-->
+      </form>
+		</div>  
+          <div class="join"> 购买之前，如有问题，请咨询。 <a href="#qa_form" id="">[发表咨询]</a> </div>
+        </div> 
+    </div>
+    <a name='qa_form'></a>
+   <div class="mc  choose_form">
+    <form action="javascript:;" onsubmit="submitQA(this)" method="post" name="commentForm" id="commentForm">
+        <table border="0" cellspacing="2" cellpadding="0" width="100%">
+	    <tr>
+
+          <td  colspan="2"  height="25px" style="font-size:14px; font-weight:bold; padding-left:10px; background-color:#F2F2F2; color:#CC3300">用户咨询</td>
+        </tr>
+          <tr>
+            <td width="85" height="25px" align="right">{$lang.username}：</td>
+            <td align="left"><!--{if $smarty.session.user_name}-->
+              {$smarty.session.user_name}
+              <!--{else}-->
+              {$lang.anonymous}
+              <!--{/if}--></td>
+          </tr>
+          <tr>
+            <td align="right" height="25px">E-mail：</td>
+            <td align="left"><input type="text" name="email" id="email"  class="form_email" maxlength="100" value="{$smarty.session.email|escape}" style="border:1px solid #ccc; height:22px; line-height:22px; "/>
+            </td>
+          </tr>
+          <tr>
+            <td align="right" height="25px">提问类型：</td>
+            <td align="left">
+			<input type="radio" value="1" name="qatype" />商品
+			<input type="radio" value="2" name="qatype" />配送
+			<input type="radio" value="3" name="qatype" />支付
+			<input type="radio" value="4" name="qatype" />售后
+			
+            </td>
+          </tr>
+          <tr>
+            <td align="right" valign="top" height="25px">内容：</td>
+            <td align="left"><textarea name="content" id="comment_content2" style="border:1px solid #ccc; height:100px; width:550px; font-size:12px"></textarea>
+              
+            </td>
+          </tr>
+		 
+		  <!-- 判断是否启用验证码{if $enabled_captcha} -->
+          <tr>
+		  <td align="right" valign="top" height="25px">{$lang.comment_captcha}：</td>
+            <td>
+              <div style="text-align:left; float:left;">
+                <table border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td>
+<input type="text" name="captcha"  style="border:1px solid #ccc; width:50px;height:22px; line-height:22px;"/></td>
+                    <td align="left" style="padding-left:5px;"><img src="captcha.php?{$rand}" style="cursor:pointer" alt="看不清楚，点击刷新！" onClick="change_captcha()" class="captcha" id="captcha2"></td>
+                  </tr>
+                </table>
+              </div>
+              
+            </td>
+          </tr>
+		  <!-- {/if} -->
+          <tr>
+		  <td align="right" valign="top" height="25px"></td>
+            <td  height="40px">
+			<input type="hidden" name="cmt_type" value="2" />
+			<input type="hidden" name="cmt_rank" value="5" />
+            <input type="hidden" name="id" value="{$id}" />
+			<input name="" type="submit"  value="  提交  " style="padding:2px 20px">
+			
+            </td>
+          </tr>
+        </table>
+      </form>
+  </div>
+
+
+<script type="text/javascript">
+//<![CDATA[
+{foreach from=$lang.cmt_lang item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+{literal}
+/**
+ * 提交评论信息
+*/
+
+
+$('.captcha').attr('src', 'captcha.php?{$rand}');
+
+function change_captcha(){
+    $('.captcha').attr('src', 'captcha.php?'+Math.random());
+}
+
+$('.form_email').each(
+	function(){
+		if ($.trim($(this).val()) == '0'){
+			$(this).val('');
+		}
+	}
+);
+
+
+function submitQA(frm)
+{
+  var cmt = new Object;
+
+  
+  //cmt.username        = frm.elements['username'].value;
+  cmt.email           = frm.elements['email'].value;
+  cmt.content         = frm.elements['content'].value;
+  cmt.type            = frm.elements['cmt_type'].value;
+  cmt.id              = frm.elements['id'].value;
+  cmt.enabled_captcha = frm.elements['enabled_captcha'] ? frm.elements['enabled_captcha'].value : '0';
+  cmt.captcha         = frm.elements['captcha'] ? frm.elements['captcha'].value : '';
+  cmt.rank            = 5;
+  
+  var qatype = 0;
+  var type = frm.elements['qatype'];
+  for (var i = 0; i < type.length; i ++){
+  	if (type[i].checked){
+		qatype = type[i].value;
+	}
+  
+  }
+  cmt.ip = qatype;
+  
+//  if (cmt.username.length == 0)
+//  {
+//     alert(cmt_empty_username);
+//     return false;
+//  }
+
+  if (cmt.email.length > 0)
+  {
+     if (!(Utils.isEmail(cmt.email)))
+     {
+        alert(cmt_error_email);
+        return false;
+      }
+   }
+   else
+   {
+        alert(cmt_empty_email);
+        return false;
+   }
+   
+   if (cmt.ip == 0)
+   {
+      alert('请选择提问类型！');
+      return false;
+   }
+
+   if (cmt.content.length == 0)
+   {
+      alert(cmt_empty_content);
+      return false;
+   }
+
+   if (cmt.enabled_captcha > 0 && cmt.captcha.length == 0 )
+   {
+      alert(captcha_not_null);
+      return false;
+   }
+   
+   Ajax.call('comment.php', 'cmt=' + objToJSONString(cmt), commentResponse2, 'POST', 'JSON');
+
+   return false;
+}
+
+/**
+ * 处理提交评论的反馈信息
+*/
+  function commentResponse2(result)
+  {
+    
+    if (result.message)
+    {
+      alert(result.message);
+    }
+    
+    if (result.error == 0)
+    {
+	  document.getElementById('comment_content2').value = '';
+      var layer = document.getElementById('ECS_COMMENT2');
+
+      if (layer)
+      {
+        layer.innerHTML = result.content;
+      }
+    }
+  }
+{/literal}
+//]]>
+</script>	

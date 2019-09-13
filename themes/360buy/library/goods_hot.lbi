@@ -1,0 +1,24 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="m rank">
+      <div class="mt">
+        <h2>热销排行榜</h2>
+      </div>
+      <div class="mc">
+        <ul class="tabcon">
+          <!--{foreach from=$hot_goods item=goods name=hot_goods}-->
+          <!-- {if $smarty.foreach.hot_goods.iteration eq 1} -->
+          <li class="fore"><span>{$smarty.foreach.hot_goods.iteration}</span>
+            <div class="p-img"><a href='{$goods.url}'> <img src="{$goods.thumb}" alt="{$goods.name|escape:html}" width="50" height="50"/></a></div>
+            <div class="p-name"><a href='{$goods.url}'>{$goods.short_style_name}</a></div>
+            <div class="p-price"><strong ><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}-->
+              </strong></div>
+          </li>
+          <!-- {else}-->
+          <li><span>{$smarty.foreach.hot_goods.iteration}</span>
+            <div class="p-name"><a  href='{$goods.url}'>{$goods.short_style_name}</a></div>
+          </li>
+          <!--{/if}-->
+          <!--{/foreach}-->
+        </ul>
+      </div>
+    </div>

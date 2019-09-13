@@ -1,0 +1,168 @@
+<head>
+<link href="../../diy/css/d.css" rel="stylesheet" type="text/css" />
+<SCRIPT src="diy/js/nav.js" type=text/javascript></SCRIPT>
+<SCRIPT src="diy/js/jscook.js" type=text/javascript></SCRIPT>
+<link href="../../diy/css/diy2.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<BODY class="diy_body">
+<SCRIPT type=text/javascript>
+function descsort()
+{
+	if(document.getElementById('desc').className=='desc'){
+	document.getElementById('desc').className='desc_curr';
+	document.getElementById('asc').className='asc';
+	}else
+	{
+	document.getElementById('desc').className='desc';
+	}
+		window.location='diy.php?act={$act}&step={$step}&order=DESC';
+}
+function ascsort()
+{
+	if(document.getElementById('asc').className=='asc'){
+	document.getElementById('asc').className='asc_curr';
+	document.getElementById('desc').className='desc';
+	}else
+	{
+	document.getElementById('asc').className='asc';
+	}
+	window.location='diy.php?act={$act}&step={$step}&order=ASC';
+}
+</SCRIPT>
+<TABLE cellSpacing=0 cellPadding=0 width=545 border=0>
+  <FORM name=Form1 action=diy.php?act={$act}&step={$step} method=post >
+  <input type="hidden" name="mainboard" value="{$mainboard}">
+  <input type="hidden" name="cpu" value="{$cpu}">
+    <TBODY>
+      <TR> 
+
+        <TD class=text_18 width=120 background=diy/images/DIY_XD_36.gif height=41>&nbsp;<font color="#E23F24">已选：{$typename}</font></TD>
+        <TD class=text_12 align=right width=175 background=diy/images/DIY_XD_36.gif  height=41>品牌：<SELECT class=input_01 id=brand_id style="WIDTH: 130px;" onChange="document.getElementById('surebtn').click();" name=brand_id>
+            <OPTION value="0" selected>--请选择--</OPTION>
+          {html_options options=$pinpai_list selected=$brand_id}
+          </SELECT>
+		
+	    </TD>
+        <TD align="center" width=170 background=diy/images/DIY_XD_36.gif  height=41 style="font-size:12px;_vertical-align:middle">关键字：<INPUT class=input_01 id=keyword style="WIDTH: 104px; height:22px" name=keyword value={$keyword}></TD>
+        <TD width=40 background=diy/images/DIY_XD_36.gif  height=41>
+		<INPUT id="surebtn" type=image height=20 width=35 src="diy/images/b11.gif"></TD>
+      </TR>
+  </FORM>
+  </TBODY>
+</TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width=545 border=0 bgcolor="#ffffff">
+  <TBODY>
+    <TR>
+      <TD vAlign=top bgcolor="#ffffff">
+      <TABLE bgcolor="#FFFBE2" class=table_01 cellSpacing=0 cellPadding=0 border=0>
+          <TBODY>
+            <TR>
+              <TD class=table_04 align="center" width=110 height=38>商品图片</TD>
+              <TD class=table_04 align="center" width=308 height=38>商品名称</TD>
+              <TD class=table_04 align="center" width=75 height=38>价格<input id="desc" <!--{if $order=="ASC"}-->class="desc"<!--{else}-->class="desc_curr"<!--{/if}--> type="button" title="价格从高到低" onclick="javascript:descsort()" name="desc">
+<input id="asc" <!--{if $order=="ASC"}class="asc_curr"<!--{else}-->class="asc"<!--{/if}--> type="button" title="价格从低到高" onclick="javascript:ascsort()" name="asc"></TD>
+              <TD class=table_04 align="center" width=52 height=38>选用</TD>
+            </TR>
+          </TBODY>
+        </TABLE>
+        <div style="border-bottom: #C1C1C1 1px solid;">        
+		 <!-- {foreach from=$goods_list item=goods} -->
+        <TABLE class=table_001 cellSpacing=0 cellPadding=0 border=0 bgcolor="#ffffff">
+          <TBODY>
+            <TR>
+              <TD class=table_05 align="center" width=109><A title="{$goods.goods_name}" href="goods.php?id={$goods.goods_id}" target=_blank><IMG height=40 
+            src="{$goods.goods_thumb}" width=54 alt="{$goods.goods_name}" border="0" style="margin:5px 0 5px"></A></TD>
+              <TD class=table_05 align=left width=308>
+			  <SPAN id=span1_{$goods.goods_id} style="margin-left:10px">
+			  <A title="{$goods.goods_name}" href="goods.php?id={$goods.goods_id}" target=_blank>{$goods.goods_name}</A></SPAN><BR>
+              <FONT color=#316ac5></FONT></TD>
+              <TD class=table_05 align="center" width=75>
+			  <SPAN class=￥ id=span2_{$goods.goods_id}>￥{$goods.shop_price}</SPAN></TD>
+              <TD align="center" width=52>
+			  <A onclick="javascript:{$func}('{$step}','{$goods.goods_id}');" href="javascript:;">
+			  <IMG height=22 src="diy/images/b14.gif" width=40 border="0"></A>
+			  </TD>
+            </TR>
+          </TBODY>
+        </TABLE>
+  <!-- {/foreach} -->
+</div>
+    <TR>
+      <TD class=TXT_12 align=right colSpan=5 style="border:0 none">
+	  <!--翻页 start-->
+<form name="selectPageForm" action="{$smarty.server.PHP_SELF}" method="get">
+<!-- {if $pager.styleid eq 0 } -->
+<div id="pager">
+  {$lang.pager_1}{$pager.record_count}{$lang.pager_2}{$lang.pager_3}{$pager.page_count}{$lang.pager_4} <span> <a href="{$pager.page_first}">{$lang.page_first}</a> <a href="{$pager.page_prev}">{$lang.page_prev}</a> <a href="{$pager.page_next}">{$lang.page_next}</a> <a href="{$pager.page_last}">{$lang.page_last}</a> </span>
+    <!--{foreach from=$pager.search key=key item=item}-->
+      {if $key eq 'keywords'}
+          <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
+        {else}
+          <input type="hidden" name="{$key}" value="{$item}" />
+      {/if}
+    <!--{/foreach}-->
+    <select name="page" id="page" onchange="selectPage(this)">
+    {html_options options=$pager.array selected=$pager.page}
+    </select>
+</div>
+<!--{else}-->
+
+<!--翻页 start-->
+ <div id="pager" class="pagebar">
+  <!-- {if $pager.page_first} --><a href="{$pager.page_first}1">{$lang.page_first} ...</a><!-- {/if} -->
+  <!-- {if $pager.page_prev} --><a class="prev" href="{$pager.page_prev}">{$lang.page_prev}</a><!-- {/if} -->
+  <!-- {if $pager.page_count neq 1} -->
+    <!--{foreach from=$pager.page_number key=key item=item}-->
+      <!-- {if $pager.page eq $key} -->
+      <span class="page_now">{$key}</span>
+      <!-- {else} -->
+      <a href="{$item}&keyword={$keyword}">[{$key}]</a>
+      <!-- {/if} -->
+    <!--{/foreach}-->
+  <!-- {/if} -->
+
+  <!-- {if $pager.page_next} --><a class="next" href="{$pager.page_next}&keyword={$keyword}">{$lang.page_next}</a><!-- {/if} -->
+  <!-- {if $pager.page_last} --><a class="last" href="{$pager.page_last}&keyword={$keyword}">...{$lang.page_last}</a><!-- {/if} -->
+  <!-- {if $pager.page_kbd} -->
+    <!--{foreach from=$pager.search key=key item=item}-->
+      {if $key eq 'keywords'}
+          <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
+        {else}
+          <input type="hidden" name="{$key}" value="{$item}" />
+      {/if}
+    <!--{/foreach}-->
+    <kbd style="float:left; margin-left:8px; position:relative; bottom:3px;"><input type="text" name="page" onkeydown="if(event.keyCode==13)selectPage(this)" size="3" class="B_blue" /></kbd>
+    <!-- {/if} -->
+</div>
+<!--翻页 END-->
+
+<!-- {/if} -->
+</form>
+<script type="Text/Javascript" language="JavaScript">
+<!--
+{literal}
+function selectPage(sel)
+{
+  sel.form.submit();
+}
+{/literal}
+//-->
+</script>
+	  </TD>
+    </TR>
+    <TR>
+      <TD vAlign=top colSpan=5 style="border:0 none">
+      </TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<script>
+	function selectPage(sel)
+    {
+    	sel.form.submit();
+    }
+</script>
+</BODY>
+</HTML>

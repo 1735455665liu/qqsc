@@ -1,0 +1,40 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style>
+#sortlist .mt{ background-color:#D80000 }
+#sortlist .mt{height:24px;padding:3px 8px;background-color:#D80000;background-position:0 0;line-height:24px;}
+#sortlist h2{color:#fff; text-align:center }
+#sortlist .mc{border:solid #E6E6E6;border-width:0 1px 1px; background-color:#FCF4EA}
+#sortlist ul{padding:6px 0 6px 6px;overflow:hidden;zoom:1;}
+#sortlist li{float:left;width:95px;height:18px;padding:3px 6px 3px 0;overflow:hidden;}
+.userMenu img{ display:none}
+</style>
+<div class="m" id="sortlist">
+    <div class="mt">
+      <h2>会员中心</h2>
+    </div>
+    <div class="mc">
+      <div class="userMenu" >
+<a href="user.php" {if $action eq 'default'}class="curs"{/if}><img src="../images/u1.gif"> 欢迎首页</a>
+<a href="user.php?act=profile"{if $action eq 'profile'}class="curs"{/if}><img src="../images/u2.gif"> {$lang.label_profile}</a>
+<a href="user.php?act=order_list"{if $action eq 'order_list'|| $action eq 'order_detail'}class="curs"{/if}><img src="../images/u3.gif"> {$lang.label_order}</a>
+<a href="user.php?act=address_list"{if $action eq 'address_list'}class="curs"{/if}><img src="../images/u4.gif"> {$lang.label_address}</a>
+<a href="user.php?act=collection_list"{if $action eq 'collection_list'}class="curs"{/if}><img src="../images/u5.gif"> {$lang.label_collection}</a>
+<a href="user.php?act=message_list"{if $action eq 'message_list'}class="curs"{/if}><img src="../images/u6.gif"> {$lang.label_message}</a>
+<a href="user.php?act=tag_list"{if $action eq 'tag_list'}class="curs"{/if}><img src="../images/u7.gif"> {$lang.label_tag}</a>
+<a href="user.php?act=booking_list"{if $action eq 'booking_list'}class="curs"{/if}><img src="../images/u8.gif"> {$lang.label_booking}</a>
+<a href="user.php?act=bonus"{if $action eq 'bonus'}class="curs"{/if}><img src="../images/u9.gif"> {$lang.label_bonus}</a>
+<!-- {if $affiliate.on eq 1} --><a href="user.php?act=affiliate"{if $action eq 'affiliate'}class="curs"{/if}><img src="../images/u10.gif"> {$lang.label_affiliate}</a><!-- {/if} -->
+<a href="user.php?act=comment_list"{if $action eq 'comment_list'}class="curs"{/if}><img src="../images/u11.gif"> {$lang.label_comment}</a>
+<!--<a href="user.php?act=group_buy">{$lang.label_group_buy}</a>-->
+<a href="user.php?act=track_packages"{if $action eq 'track_packages'}class="curs"{/if}><img src="../images/u12.gif"> {$lang.label_track_packages}</a>
+<a href="user.php?act=account_log"{if $action eq 'account_log'}class="curs"{/if}><img src="../images/u13.gif"> {$lang.label_user_surplus}</a>
+<!--{if $show_transform_points}-->
+<a href="user.php?act=transform_points"{if $action eq 'transform_points'}class="curs"{/if}><img src="../images/u14.gif"> {$lang.label_transform_points}</a>
+<!--{/if}-->
+<!--li class="user_order_list{if $action eq 'diy_list'} current{/if}"><a href="user.php?act=diy_list">装机清单</a></li-->
+<a href="user.php?act=diy_list">装机清单</a>
+<a href="user.php?act=logout" style=" color: #FF0000">退出中心</a>
+</div>
+    </div>
+  </div>
+

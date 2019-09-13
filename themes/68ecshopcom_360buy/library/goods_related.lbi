@@ -1,0 +1,32 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- {if $related_goods} -->
+<div id="brand-bar-pop-t">
+ <dl>
+    <dt class="shop_title">相关商品</dt>
+    <div class="ghs_clear"></div>
+ </dl>
+<!--{foreach from=$related_goods item=releated_goods_data name=releated_goods_data}-->
+<!--{ if $smarty.foreach.releated_goods_data.iteration<3}-->
+<ul class="attribute1">
+<li>
+      <a href="{$releated_goods_data.url}" target="_blank" ><img src="{$releated_goods_data.goods_thumb}" alt="{$releated_goods_data.goods_name}" width="160" height="160"/></a>
+			<p class="fl"><a href="{$releated_goods_data.url}" target="_blank" title="{$releated_goods_data.goods_name}" >{$releated_goods_data.short_name|truncate:18}</a><br />
+        <span>    
+        <!-- {if $releated_goods_data.promote_price neq 0} -->
+        <b class="f1">{$releated_goods_data.formated_promote_price}</b>
+        <!-- {else} -->
+        <b class="f1">{$releated_goods_data.shop_price}</b>
+        <!-- {/if} -->
+        <b class="fr market" style="color:#999;"><del>{$releated_goods_data.market_price}</del></b>
+        </span>
+       </p>
+</li>      
+</ul> 
+<!-- {/if} --> 
+<!-- {/foreach} -->
+</div>
+<!-- {/if} -->
+
+
+
+

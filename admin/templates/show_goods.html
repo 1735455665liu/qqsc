@@ -1,0 +1,28 @@
+<!DOCTYPE>
+<html lang="zh_CN">
+	<head>
+		<meta charset="utf-8"/>
+		<title>商品销售记录</title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	</head>
+	<body>
+	<table border="1">
+		<caption><h2>共销售{$info['total']}</h2></caption>
+		<tr>
+			<td>下单时间</td><td>购买数量</td>
+		</tr>
+		{foreach $info['info'] as $k=>$v}
+		<tr>
+			<td>{$v.confirm_time|date_format:'%Y-%m-%d %H:%M:%S'}</td><td>{$v.goods_number}</td>
+		</tr>
+		{/foreach}
+	</table>
+	</body>
+	<script>
+		$(document).ready(function(){
+			$('#text1').keydown(function(ev){
+				alert(ev.keyCode);
+			});
+		});
+	</script>
+</html>

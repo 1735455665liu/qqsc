@@ -1,0 +1,1582 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="360-site-verification" content="94324b4502a1e66ef32d0908824b204a" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link rel="stylesheet" href="themes/360buy/images/misc/product/skin/2012/home.css">
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<script>$('#_JD_ALLSORT').show();</script>
+<div class="w w1">
+  <div id="slide" class="slide m" clstag="homepage|keycount|home2012|09a" >
+  
+   <!-- #BeginLibraryItem "/library/index_ad.lbi" --><!-- #EndLibraryItem --> 
+   </div>
+
+  <!--slide end-->
+  <!--slogens-->
+  <style>
+  #jdnews .mc .p-img{ display:none}
+  </style>
+  <div id="jdnews" class="m m1" clstag="homepage|keycount|home2012|11a"> <!-- TemplateBeginEditable name="文章-商城快报" -->
+<!-- #BeginLibraryItem "/library/promotion_info.lbi" -->
+
+<!-- {if $promotion_info} -->
+<!-- 促销信息 -->
+<div class="box">
+ <div class="box_1">
+  <h3><span>{$lang.promotion_info}</span></h3>
+  <div class="boxCenterList RelaArticle">
+    <!-- {foreach from=$promotion_info item=item key=key} -->
+    <!-- {if $item.type eq "snatch"} -->
+    <a href="snatch.php" title="{$lang.$item.type}">{$lang.snatch_promotion}</a>
+    <!-- {elseif $item.type eq "group_buy"} -->
+    <a href="group_buy.php" title="{$lang.$item.type}">{$lang.group_promotion}</a>
+    <!-- {elseif $item.type eq "auction"} -->
+    <a href="auction.php" title="{$lang.$item.type}">{$lang.auction_promotion}</a>
+    <!-- {elseif $item.type eq "favourable"} -->
+    <a href="activity.php" title="{$lang.$item.type}">{$lang.favourable_promotion}</a>
+    <!-- {elseif $item.type eq "package"} -->
+    <a href="package.php" title="{$lang.$item.type}">{$lang.package_promotion}</a>
+    <!-- {/if} -->
+    <a href="{$item.url}" title="{$lang.$item.type} {$item.act_name}{$item.time}" style="background:none; padding-left:0px;">{$item.act_name}</a><br />
+    <!-- {/foreach} -->
+  </div>
+ </div>
+</div>
+<div class="blank5"></div>
+<!-- {/if} -->
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable --> </div>
+  <!--jdnews-->
+<div id="first" class="m m2" clstag="homepage|keycount|home2012|14a">
+     <div class="mt">
+      <h2>商城公告</h2>
+      <div class="extra"></div>
+    </div>
+	
+	
+    <div class="mc gonggao">
+		<img src="../images/gonggao.gif"/>
+    </div>
+  </div>
+    <div><div id="oquery2"><h3>订单查询</h3>
+			<form action="oquery.php" method="post"> &nbsp;&nbsp;输入订单号:<input type="text" name="oquery" id="oq" /><br />
+			<input type="submit" value="查询" /> </form>
+		</div> 
+	</div>
+<div class="w w1">
+  <div class="m m3" id="hot" data-widget="tabs">
+    <div class="fore1 curr" data-widget="tab-item" clstag="homepage|keycount|home2012|13a">
+      <div class="mt">
+        <h2>疯狂抢购</h2>
+      </div>
+      <div class="mc" data-widget="tab-content">
+        <ul class="lh">
+          <!--{foreach from=$promotion_goods item=goods name=index_goods}-->
+          <li class="fore{$smarty.foreach.index_goods.iteration}">
+            <div class="p-img ld"> <a href="{$goods.url}" target="_blank">
+		
+			<img src="{$goods.thumb}" width="130" height="130" alt="{$goods.name|escape:html}"></a> </div>
+            <div class="p-name"><a href="{$goods.url}" title="{$goods.name|escape:html}" target="_blank">{$goods.short_style_name}</a></div>
+            <div class="p-price">售价：<strong>
+              <!-- {if $goods.promote_price neq ""} -->
+              {$goods.promote_price}
+              <!-- {else}-->
+              {$goods.shop_price}
+              <!--{/if}-->
+              </strong></div>
+          </li>
+          <!--{/foreach}-->
+        </ul>
+      </div>
+    </div>
+    <div class="fore2" data-widget="tab-item" clstag="homepage|keycount|home2012|13b">
+      <div class="mt">
+        <h2>热卖商品</h2>
+      </div>
+      <div class="mc" data-widget="tab-content">
+        <ul class="lh">
+          <!--{foreach from=$hot_goods item=goods name=index_goods}-->
+          <li class="fore{$smarty.foreach.index_goods.iteration}">
+            <div class="p-img ld"> <a href="{$goods.url}" target="_blank"><img data-src="{$goods.thumb}" width="130" height="130" alt="{$goods.name|escape:html}" data-img="1"></a> </div>
+            <div class="p-name"><a href="{$goods.url}" title="{$goods.name|escape:html}" target="_blank">{$goods.short_style_name}</a></div>
+            <div class="p-price">售价：<strong>
+              <!-- {if $goods.promote_price neq ""} -->
+              {$goods.promote_price}
+              <!-- {else}-->
+              {$goods.shop_price}
+              <!--{/if}-->
+              </strong></div>
+          </li>
+          <!--{/foreach}-->
+        </ul>
+      </div>
+    </div>
+    <div class="fore3" data-widget="tab-item" clstag="homepage|keycount|home2012|13c">
+      <div class="mt">
+        <h2>推荐商品</h2>
+      </div>
+      <div class="mc" data-widget="tab-content">
+        <ul class="lh">
+          <!--{foreach from=$best_goods item=goods name=index_goods}-->
+          <li class="fore{$smarty.foreach.index_goods.iteration}">
+            <div class="p-img ld"> <a href="{$goods.url}" target="_blank"><img data-src="{$goods.thumb}" width="130" height="130" alt="{$goods.name|escape:html}" data-img="1"></a> </div>
+            <div class="p-name"><a href="{$goods.url}" title="{$goods.name|escape:html}" target="_blank">{$goods.short_style_name}</a></div>
+            <div class="p-price">售价：<strong>
+              <!-- {if $goods.promote_price neq ""} -->
+              {$goods.promote_price}
+              <!-- {else}-->
+              {$goods.shop_price}
+              <!--{/if}-->
+              </strong></div>
+          </li>
+          <!--{/foreach}-->
+        </ul>
+      </div>
+    </div>
+    <div class="fore4" data-widget="tab-item" clstag="homepage|keycount|home2012|13d">
+      <div class="mt">
+        <h2>新品上架</h2>
+      </div>
+      <div class="mc" data-widget="tab-content">
+        <ul class="lh">
+          <!--{foreach from=$new_goods item=goods name=index_goods}-->
+          <li class="fore{$smarty.foreach.index_goods.iteration}">
+            <div class="p-img ld"> <a href="{$goods.url}" target="_blank"><img data-src="{$goods.thumb}" width="130" height="130" alt="{$goods.name|escape:html}" data-img="1"></a> </div>
+            <div class="p-name"><a href="{$goods.url}" title="{$goods.name|escape:html}" target="_blank">{$goods.short_style_name}</a></div>
+            <div class="p-price">售价：<strong>
+              <!-- {if $goods.promote_price neq ""} -->
+              {$goods.promote_price}
+              <!-- {else}-->
+              {$goods.shop_price}
+              <!--{/if}-->
+              </strong></div>
+          </li>
+          <!--{/foreach}-->
+        </ul>
+      </div>
+    </div>
+    <div class="fore5" data-widget="tab-item" data-boole="1" clstag="homepage|keycount|home2012|13e">
+      <div class="mt">
+        <h2>猜您喜欢</h2>
+      </div>
+      <div class="mc" data-widget="tab-content">
+        <ul class="lh">
+          <!--{foreach from=$historys item=goods name=index_goods}-->
+          <li class="fore{$smarty.foreach.index_goods.iteration}">
+            <div class="p-img ld"> <a href="{$goods.url}" target="_blank"><img src="{$goods.goods_thumb}" width="130" height="130" alt="{$goods.name|escape:html}" data-img="1"></a> </div>
+            <div class="p-name"><a href="{$goods.url}" title="{$goods.name|escape:html}" target="_blank">{$goods.short_name}</a></div>
+            <div class="p-price">售价：<strong> {$goods.shop_price} </strong></div>
+          </li>
+          <!--{/foreach}-->
+        </ul>
+       </div>
+    </div>
+ </div>  <div id="virtuals" class="m m3" data-widget="tabs"> <div id="wx2wp"><h2><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;微信商城服务号&nbsp;&nbsp;扫一下...
+ <br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;在线下单更便捷!
+ <br />  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;微信号：wy77sc</p></h2></div> 
+ <div id="wx2w"><img width="210" height="210" src="themes/360buy/images/fwh.jpg"/>
+ </div>  
+ </div> 
+  
+  
+  
+  <span class="clr"></span> </div>
+  <!--hot end-->
+
+  <!--first-->
+  <span class="clr"></span> </div>
+<!-- 单品促销 栏 end -->
+<script type="text/javascript" src="themes/360buy/images/misc/lib/js/e/jquery.timer.js"></script>
+
+<script type="text/javascript" src="themes/360buy/images/misc/lib/js/e/jquery.blinds-0.9.js"></script>
+<!-- TemplateBeginEditable name="商品分类" -->
+<!-- #BeginLibraryItem "/library/cat_goods.lbi" -->
+
+<?php
+		$GLOBALS['smarty']->assign('cat_recommend_type',get_cat_recommend_type($GLOBALS['smarty']->_var['goods_cat']['id']));
+?>
+
+<div class="w w1" 
+<!-- {if $cat_recommend_type eq 2} -->
+id="women"
+<!-- {elseif $cat_recommend_type eq 1} -->
+id="life"
+<!-- {else} -->
+id="digitals"
+<!-- {/if} --> 
+>
+  <div class="m catalogue">
+    <div class="mt ld"> <b>{$goods_cat.name}</b>
+      <h2></h2>
+    </div>
+    <div class="mc">
+      <div class="style1">
+        <ul class="lh">
+		<?php
+			$GLOBALS['smarty']->assign('child_cat',get_hot_cat_tree($GLOBALS['smarty']->_var['goods_cat']['id'], 3));
+	    ?>
+		<!--{foreach from=$child_cat item=cat}-->
+		<!-- {if $cat.name} -->
+          <li><a href="{$cat.url}"><b>·</b>{$cat.name|escape:html}</a></li>
+		<!-- {/if} -->  
+		<!--{foreach from=$cat.child item=cat_child}-->
+		<!-- {if $cat_child.name} -->
+          <li><a href="{$cat_child.url}"><b>·</b>{$cat_child.name|escape:html}</a></li>
+		<!-- {/if} -->  
+        <!--{/foreach}-->	
+        <!--{/foreach}-->
+			
+        </ul>
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-左侧图片', 1));
+	  ?>
+	  <!-- {if $index_image} -->
+        <span>
+		{foreach from=$index_image item=ad name=index_image}
+<a target="_blank" title="" href="{$ad.url}"><img data-img="2" data-lazyload="{$ad.image}" width="208" height="170" alt=""></a>
+		{/foreach}
+		</span>
+		<!-- {/if} -->
+		 </div>
+    </div>
+  </div>
+  
+  <div class="m plist" data-widget="tabs">
+    <div class="sm fore1 curr" data-widget="tab-item">
+      <div class="smt">
+        <h3>推荐商品</h3>
+      </div>
+      <div class="smc" data-widget="tab-content">
+        <!-- ad start -->
+        <div class="slide" clstag="homepage|keycount|home2012|18c9">
+          <div class="slide-itemswrap">
+            <div style="width: 900px; top: 0px; left: -225px;" class="slide-items1" id="slide-items{$goods_cat.id}">
+			<ul>
+			<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-中间图片', 4));
+	  ?>
+	  {foreach from=$index_image item=ad name=index_image}
+      <li><a href="{$ad.url}" target="_blank"><img src="{$ad.image}" height="261" width="225"></a></li>
+      {/foreach}
+            </ul>
+
+            </div>
+          </div>
+          <div class="slide-crystal"></div>
+          <div class="slide-controls"> 
+		  {foreach from=$index_image item=ad name=index_image}
+		      <span <!-- {if $smarty.foreach.index_image.index eq 0} -->class="curr"<!--{/if}--> onMouseOver="change_slide{$goods_cat.id}({$smarty.foreach.index_image.index}, this)">{$smarty.foreach.index_image.iteration}</span>
+		  {/foreach}
+		  </div>
+        </div>
+		<script language="javascript">
+		function change_slide{$goods_cat.id}(i, obj){
+			$('#slide-items{$goods_cat.id}').blinds_change(i);
+			
+			$(obj).parent().children().removeClass('curr');
+			$(obj).addClass('curr');
+		}
+		$(window).load(function () {
+				$('#slide-items{$goods_cat.id}').blinds();
+			})
+		
+		</script>
+        <!-- ad end -->
+        <ul class="lh style1">
+		<?php
+		 $GLOBALS['smarty']->assign('best_goods', get_cat_recommend_goods('best', get_children($GLOBALS['smarty']->_var['goods_cat']['id']), 8));
+
+		?>
+		<!--{foreach from=$best_goods item=goods name=cat_item_goods}-->
+          <li class="fore{$smarty.foreach.cat_item_goods.iteration}">
+            <div style="opacity: 1;" class="p-img p-img-sys"><a href="{$goods.url}" target="_blank" title="{$goods.name|escape:html}"><img class="err-product" data-lazyload="{$goods.thumb}" alt="{$goods.name|escape:html}" data-img="1" height="110" width="110"></a></div>
+            <div class="p-detail">
+              <div class="p-name"><a href="{$goods.url}" target="_blank" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></div>
+              <div class="p-price"><span><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span></div>
+            </div>
+          </li>
+          <!--{/foreach}-->
+        </ul>
+      </div>
+    </div>
+	
+	<?php
+	        $child_cat_index = 1;
+			$GLOBALS['smarty']->assign('child_cat',get_child_cat($GLOBALS['smarty']->_var['goods_cat']['id'], 4));
+	?>
+	<!--{foreach from=$child_cat item=cat_item name=child_cat}-->
+    <?php
+	        $child_cat_index = $child_cat_index + 1;
+			$GLOBALS['smarty']->assign('child_cat_index', $child_cat_index);
+	?>
+    <div class="sm fore{$child_cat_index}" data-widget="tab-item" clstag="homepage|keycount|home2012|18d">
+      <div class="smt">
+        <h3>{$cat_item.name|escape:html}</h3>
+      </div>
+      <div class="smc" data-widget="tab-content">
+        <ul class="lh style2">
+		<?php
+		 $GLOBALS['smarty']->assign('best_goods', get_cat_recommend_goods('best', get_children($GLOBALS['smarty']->_var['cat_item']['id']), 8));
+
+		?>
+		<!--{foreach from=$best_goods item=goods name=cat_item_goods}-->
+          <li class="fore{$smarty.foreach.cat_item_goods.iteration}">
+            <div class="p-img ld"><a title="{$goods.name|escape:html}" href="{$goods.url}" target="_blank"><img width="130" height="130" data-lazyload="{$goods.thumb}" data-img="1" alt="{$goods.name|escape:html}"/></a></div>
+            <div class="p-name"><a title="{$goods.name|escape:html}" href="{$goods.url}" target="_blank">{$goods.short_style_name}</a></div>
+            <div class="p-price">售价：<strong><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></strong></div>
+          </li>
+         <!--{/foreach}--> 
+        </ul>
+      </div>
+    </div>
+
+	
+    <!--{/foreach}-->
+  </div>
+  <!-- ad start -->
+	<div class="sm sm2 brands">
+		<div class="smt">
+			<h3>品牌旗舰店</h3>
+			<div class="extra"><a href="brand.php" target="_blank">更多品牌&nbsp;&gt;</a></div>
+		</div>
+		<div class="smc">
+		<ul class="lh">
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-品牌图片', 9));
+	  ?>
+
+	  {foreach from=$index_image item=ad name=index_image}
+		<li><a target="_blank" href="{$ad.url}"><img height="35" width="98" data-img="2" data-lazyload="{$ad.image}"></a></li>
+	   {/foreach}	
+		</ul></div>
+	</div><!--brands end-->
+
+	<div class="sm sm2 infomation">
+		<div class="smt">
+			<h3>分类资讯</h3>
+		</div>
+		<div class="smc">
+			<ul>
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-分类资讯', 5));
+	  ?>	
+	  {foreach from=$index_image item=ad name=index_image}
+      <li><a href="{$ad.url}" target="_blank" title="{$ad.name}"><b>·</b>{$ad.name}</a></li>
+      {/foreach}
+			</ul>
+		</div>
+	</div>
+
+  <!-- ad start -->
+	<div class="da0x100 dam fr">
+	<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-右侧图片', 1));
+	  ?>
+	  {foreach from=$index_image item=ad name=index_image}
+	<script>
+	(function(){var ad=pageConfig.FN_GetRandomData([{width:310,height:100,src:"{$ad.image}",href:"{$ad.url}",alt:""}]);
+	document.write("<a href=\""+ad.href+"\" target=\"_blank\"><img data-img=\"2\" data-lazyload=\""+ad.src+"\" width=\""+ad.width+"\" height=\""+ad.height+"\" alt=\""+ad.alt+"\" /></a>");})()
+	</script>
+	 {/foreach}
+	</div>
+  <!-- ad end -->
+  <span class="clr"></span> </div>
+ 
+
+
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/cat_goods.lbi" -->
+
+<?php
+		$GLOBALS['smarty']->assign('cat_recommend_type',get_cat_recommend_type($GLOBALS['smarty']->_var['goods_cat']['id']));
+?>
+
+<div class="w w1" 
+<!-- {if $cat_recommend_type eq 2} -->
+id="women"
+<!-- {elseif $cat_recommend_type eq 1} -->
+id="life"
+<!-- {else} -->
+id="digitals"
+<!-- {/if} --> 
+>
+  <div class="m catalogue">
+    <div class="mt ld"> <b>{$goods_cat.name}</b>
+      <h2></h2>
+    </div>
+    <div class="mc">
+      <div class="style1">
+        <ul class="lh">
+		<?php
+			$GLOBALS['smarty']->assign('child_cat',get_hot_cat_tree($GLOBALS['smarty']->_var['goods_cat']['id'], 3));
+	    ?>
+		<!--{foreach from=$child_cat item=cat}-->
+		<!-- {if $cat.name} -->
+          <li><a href="{$cat.url}"><b>·</b>{$cat.name|escape:html}</a></li>
+		<!-- {/if} -->  
+		<!--{foreach from=$cat.child item=cat_child}-->
+		<!-- {if $cat_child.name} -->
+          <li><a href="{$cat_child.url}"><b>·</b>{$cat_child.name|escape:html}</a></li>
+		<!-- {/if} -->  
+        <!--{/foreach}-->	
+        <!--{/foreach}-->
+			
+        </ul>
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-左侧图片', 1));
+	  ?>
+	  <!-- {if $index_image} -->
+        <span>
+		{foreach from=$index_image item=ad name=index_image}
+<a target="_blank" title="" href="{$ad.url}"><img data-img="2" data-lazyload="{$ad.image}" width="208" height="170" alt=""></a>
+		{/foreach}
+		</span>
+		<!-- {/if} -->
+		 </div>
+    </div>
+  </div>
+  
+  <div class="m plist" data-widget="tabs">
+    <div class="sm fore1 curr" data-widget="tab-item">
+      <div class="smt">
+        <h3>推荐商品</h3>
+      </div>
+      <div class="smc" data-widget="tab-content">
+        <!-- ad start -->
+        <div class="slide" clstag="homepage|keycount|home2012|18c9">
+          <div class="slide-itemswrap">
+            <div style="width: 900px; top: 0px; left: -225px;" class="slide-items1" id="slide-items{$goods_cat.id}">
+			<ul>
+			<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-中间图片', 4));
+	  ?>
+	  {foreach from=$index_image item=ad name=index_image}
+      <li><a href="{$ad.url}" target="_blank"><img src="{$ad.image}" height="261" width="225"></a></li>
+      {/foreach}
+            </ul>
+
+            </div>
+          </div>
+          <div class="slide-crystal"></div>
+          <div class="slide-controls"> 
+		  {foreach from=$index_image item=ad name=index_image}
+		      <span <!-- {if $smarty.foreach.index_image.index eq 0} -->class="curr"<!--{/if}--> onMouseOver="change_slide{$goods_cat.id}({$smarty.foreach.index_image.index}, this)">{$smarty.foreach.index_image.iteration}</span>
+		  {/foreach}
+		  </div>
+        </div>
+		<script language="javascript">
+		function change_slide{$goods_cat.id}(i, obj){
+			$('#slide-items{$goods_cat.id}').blinds_change(i);
+			
+			$(obj).parent().children().removeClass('curr');
+			$(obj).addClass('curr');
+		}
+		$(window).load(function () {
+				$('#slide-items{$goods_cat.id}').blinds();
+			})
+		
+		</script>
+        <!-- ad end -->
+        <ul class="lh style1">
+		<?php
+		 $GLOBALS['smarty']->assign('best_goods', get_cat_recommend_goods('best', get_children($GLOBALS['smarty']->_var['goods_cat']['id']), 8));
+
+		?>
+		<!--{foreach from=$best_goods item=goods name=cat_item_goods}-->
+          <li class="fore{$smarty.foreach.cat_item_goods.iteration}">
+            <div style="opacity: 1;" class="p-img p-img-sys"><a href="{$goods.url}" target="_blank" title="{$goods.name|escape:html}"><img class="err-product" data-lazyload="{$goods.thumb}" alt="{$goods.name|escape:html}" data-img="1" height="110" width="110"></a></div>
+            <div class="p-detail">
+              <div class="p-name"><a href="{$goods.url}" target="_blank" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></div>
+              <div class="p-price"><span><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span></div>
+            </div>
+          </li>
+          <!--{/foreach}-->
+        </ul>
+      </div>
+    </div>
+	
+	<?php
+	        $child_cat_index = 1;
+			$GLOBALS['smarty']->assign('child_cat',get_child_cat($GLOBALS['smarty']->_var['goods_cat']['id'], 4));
+	?>
+	<!--{foreach from=$child_cat item=cat_item name=child_cat}-->
+    <?php
+	        $child_cat_index = $child_cat_index + 1;
+			$GLOBALS['smarty']->assign('child_cat_index', $child_cat_index);
+	?>
+    <div class="sm fore{$child_cat_index}" data-widget="tab-item" clstag="homepage|keycount|home2012|18d">
+      <div class="smt">
+        <h3>{$cat_item.name|escape:html}</h3>
+      </div>
+      <div class="smc" data-widget="tab-content">
+        <ul class="lh style2">
+		<?php
+		 $GLOBALS['smarty']->assign('best_goods', get_cat_recommend_goods('best', get_children($GLOBALS['smarty']->_var['cat_item']['id']), 8));
+
+		?>
+		<!--{foreach from=$best_goods item=goods name=cat_item_goods}-->
+          <li class="fore{$smarty.foreach.cat_item_goods.iteration}">
+            <div class="p-img ld"><a title="{$goods.name|escape:html}" href="{$goods.url}" target="_blank"><img width="130" height="130" data-lazyload="{$goods.thumb}" data-img="1" alt="{$goods.name|escape:html}"/></a></div>
+            <div class="p-name"><a title="{$goods.name|escape:html}" href="{$goods.url}" target="_blank">{$goods.short_style_name}</a></div>
+            <div class="p-price">售价：<strong><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></strong></div>
+          </li>
+         <!--{/foreach}--> 
+        </ul>
+      </div>
+    </div>
+
+	
+    <!--{/foreach}-->
+  </div>
+  <!-- ad start -->
+	<div class="sm sm2 brands">
+		<div class="smt">
+			<h3>品牌旗舰店</h3>
+			<div class="extra"><a href="brand.php" target="_blank">更多品牌&nbsp;&gt;</a></div>
+		</div>
+		<div class="smc">
+		<ul class="lh">
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-品牌图片', 9));
+	  ?>
+
+	  {foreach from=$index_image item=ad name=index_image}
+		<li><a target="_blank" href="{$ad.url}"><img height="35" width="98" data-img="2" data-lazyload="{$ad.image}"></a></li>
+	   {/foreach}	
+		</ul></div>
+	</div><!--brands end-->
+
+	<div class="sm sm2 infomation">
+		<div class="smt">
+			<h3>分类资讯</h3>
+		</div>
+		<div class="smc">
+			<ul>
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-分类资讯', 5));
+	  ?>	
+	  {foreach from=$index_image item=ad name=index_image}
+      <li><a href="{$ad.url}" target="_blank" title="{$ad.name}"><b>·</b>{$ad.name}</a></li>
+      {/foreach}
+			</ul>
+		</div>
+	</div>
+
+  <!-- ad start -->
+	<div class="da0x100 dam fr">
+	<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-右侧图片', 1));
+	  ?>
+	  {foreach from=$index_image item=ad name=index_image}
+	<script>
+	(function(){var ad=pageConfig.FN_GetRandomData([{width:310,height:100,src:"{$ad.image}",href:"{$ad.url}",alt:""}]);
+	document.write("<a href=\""+ad.href+"\" target=\"_blank\"><img data-img=\"2\" data-lazyload=\""+ad.src+"\" width=\""+ad.width+"\" height=\""+ad.height+"\" alt=\""+ad.alt+"\" /></a>");})()
+	</script>
+	 {/foreach}
+	</div>
+  <!-- ad end -->
+  <span class="clr"></span> </div>
+ 
+
+
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/cat_goods.lbi" -->
+
+<?php
+		$GLOBALS['smarty']->assign('cat_recommend_type',get_cat_recommend_type($GLOBALS['smarty']->_var['goods_cat']['id']));
+?>
+
+<div class="w w1" 
+<!-- {if $cat_recommend_type eq 2} -->
+id="women"
+<!-- {elseif $cat_recommend_type eq 1} -->
+id="life"
+<!-- {else} -->
+id="digitals"
+<!-- {/if} --> 
+>
+  <div class="m catalogue">
+    <div class="mt ld"> <b>{$goods_cat.name}</b>
+      <h2></h2>
+    </div>
+    <div class="mc">
+      <div class="style1">
+        <ul class="lh">
+		<?php
+			$GLOBALS['smarty']->assign('child_cat',get_hot_cat_tree($GLOBALS['smarty']->_var['goods_cat']['id'], 3));
+	    ?>
+		<!--{foreach from=$child_cat item=cat}-->
+		<!-- {if $cat.name} -->
+          <li><a href="{$cat.url}"><b>·</b>{$cat.name|escape:html}</a></li>
+		<!-- {/if} -->  
+		<!--{foreach from=$cat.child item=cat_child}-->
+		<!-- {if $cat_child.name} -->
+          <li><a href="{$cat_child.url}"><b>·</b>{$cat_child.name|escape:html}</a></li>
+		<!-- {/if} -->  
+        <!--{/foreach}-->	
+        <!--{/foreach}-->
+			
+        </ul>
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-左侧图片', 1));
+	  ?>
+	  <!-- {if $index_image} -->
+        <span>
+		{foreach from=$index_image item=ad name=index_image}
+<a target="_blank" title="" href="{$ad.url}"><img data-img="2" data-lazyload="{$ad.image}" width="208" height="170" alt=""></a>
+		{/foreach}
+		</span>
+		<!-- {/if} -->
+		 </div>
+    </div>
+  </div>
+  
+  <div class="m plist" data-widget="tabs">
+    <div class="sm fore1 curr" data-widget="tab-item">
+      <div class="smt">
+        <h3>推荐商品</h3>
+      </div>
+      <div class="smc" data-widget="tab-content">
+        <!-- ad start -->
+        <div class="slide" clstag="homepage|keycount|home2012|18c9">
+          <div class="slide-itemswrap">
+            <div style="width: 900px; top: 0px; left: -225px;" class="slide-items1" id="slide-items{$goods_cat.id}">
+			<ul>
+			<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-中间图片', 4));
+	  ?>
+	  {foreach from=$index_image item=ad name=index_image}
+      <li><a href="{$ad.url}" target="_blank"><img src="{$ad.image}" height="261" width="225"></a></li>
+      {/foreach}
+            </ul>
+
+            </div>
+          </div>
+          <div class="slide-crystal"></div>
+          <div class="slide-controls"> 
+		  {foreach from=$index_image item=ad name=index_image}
+		      <span <!-- {if $smarty.foreach.index_image.index eq 0} -->class="curr"<!--{/if}--> onMouseOver="change_slide{$goods_cat.id}({$smarty.foreach.index_image.index}, this)">{$smarty.foreach.index_image.iteration}</span>
+		  {/foreach}
+		  </div>
+        </div>
+		<script language="javascript">
+		function change_slide{$goods_cat.id}(i, obj){
+			$('#slide-items{$goods_cat.id}').blinds_change(i);
+			
+			$(obj).parent().children().removeClass('curr');
+			$(obj).addClass('curr');
+		}
+		$(window).load(function () {
+				$('#slide-items{$goods_cat.id}').blinds();
+			})
+		
+		</script>
+        <!-- ad end -->
+        <ul class="lh style1">
+		<?php
+		 $GLOBALS['smarty']->assign('best_goods', get_cat_recommend_goods('best', get_children($GLOBALS['smarty']->_var['goods_cat']['id']), 8));
+
+		?>
+		<!--{foreach from=$best_goods item=goods name=cat_item_goods}-->
+          <li class="fore{$smarty.foreach.cat_item_goods.iteration}">
+            <div style="opacity: 1;" class="p-img p-img-sys"><a href="{$goods.url}" target="_blank" title="{$goods.name|escape:html}"><img class="err-product" data-lazyload="{$goods.thumb}" alt="{$goods.name|escape:html}" data-img="1" height="110" width="110"></a></div>
+            <div class="p-detail">
+              <div class="p-name"><a href="{$goods.url}" target="_blank" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></div>
+              <div class="p-price"><span><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span></div>
+            </div>
+          </li>
+          <!--{/foreach}-->
+        </ul>
+      </div>
+    </div>
+	
+	<?php
+	        $child_cat_index = 1;
+			$GLOBALS['smarty']->assign('child_cat',get_child_cat($GLOBALS['smarty']->_var['goods_cat']['id'], 4));
+	?>
+	<!--{foreach from=$child_cat item=cat_item name=child_cat}-->
+    <?php
+	        $child_cat_index = $child_cat_index + 1;
+			$GLOBALS['smarty']->assign('child_cat_index', $child_cat_index);
+	?>
+    <div class="sm fore{$child_cat_index}" data-widget="tab-item" clstag="homepage|keycount|home2012|18d">
+      <div class="smt">
+        <h3>{$cat_item.name|escape:html}</h3>
+      </div>
+      <div class="smc" data-widget="tab-content">
+        <ul class="lh style2">
+		<?php
+		 $GLOBALS['smarty']->assign('best_goods', get_cat_recommend_goods('best', get_children($GLOBALS['smarty']->_var['cat_item']['id']), 8));
+
+		?>
+		<!--{foreach from=$best_goods item=goods name=cat_item_goods}-->
+          <li class="fore{$smarty.foreach.cat_item_goods.iteration}">
+            <div class="p-img ld"><a title="{$goods.name|escape:html}" href="{$goods.url}" target="_blank"><img width="130" height="130" data-lazyload="{$goods.thumb}" data-img="1" alt="{$goods.name|escape:html}"/></a></div>
+            <div class="p-name"><a title="{$goods.name|escape:html}" href="{$goods.url}" target="_blank">{$goods.short_style_name}</a></div>
+            <div class="p-price">售价：<strong><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></strong></div>
+          </li>
+         <!--{/foreach}--> 
+        </ul>
+      </div>
+    </div>
+
+	
+    <!--{/foreach}-->
+  </div>
+  <!-- ad start -->
+	<div class="sm sm2 brands">
+		<div class="smt">
+			<h3>品牌旗舰店</h3>
+			<div class="extra"><a href="brand.php" target="_blank">更多品牌&nbsp;&gt;</a></div>
+		</div>
+		<div class="smc">
+		<ul class="lh">
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-品牌图片', 9));
+	  ?>
+
+	  {foreach from=$index_image item=ad name=index_image}
+		<li><a target="_blank" href="{$ad.url}"><img height="35" width="98" data-img="2" data-lazyload="{$ad.image}"></a></li>
+	   {/foreach}	
+		</ul></div>
+	</div><!--brands end-->
+
+	<div class="sm sm2 infomation">
+		<div class="smt">
+			<h3>分类资讯</h3>
+		</div>
+		<div class="smc">
+			<ul>
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-分类资讯', 5));
+	  ?>	
+	  {foreach from=$index_image item=ad name=index_image}
+      <li><a href="{$ad.url}" target="_blank" title="{$ad.name}"><b>·</b>{$ad.name}</a></li>
+      {/foreach}
+			</ul>
+		</div>
+	</div>
+
+  <!-- ad start -->
+	<div class="da0x100 dam fr">
+	<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-右侧图片', 1));
+	  ?>
+	  {foreach from=$index_image item=ad name=index_image}
+	<script>
+	(function(){var ad=pageConfig.FN_GetRandomData([{width:310,height:100,src:"{$ad.image}",href:"{$ad.url}",alt:""}]);
+	document.write("<a href=\""+ad.href+"\" target=\"_blank\"><img data-img=\"2\" data-lazyload=\""+ad.src+"\" width=\""+ad.width+"\" height=\""+ad.height+"\" alt=\""+ad.alt+"\" /></a>");})()
+	</script>
+	 {/foreach}
+	</div>
+  <!-- ad end -->
+  <span class="clr"></span> </div>
+ 
+
+
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/cat_goods.lbi" -->
+
+<?php
+		$GLOBALS['smarty']->assign('cat_recommend_type',get_cat_recommend_type($GLOBALS['smarty']->_var['goods_cat']['id']));
+?>
+
+<div class="w w1" 
+<!-- {if $cat_recommend_type eq 2} -->
+id="women"
+<!-- {elseif $cat_recommend_type eq 1} -->
+id="life"
+<!-- {else} -->
+id="digitals"
+<!-- {/if} --> 
+>
+  <div class="m catalogue">
+    <div class="mt ld"> <b>{$goods_cat.name}</b>
+      <h2></h2>
+    </div>
+    <div class="mc">
+      <div class="style1">
+        <ul class="lh">
+		<?php
+			$GLOBALS['smarty']->assign('child_cat',get_hot_cat_tree($GLOBALS['smarty']->_var['goods_cat']['id'], 3));
+	    ?>
+		<!--{foreach from=$child_cat item=cat}-->
+		<!-- {if $cat.name} -->
+          <li><a href="{$cat.url}"><b>·</b>{$cat.name|escape:html}</a></li>
+		<!-- {/if} -->  
+		<!--{foreach from=$cat.child item=cat_child}-->
+		<!-- {if $cat_child.name} -->
+          <li><a href="{$cat_child.url}"><b>·</b>{$cat_child.name|escape:html}</a></li>
+		<!-- {/if} -->  
+        <!--{/foreach}-->	
+        <!--{/foreach}-->
+			
+        </ul>
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-左侧图片', 1));
+	  ?>
+	  <!-- {if $index_image} -->
+        <span>
+		{foreach from=$index_image item=ad name=index_image}
+<a target="_blank" title="" href="{$ad.url}"><img data-img="2" data-lazyload="{$ad.image}" width="208" height="170" alt=""></a>
+		{/foreach}
+		</span>
+		<!-- {/if} -->
+		 </div>
+    </div>
+  </div>
+  
+  <div class="m plist" data-widget="tabs">
+    <div class="sm fore1 curr" data-widget="tab-item">
+      <div class="smt">
+        <h3>推荐商品</h3>
+      </div>
+      <div class="smc" data-widget="tab-content">
+        <!-- ad start -->
+        <div class="slide" clstag="homepage|keycount|home2012|18c9">
+          <div class="slide-itemswrap">
+            <div style="width: 900px; top: 0px; left: -225px;" class="slide-items1" id="slide-items{$goods_cat.id}">
+			<ul>
+			<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-中间图片', 4));
+	  ?>
+	  {foreach from=$index_image item=ad name=index_image}
+      <li><a href="{$ad.url}" target="_blank"><img src="{$ad.image}" height="261" width="225"></a></li>
+      {/foreach}
+            </ul>
+
+            </div>
+          </div>
+          <div class="slide-crystal"></div>
+          <div class="slide-controls"> 
+		  {foreach from=$index_image item=ad name=index_image}
+		      <span <!-- {if $smarty.foreach.index_image.index eq 0} -->class="curr"<!--{/if}--> onMouseOver="change_slide{$goods_cat.id}({$smarty.foreach.index_image.index}, this)">{$smarty.foreach.index_image.iteration}</span>
+		  {/foreach}
+		  </div>
+        </div>
+		<script language="javascript">
+		function change_slide{$goods_cat.id}(i, obj){
+			$('#slide-items{$goods_cat.id}').blinds_change(i);
+			
+			$(obj).parent().children().removeClass('curr');
+			$(obj).addClass('curr');
+		}
+		$(window).load(function () {
+				$('#slide-items{$goods_cat.id}').blinds();
+			})
+		
+		</script>
+        <!-- ad end -->
+        <ul class="lh style1">
+		<?php
+		 $GLOBALS['smarty']->assign('best_goods', get_cat_recommend_goods('best', get_children($GLOBALS['smarty']->_var['goods_cat']['id']), 8));
+
+		?>
+		<!--{foreach from=$best_goods item=goods name=cat_item_goods}-->
+          <li class="fore{$smarty.foreach.cat_item_goods.iteration}">
+            <div style="opacity: 1;" class="p-img p-img-sys"><a href="{$goods.url}" target="_blank" title="{$goods.name|escape:html}"><img class="err-product" data-lazyload="{$goods.thumb}" alt="{$goods.name|escape:html}" data-img="1" height="110" width="110"></a></div>
+            <div class="p-detail">
+              <div class="p-name"><a href="{$goods.url}" target="_blank" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></div>
+              <div class="p-price"><span><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span></div>
+            </div>
+          </li>
+          <!--{/foreach}-->
+        </ul>
+      </div>
+    </div>
+	
+	<?php
+	        $child_cat_index = 1;
+			$GLOBALS['smarty']->assign('child_cat',get_child_cat($GLOBALS['smarty']->_var['goods_cat']['id'], 4));
+	?>
+	<!--{foreach from=$child_cat item=cat_item name=child_cat}-->
+    <?php
+	        $child_cat_index = $child_cat_index + 1;
+			$GLOBALS['smarty']->assign('child_cat_index', $child_cat_index);
+	?>
+    <div class="sm fore{$child_cat_index}" data-widget="tab-item" clstag="homepage|keycount|home2012|18d">
+      <div class="smt">
+        <h3>{$cat_item.name|escape:html}</h3>
+      </div>
+      <div class="smc" data-widget="tab-content">
+        <ul class="lh style2">
+		<?php
+		 $GLOBALS['smarty']->assign('best_goods', get_cat_recommend_goods('best', get_children($GLOBALS['smarty']->_var['cat_item']['id']), 8));
+
+		?>
+		<!--{foreach from=$best_goods item=goods name=cat_item_goods}-->
+          <li class="fore{$smarty.foreach.cat_item_goods.iteration}">
+            <div class="p-img ld"><a title="{$goods.name|escape:html}" href="{$goods.url}" target="_blank"><img width="130" height="130" data-lazyload="{$goods.thumb}" data-img="1" alt="{$goods.name|escape:html}"/></a></div>
+            <div class="p-name"><a title="{$goods.name|escape:html}" href="{$goods.url}" target="_blank">{$goods.short_style_name}</a></div>
+            <div class="p-price">售价：<strong><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></strong></div>
+          </li>
+         <!--{/foreach}--> 
+        </ul>
+      </div>
+    </div>
+
+	
+    <!--{/foreach}-->
+  </div>
+  <!-- ad start -->
+	<div class="sm sm2 brands">
+		<div class="smt">
+			<h3>品牌旗舰店</h3>
+			<div class="extra"><a href="brand.php" target="_blank">更多品牌&nbsp;&gt;</a></div>
+		</div>
+		<div class="smc">
+		<ul class="lh">
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-品牌图片', 9));
+	  ?>
+
+	  {foreach from=$index_image item=ad name=index_image}
+		<li><a target="_blank" href="{$ad.url}"><img height="35" width="98" data-img="2" data-lazyload="{$ad.image}"></a></li>
+	   {/foreach}	
+		</ul></div>
+	</div><!--brands end-->
+
+	<div class="sm sm2 infomation">
+		<div class="smt">
+			<h3>分类资讯</h3>
+		</div>
+		<div class="smc">
+			<ul>
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-分类资讯', 5));
+	  ?>	
+	  {foreach from=$index_image item=ad name=index_image}
+      <li><a href="{$ad.url}" target="_blank" title="{$ad.name}"><b>·</b>{$ad.name}</a></li>
+      {/foreach}
+			</ul>
+		</div>
+	</div>
+
+  <!-- ad start -->
+	<div class="da0x100 dam fr">
+	<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-右侧图片', 1));
+	  ?>
+	  {foreach from=$index_image item=ad name=index_image}
+	<script>
+	(function(){var ad=pageConfig.FN_GetRandomData([{width:310,height:100,src:"{$ad.image}",href:"{$ad.url}",alt:""}]);
+	document.write("<a href=\""+ad.href+"\" target=\"_blank\"><img data-img=\"2\" data-lazyload=\""+ad.src+"\" width=\""+ad.width+"\" height=\""+ad.height+"\" alt=\""+ad.alt+"\" /></a>");})()
+	</script>
+	 {/foreach}
+	</div>
+  <!-- ad end -->
+  <span class="clr"></span> </div>
+ 
+
+
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/cat_goods.lbi" -->
+
+<?php
+		$GLOBALS['smarty']->assign('cat_recommend_type',get_cat_recommend_type($GLOBALS['smarty']->_var['goods_cat']['id']));
+?>
+
+<div class="w w1" 
+<!-- {if $cat_recommend_type eq 2} -->
+id="women"
+<!-- {elseif $cat_recommend_type eq 1} -->
+id="life"
+<!-- {else} -->
+id="digitals"
+<!-- {/if} --> 
+>
+  <div class="m catalogue">
+    <div class="mt ld"> <b>{$goods_cat.name}</b>
+      <h2></h2>
+    </div>
+    <div class="mc">
+      <div class="style1">
+        <ul class="lh">
+		<?php
+			$GLOBALS['smarty']->assign('child_cat',get_hot_cat_tree($GLOBALS['smarty']->_var['goods_cat']['id'], 3));
+	    ?>
+		<!--{foreach from=$child_cat item=cat}-->
+		<!-- {if $cat.name} -->
+          <li><a href="{$cat.url}"><b>·</b>{$cat.name|escape:html}</a></li>
+		<!-- {/if} -->  
+		<!--{foreach from=$cat.child item=cat_child}-->
+		<!-- {if $cat_child.name} -->
+          <li><a href="{$cat_child.url}"><b>·</b>{$cat_child.name|escape:html}</a></li>
+		<!-- {/if} -->  
+        <!--{/foreach}-->	
+        <!--{/foreach}-->
+			
+        </ul>
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-左侧图片', 1));
+	  ?>
+	  <!-- {if $index_image} -->
+        <span>
+		{foreach from=$index_image item=ad name=index_image}
+<a target="_blank" title="" href="{$ad.url}"><img data-img="2" data-lazyload="{$ad.image}" width="208" height="170" alt=""></a>
+		{/foreach}
+		</span>
+		<!-- {/if} -->
+		 </div>
+    </div>
+  </div>
+  
+  <div class="m plist" data-widget="tabs">
+    <div class="sm fore1 curr" data-widget="tab-item">
+      <div class="smt">
+        <h3>推荐商品</h3>
+      </div>
+      <div class="smc" data-widget="tab-content">
+        <!-- ad start -->
+        <div class="slide" clstag="homepage|keycount|home2012|18c9">
+          <div class="slide-itemswrap">
+            <div style="width: 900px; top: 0px; left: -225px;" class="slide-items1" id="slide-items{$goods_cat.id}">
+			<ul>
+			<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-中间图片', 4));
+	  ?>
+	  {foreach from=$index_image item=ad name=index_image}
+      <li><a href="{$ad.url}" target="_blank"><img src="{$ad.image}" height="261" width="225"></a></li>
+      {/foreach}
+            </ul>
+
+            </div>
+          </div>
+          <div class="slide-crystal"></div>
+          <div class="slide-controls"> 
+		  {foreach from=$index_image item=ad name=index_image}
+		      <span <!-- {if $smarty.foreach.index_image.index eq 0} -->class="curr"<!--{/if}--> onMouseOver="change_slide{$goods_cat.id}({$smarty.foreach.index_image.index}, this)">{$smarty.foreach.index_image.iteration}</span>
+		  {/foreach}
+		  </div>
+        </div>
+		<script language="javascript">
+		function change_slide{$goods_cat.id}(i, obj){
+			$('#slide-items{$goods_cat.id}').blinds_change(i);
+			
+			$(obj).parent().children().removeClass('curr');
+			$(obj).addClass('curr');
+		}
+		$(window).load(function () {
+				$('#slide-items{$goods_cat.id}').blinds();
+			})
+		
+		</script>
+        <!-- ad end -->
+        <ul class="lh style1">
+		<?php
+		 $GLOBALS['smarty']->assign('best_goods', get_cat_recommend_goods('best', get_children($GLOBALS['smarty']->_var['goods_cat']['id']), 8));
+
+		?>
+		<!--{foreach from=$best_goods item=goods name=cat_item_goods}-->
+          <li class="fore{$smarty.foreach.cat_item_goods.iteration}">
+            <div style="opacity: 1;" class="p-img p-img-sys"><a href="{$goods.url}" target="_blank" title="{$goods.name|escape:html}"><img class="err-product" data-lazyload="{$goods.thumb}" alt="{$goods.name|escape:html}" data-img="1" height="110" width="110"></a></div>
+            <div class="p-detail">
+              <div class="p-name"><a href="{$goods.url}" target="_blank" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></div>
+              <div class="p-price"><span><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span></div>
+            </div>
+          </li>
+          <!--{/foreach}-->
+        </ul>
+      </div>
+    </div>
+	
+	<?php
+	        $child_cat_index = 1;
+			$GLOBALS['smarty']->assign('child_cat',get_child_cat($GLOBALS['smarty']->_var['goods_cat']['id'], 4));
+	?>
+	<!--{foreach from=$child_cat item=cat_item name=child_cat}-->
+    <?php
+	        $child_cat_index = $child_cat_index + 1;
+			$GLOBALS['smarty']->assign('child_cat_index', $child_cat_index);
+	?>
+    <div class="sm fore{$child_cat_index}" data-widget="tab-item" clstag="homepage|keycount|home2012|18d">
+      <div class="smt">
+        <h3>{$cat_item.name|escape:html}</h3>
+      </div>
+      <div class="smc" data-widget="tab-content">
+        <ul class="lh style2">
+		<?php
+		 $GLOBALS['smarty']->assign('best_goods', get_cat_recommend_goods('best', get_children($GLOBALS['smarty']->_var['cat_item']['id']), 8));
+
+		?>
+		<!--{foreach from=$best_goods item=goods name=cat_item_goods}-->
+          <li class="fore{$smarty.foreach.cat_item_goods.iteration}">
+            <div class="p-img ld"><a title="{$goods.name|escape:html}" href="{$goods.url}" target="_blank"><img width="130" height="130" data-lazyload="{$goods.thumb}" data-img="1" alt="{$goods.name|escape:html}"/></a></div>
+            <div class="p-name"><a title="{$goods.name|escape:html}" href="{$goods.url}" target="_blank">{$goods.short_style_name}</a></div>
+            <div class="p-price">售价：<strong><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></strong></div>
+          </li>
+         <!--{/foreach}--> 
+        </ul>
+      </div>
+    </div>
+
+	
+    <!--{/foreach}-->
+  </div>
+  <!-- ad start -->
+	<div class="sm sm2 brands">
+		<div class="smt">
+			<h3>品牌旗舰店</h3>
+			<div class="extra"><a href="brand.php" target="_blank">更多品牌&nbsp;&gt;</a></div>
+		</div>
+		<div class="smc">
+		<ul class="lh">
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-品牌图片', 9));
+	  ?>
+
+	  {foreach from=$index_image item=ad name=index_image}
+		<li><a target="_blank" href="{$ad.url}"><img height="35" width="98" data-img="2" data-lazyload="{$ad.image}"></a></li>
+	   {/foreach}	
+		</ul></div>
+	</div><!--brands end-->
+
+	<div class="sm sm2 infomation">
+		<div class="smt">
+			<h3>分类资讯</h3>
+		</div>
+		<div class="smc">
+			<ul>
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-分类资讯', 5));
+	  ?>	
+	  {foreach from=$index_image item=ad name=index_image}
+      <li><a href="{$ad.url}" target="_blank" title="{$ad.name}"><b>·</b>{$ad.name}</a></li>
+      {/foreach}
+			</ul>
+		</div>
+	</div>
+
+  <!-- ad start -->
+	<div class="da0x100 dam fr">
+	<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-右侧图片', 1));
+	  ?>
+	  {foreach from=$index_image item=ad name=index_image}
+	<script>
+	(function(){var ad=pageConfig.FN_GetRandomData([{width:310,height:100,src:"{$ad.image}",href:"{$ad.url}",alt:""}]);
+	document.write("<a href=\""+ad.href+"\" target=\"_blank\"><img data-img=\"2\" data-lazyload=\""+ad.src+"\" width=\""+ad.width+"\" height=\""+ad.height+"\" alt=\""+ad.alt+"\" /></a>");})()
+	</script>
+	 {/foreach}
+	</div>
+  <!-- ad end -->
+  <span class="clr"></span> </div>
+ 
+
+
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/cat_goods.lbi" -->
+
+<?php
+		$GLOBALS['smarty']->assign('cat_recommend_type',get_cat_recommend_type($GLOBALS['smarty']->_var['goods_cat']['id']));
+?>
+
+<div class="w w1" 
+<!-- {if $cat_recommend_type eq 2} -->
+id="women"
+<!-- {elseif $cat_recommend_type eq 1} -->
+id="life"
+<!-- {else} -->
+id="digitals"
+<!-- {/if} --> 
+>
+  <div class="m catalogue">
+    <div class="mt ld"> <b>{$goods_cat.name}</b>
+      <h2></h2>
+    </div>
+    <div class="mc">
+      <div class="style1">
+        <ul class="lh">
+		<?php
+			$GLOBALS['smarty']->assign('child_cat',get_hot_cat_tree($GLOBALS['smarty']->_var['goods_cat']['id'], 3));
+	    ?>
+		<!--{foreach from=$child_cat item=cat}-->
+		<!-- {if $cat.name} -->
+          <li><a href="{$cat.url}"><b>·</b>{$cat.name|escape:html}</a></li>
+		<!-- {/if} -->  
+		<!--{foreach from=$cat.child item=cat_child}-->
+		<!-- {if $cat_child.name} -->
+          <li><a href="{$cat_child.url}"><b>·</b>{$cat_child.name|escape:html}</a></li>
+		<!-- {/if} -->  
+        <!--{/foreach}-->	
+        <!--{/foreach}-->
+			
+        </ul>
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-左侧图片', 1));
+	  ?>
+	  <!-- {if $index_image} -->
+        <span>
+		{foreach from=$index_image item=ad name=index_image}
+<a target="_blank" title="" href="{$ad.url}"><img data-img="2" data-lazyload="{$ad.image}" width="208" height="170" alt=""></a>
+		{/foreach}
+		</span>
+		<!-- {/if} -->
+		 </div>
+    </div>
+  </div>
+  
+  <div class="m plist" data-widget="tabs">
+    <div class="sm fore1 curr" data-widget="tab-item">
+      <div class="smt">
+        <h3>推荐商品</h3>
+      </div>
+      <div class="smc" data-widget="tab-content">
+        <!-- ad start -->
+        <div class="slide" clstag="homepage|keycount|home2012|18c9">
+          <div class="slide-itemswrap">
+            <div style="width: 900px; top: 0px; left: -225px;" class="slide-items1" id="slide-items{$goods_cat.id}">
+			<ul>
+			<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-中间图片', 4));
+	  ?>
+	  {foreach from=$index_image item=ad name=index_image}
+      <li><a href="{$ad.url}" target="_blank"><img src="{$ad.image}" height="261" width="225"></a></li>
+      {/foreach}
+            </ul>
+
+            </div>
+          </div>
+          <div class="slide-crystal"></div>
+          <div class="slide-controls"> 
+		  {foreach from=$index_image item=ad name=index_image}
+		      <span <!-- {if $smarty.foreach.index_image.index eq 0} -->class="curr"<!--{/if}--> onMouseOver="change_slide{$goods_cat.id}({$smarty.foreach.index_image.index}, this)">{$smarty.foreach.index_image.iteration}</span>
+		  {/foreach}
+		  </div>
+        </div>
+		<script language="javascript">
+		function change_slide{$goods_cat.id}(i, obj){
+			$('#slide-items{$goods_cat.id}').blinds_change(i);
+			
+			$(obj).parent().children().removeClass('curr');
+			$(obj).addClass('curr');
+		}
+		$(window).load(function () {
+				$('#slide-items{$goods_cat.id}').blinds();
+			})
+		
+		</script>
+        <!-- ad end -->
+        <ul class="lh style1">
+		<?php
+		 $GLOBALS['smarty']->assign('best_goods', get_cat_recommend_goods('best', get_children($GLOBALS['smarty']->_var['goods_cat']['id']), 8));
+
+		?>
+		<!--{foreach from=$best_goods item=goods name=cat_item_goods}-->
+          <li class="fore{$smarty.foreach.cat_item_goods.iteration}">
+            <div style="opacity: 1;" class="p-img p-img-sys"><a href="{$goods.url}" target="_blank" title="{$goods.name|escape:html}"><img class="err-product" data-lazyload="{$goods.thumb}" alt="{$goods.name|escape:html}" data-img="1" height="110" width="110"></a></div>
+            <div class="p-detail">
+              <div class="p-name"><a href="{$goods.url}" target="_blank" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></div>
+              <div class="p-price"><span><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span></div>
+            </div>
+          </li>
+          <!--{/foreach}-->
+        </ul>
+      </div>
+    </div>
+	
+	<?php
+	        $child_cat_index = 1;
+			$GLOBALS['smarty']->assign('child_cat',get_child_cat($GLOBALS['smarty']->_var['goods_cat']['id'], 4));
+	?>
+	<!--{foreach from=$child_cat item=cat_item name=child_cat}-->
+    <?php
+	        $child_cat_index = $child_cat_index + 1;
+			$GLOBALS['smarty']->assign('child_cat_index', $child_cat_index);
+	?>
+    <div class="sm fore{$child_cat_index}" data-widget="tab-item" clstag="homepage|keycount|home2012|18d">
+      <div class="smt">
+        <h3>{$cat_item.name|escape:html}</h3>
+      </div>
+      <div class="smc" data-widget="tab-content">
+        <ul class="lh style2">
+		<?php
+		 $GLOBALS['smarty']->assign('best_goods', get_cat_recommend_goods('best', get_children($GLOBALS['smarty']->_var['cat_item']['id']), 8));
+
+		?>
+		<!--{foreach from=$best_goods item=goods name=cat_item_goods}-->
+          <li class="fore{$smarty.foreach.cat_item_goods.iteration}">
+            <div class="p-img ld"><a title="{$goods.name|escape:html}" href="{$goods.url}" target="_blank"><img width="130" height="130" data-lazyload="{$goods.thumb}" data-img="1" alt="{$goods.name|escape:html}"/></a></div>
+            <div class="p-name"><a title="{$goods.name|escape:html}" href="{$goods.url}" target="_blank">{$goods.short_style_name}</a></div>
+            <div class="p-price">售价：<strong><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></strong></div>
+          </li>
+         <!--{/foreach}--> 
+        </ul>
+      </div>
+    </div>
+
+	
+    <!--{/foreach}-->
+  </div>
+  <!-- ad start -->
+	<div class="sm sm2 brands">
+		<div class="smt">
+			<h3>品牌旗舰店</h3>
+			<div class="extra"><a href="brand.php" target="_blank">更多品牌&nbsp;&gt;</a></div>
+		</div>
+		<div class="smc">
+		<ul class="lh">
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-品牌图片', 9));
+	  ?>
+
+	  {foreach from=$index_image item=ad name=index_image}
+		<li><a target="_blank" href="{$ad.url}"><img height="35" width="98" data-img="2" data-lazyload="{$ad.image}"></a></li>
+	   {/foreach}	
+		</ul></div>
+	</div><!--brands end-->
+
+	<div class="sm sm2 infomation">
+		<div class="smt">
+			<h3>分类资讯</h3>
+		</div>
+		<div class="smc">
+			<ul>
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-分类资讯', 5));
+	  ?>	
+	  {foreach from=$index_image item=ad name=index_image}
+      <li><a href="{$ad.url}" target="_blank" title="{$ad.name}"><b>·</b>{$ad.name}</a></li>
+      {/foreach}
+			</ul>
+		</div>
+	</div>
+
+  <!-- ad start -->
+	<div class="da0x100 dam fr">
+	<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-右侧图片', 1));
+	  ?>
+	  {foreach from=$index_image item=ad name=index_image}
+	<script>
+	(function(){var ad=pageConfig.FN_GetRandomData([{width:310,height:100,src:"{$ad.image}",href:"{$ad.url}",alt:""}]);
+	document.write("<a href=\""+ad.href+"\" target=\"_blank\"><img data-img=\"2\" data-lazyload=\""+ad.src+"\" width=\""+ad.width+"\" height=\""+ad.height+"\" alt=\""+ad.alt+"\" /></a>");})()
+	</script>
+	 {/foreach}
+	</div>
+  <!-- ad end -->
+  <span class="clr"></span> </div>
+ 
+
+
+
+ <!-- #EndLibraryItem -->
+<!-- #BeginLibraryItem "/library/cat_goods.lbi" -->
+
+<?php
+		$GLOBALS['smarty']->assign('cat_recommend_type',get_cat_recommend_type($GLOBALS['smarty']->_var['goods_cat']['id']));
+?>
+
+<div class="w w1" 
+<!-- {if $cat_recommend_type eq 2} -->
+id="women"
+<!-- {elseif $cat_recommend_type eq 1} -->
+id="life"
+<!-- {else} -->
+id="digitals"
+<!-- {/if} --> 
+>
+  <div class="m catalogue">
+    <div class="mt ld"> <b>{$goods_cat.name}</b>
+      <h2></h2>
+    </div>
+    <div class="mc">
+      <div class="style1">
+        <ul class="lh">
+		<?php
+			$GLOBALS['smarty']->assign('child_cat',get_hot_cat_tree($GLOBALS['smarty']->_var['goods_cat']['id'], 3));
+	    ?>
+		<!--{foreach from=$child_cat item=cat}-->
+		<!-- {if $cat.name} -->
+          <li><a href="{$cat.url}"><b>·</b>{$cat.name|escape:html}</a></li>
+		<!-- {/if} -->  
+		<!--{foreach from=$cat.child item=cat_child}-->
+		<!-- {if $cat_child.name} -->
+          <li><a href="{$cat_child.url}"><b>·</b>{$cat_child.name|escape:html}</a></li>
+		<!-- {/if} -->  
+        <!--{/foreach}-->	
+        <!--{/foreach}-->
+			
+        </ul>
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-左侧图片', 1));
+	  ?>
+	  <!-- {if $index_image} -->
+        <span>
+		{foreach from=$index_image item=ad name=index_image}
+<a target="_blank" title="" href="{$ad.url}"><img data-img="2" data-lazyload="{$ad.image}" width="208" height="170" alt=""></a>
+		{/foreach}
+		</span>
+		<!-- {/if} -->
+		 </div>
+    </div>
+  </div>
+  
+  <div class="m plist" data-widget="tabs">
+    <div class="sm fore1 curr" data-widget="tab-item">
+      <div class="smt">
+        <h3>推荐商品</h3>
+      </div>
+      <div class="smc" data-widget="tab-content">
+        <!-- ad start -->
+        <div class="slide" clstag="homepage|keycount|home2012|18c9">
+          <div class="slide-itemswrap">
+            <div style="width: 900px; top: 0px; left: -225px;" class="slide-items1" id="slide-items{$goods_cat.id}">
+			<ul>
+			<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-中间图片', 4));
+	  ?>
+	  {foreach from=$index_image item=ad name=index_image}
+      <li><a href="{$ad.url}" target="_blank"><img src="{$ad.image}" height="261" width="225"></a></li>
+      {/foreach}
+            </ul>
+
+            </div>
+          </div>
+          <div class="slide-crystal"></div>
+          <div class="slide-controls"> 
+		  {foreach from=$index_image item=ad name=index_image}
+		      <span <!-- {if $smarty.foreach.index_image.index eq 0} -->class="curr"<!--{/if}--> onMouseOver="change_slide{$goods_cat.id}({$smarty.foreach.index_image.index}, this)">{$smarty.foreach.index_image.iteration}</span>
+		  {/foreach}
+		  </div>
+        </div>
+		<script language="javascript">
+		function change_slide{$goods_cat.id}(i, obj){
+			$('#slide-items{$goods_cat.id}').blinds_change(i);
+			
+			$(obj).parent().children().removeClass('curr');
+			$(obj).addClass('curr');
+		}
+		$(window).load(function () {
+				$('#slide-items{$goods_cat.id}').blinds();
+			})
+		
+		</script>
+        <!-- ad end -->
+        <ul class="lh style1">
+		<?php
+		 $GLOBALS['smarty']->assign('best_goods', get_cat_recommend_goods('best', get_children($GLOBALS['smarty']->_var['goods_cat']['id']), 8));
+
+		?>
+		<!--{foreach from=$best_goods item=goods name=cat_item_goods}-->
+          <li class="fore{$smarty.foreach.cat_item_goods.iteration}">
+            <div style="opacity: 1;" class="p-img p-img-sys"><a href="{$goods.url}" target="_blank" title="{$goods.name|escape:html}"><img class="err-product" data-lazyload="{$goods.thumb}" alt="{$goods.name|escape:html}" data-img="1" height="110" width="110"></a></div>
+            <div class="p-detail">
+              <div class="p-name"><a href="{$goods.url}" target="_blank" title="{$goods.name|escape:html}">{$goods.short_style_name}</a></div>
+              <div class="p-price"><span><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span></div>
+            </div>
+          </li>
+          <!--{/foreach}-->
+        </ul>
+      </div>
+    </div>
+	
+	<?php
+	        $child_cat_index = 1;
+			$GLOBALS['smarty']->assign('child_cat',get_child_cat($GLOBALS['smarty']->_var['goods_cat']['id'], 4));
+	?>
+	<!--{foreach from=$child_cat item=cat_item name=child_cat}-->
+    <?php
+	        $child_cat_index = $child_cat_index + 1;
+			$GLOBALS['smarty']->assign('child_cat_index', $child_cat_index);
+	?>
+    <div class="sm fore{$child_cat_index}" data-widget="tab-item" clstag="homepage|keycount|home2012|18d">
+      <div class="smt">
+        <h3>{$cat_item.name|escape:html}</h3>
+      </div>
+      <div class="smc" data-widget="tab-content">
+        <ul class="lh style2">
+		<?php
+		 $GLOBALS['smarty']->assign('best_goods', get_cat_recommend_goods('best', get_children($GLOBALS['smarty']->_var['cat_item']['id']), 8));
+
+		?>
+		<!--{foreach from=$best_goods item=goods name=cat_item_goods}-->
+          <li class="fore{$smarty.foreach.cat_item_goods.iteration}">
+            <div class="p-img ld"><a title="{$goods.name|escape:html}" href="{$goods.url}" target="_blank"><img width="130" height="130" data-lazyload="{$goods.thumb}" data-img="1" alt="{$goods.name|escape:html}"/></a></div>
+            <div class="p-name"><a title="{$goods.name|escape:html}" href="{$goods.url}" target="_blank">{$goods.short_style_name}</a></div>
+            <div class="p-price">售价：<strong><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></strong></div>
+          </li>
+         <!--{/foreach}--> 
+        </ul>
+      </div>
+    </div>
+
+	
+    <!--{/foreach}-->
+  </div>
+  <!-- ad start -->
+	<div class="sm sm2 brands">
+		<div class="smt">
+			<h3>品牌旗舰店</h3>
+			<div class="extra"><a href="brand.php" target="_blank">更多品牌&nbsp;&gt;</a></div>
+		</div>
+		<div class="smc">
+		<ul class="lh">
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-品牌图片', 9));
+	  ?>
+
+	  {foreach from=$index_image item=ad name=index_image}
+		<li><a target="_blank" href="{$ad.url}"><img height="35" width="98" data-img="2" data-lazyload="{$ad.image}"></a></li>
+	   {/foreach}	
+		</ul></div>
+	</div><!--brands end-->
+
+	<div class="sm sm2 infomation">
+		<div class="smt">
+			<h3>分类资讯</h3>
+		</div>
+		<div class="smc">
+			<ul>
+		<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-分类资讯', 5));
+	  ?>	
+	  {foreach from=$index_image item=ad name=index_image}
+      <li><a href="{$ad.url}" target="_blank" title="{$ad.name}"><b>·</b>{$ad.name}</a></li>
+      {/foreach}
+			</ul>
+		</div>
+	</div>
+
+  <!-- ad start -->
+	<div class="da0x100 dam fr">
+	<?php
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('首页-分类ID'.$GLOBALS['smarty']->_var['goods_cat']['id'].'-右侧图片', 1));
+	  ?>
+	  {foreach from=$index_image item=ad name=index_image}
+	<script>
+	(function(){var ad=pageConfig.FN_GetRandomData([{width:310,height:100,src:"{$ad.image}",href:"{$ad.url}",alt:""}]);
+	document.write("<a href=\""+ad.href+"\" target=\"_blank\"><img data-img=\"2\" data-lazyload=\""+ad.src+"\" width=\""+ad.width+"\" height=\""+ad.height+"\" alt=\""+ad.alt+"\" /></a>");})()
+	</script>
+	 {/foreach}
+	</div>
+  <!-- ad end -->
+  <span class="clr"></span> </div>
+ 
+
+
+
+ <!-- #EndLibraryItem -->
+<!-- TemplateEndEditable -->
+
+
+
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<script type="text/javascript" src="themes/360buy/images/misc/product/js/2012/home.js"></script>
+
+</body>
+</html>
+<!--index_ok-->
+

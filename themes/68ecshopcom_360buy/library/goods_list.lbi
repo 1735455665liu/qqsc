@@ -1,0 +1,313 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="box">
+  <div id="filter">
+    <form method="GET" name="listform" >
+      <div class='fore1' style="border:none;">
+        <dl class='order'>
+          <dt>排序：</dt>
+          <dd class=<!-- {if $pager.sort == 'goods_id'} -->curr<!-- {/if} -->>
+          	<a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter={$filterid}&filter_attr={$filter_attr}&page={$pager.page}&sort=goods_id&order=<!-- {if $pager.sort == 'goods_id' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->#goods_list">上架</a><b class="icon-order-{if $pager.sort == 'goods_id'}{$pager.order}{else}DESC{/if}ending"></b>
+          </dd>
+          <dd class=<!-- {if $pager.sort == 'salenum'} -->curr<!-- {/if} -->>
+          	<a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter={$filterid}&filter_attr={$filter_attr}&page={$pager.page}&sort=salenum&order=<!-- {if $pager.sort == 'salenum' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->#goods_list">销量</a><b class="icon-order-{if $pager.sort == 'salenum'}{$pager.order}{else}DESC{/if}ending"></b>
+          </dd>
+          <dd class=<!-- {if $pager.sort == 'shop_price'} -->curr<!--{/if}-->>
+          	<a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter={$filterid}&filter_attr={$filter_attr}&page={$pager.page}&sort=shop_price&order=<!-- {if $pager.sort == 'shop_price' && $pager.order == 'ASC'} -->DESC<!-- {else} -->ASC<!-- {/if} -->#goods_list">价格</a><b class="icon-order-{if $pager.sort == 'shop_price'}{$pager.order}{else}DESC{/if}ending"></b>
+          </dd>
+          <dd class=<!-- {if $pager.sort == 'last_update'} -->curr<!-- {/if} -->>
+          	<a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter={$filterid}&filter_attr={$filter_attr}&page={$pager.page}&sort=last_update&order=<!-- {if $pager.sort == 'last_update' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->#goods_list">更新</a><b class="icon-order-{if $pager.sort == 'last_update'}{$pager.order}{else}DESC{/if}ending"></b>
+          </dd>
+          <dd class=<!-- {if $pager.sort == 'click_count'} -->curr<!-- {/if} -->>
+          	<a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter={$filterid}&filter_attr={$filter_attr}&page={$pager.page}&sort=click_count&order=<!-- {if $pager.sort == 'click_count' && $pager.order == 'DESC'} -->ASC<!-- {else} -->DESC<!-- {/if} -->#goods_list" rel='nofollow'>人气</a><b class="icon-order-{if $pager.sort == 'click_count'}{$pager.order}{else}DESC{/if}ending"></b>
+          </dd>
+      	  <dd class="leixing">
+	  		<!--{foreach from=$filterinfo item=filter}-->
+	  		<input type='radio' name='fff' onclick='top.location.href="{$filter.url}"' <!-- {if $filter.selected} --> checked <!-- {/if} --> >{$filter.name}
+	  		<!--{/foreach}-->
+	  	  </dd>
+		</dl>
+        <div class="display_mod">
+        	 <a href="javascript:;" onClick="javascript:display_mode('list')" title="列表显示"><img src="images/display_mode_list<!-- {if $pager.display == 'list'} -->_act<!-- {/if} -->.gif" alt="{$lang.display.list}"></a>
+  <a href="javascript:;" onClick="javascript:display_mode('grid')" title="表格显示"><img src="images/display_mode_grid<!-- {if $pager.display == 'grid'} -->_act<!-- {/if} -->.gif" alt="{$lang.display.grid}"></a>
+  <a href="javascript:;" onClick="javascript:display_mode('text')" title="文本显示"><img src="images/display_mode_text<!-- {if $pager.display == 'text'} -->_act<!-- {/if} -->.gif" alt="{$lang.display.text}"></a>
+        </div>
+        <div class='pagin pagin-m'><span class='text'>{$pager.page}/{$pager.page_count}</span><!-- {if $pager.page_prev} --> 
+          <a href="{$pager.page_prev}" class="prev" >上一页<b></b></a> 
+          <!-- {else} --> 
+          <span class="prev-disabled">上一页<b></b></span> 
+          <!-- {/if} --> 
+          <!-- {if $pager.page_next} --> 
+          <a href="{$pager.page_next}" class="next" >下一页<b></b></a> 
+          <!-- {else} --> 
+          <span class="next-disabled">下一页<b></b></span> 
+          <!-- {/if} --></div>
+          <div class='total'><span>共<strong>{$pager.record_count}</strong>个商品</span></div>
+  		<div style="height:0px; line-height:0px; clear:both;"></div>
+      </div>
+      <input type="hidden" name="category" value="{$category}" />
+      <input type="hidden" name="display" value="{$pager.display}" id="display" />
+      <input type="hidden" name="brand" value="{$brand_id}" />
+      <input type="hidden" name="price_min" value="{$price_min}" />
+      <input type="hidden" name="price_max" value="{$price_max}" />
+      <input type="hidden" name="filter_attr" value="{$filter_attr}" />
+      <input type="hidden" name="page" value="{$pager.page}" />
+      <input type="hidden" name="sort" value="{$pager.sort}" />
+      <input type="hidden" name="order" value="{$pager.order}" />
+    </form>
+  </div>
+  <!-- {if $category > 0} -->
+  <form name="compareForm" action="compare.php" method="post" onSubmit="return compareGoods(this);">
+    <!-- {/if} -->
+    <!-- {if $pager.display == 'list'} -->
+    <div class="goodsList clearfix">
+    <!--{foreach name=goods_list from=$goods_list item=goods}-->
+    <ul class="clearfix bgcolor" <!--{if $smarty.foreach.goods_list.index mod 2 eq 0}-->id=""<!--{else}-->id="bgcolor"<!--{/if}-->>
+    	<li class="thumb"><a href="{$goods.url}"><img data-original="{$goods.goods_thumb}" src="themes/68ecshopcom_360buy/images/loading.gif" title="{$goods.name|escape:html}" class="pic_img_{$goods.goods_id}"/></a></li>
+    	<li class="goodsName">
+    		<a href="{$goods.url}" class="f6">
+        	<!-- {if $goods.goods_style_name} -->
+        	{$goods.goods_style_name}<br />
+        	<!-- {else} -->
+        	{$goods.goods_name}<br />
+        	<!-- {/if} -->
+      		</a>
+     		<!-- {if $goods.goods_brief} -->
+    		{$lang.goods_brief}{$goods.goods_brief}<br />
+    		<!-- {/if} -->
+    	</li>
+    	<li>
+    	<!-- {if $show_marketprice} -->
+   		{$lang.market_price}<font class="market">{$goods.market_price}</font><br />
+    	<!-- {/if} -->
+    	<!--{if $goods.promote_price neq "" } -->
+    	{$lang.promote_price}<font class="shop">{$goods.promote_price}</font><br />
+    	<!--{else}-->
+    	{$lang.shop_price}<font class="shop">{$goods.shop_price}</font><br />
+    	<!--{/if}-->
+    	</li>
+    	<li class="action">
+         	<a class="compare-btn" data-goods="{$goods.goods_id}" data-type="{$goods.type}" onclick="Compare.add({$goods.goods_id},'{$goods.name|escape:"html"}','{$goods.type}', '{$goods.goods_thumb}', '{$goods.shop_price}')"></a>
+    		<a href="javascript:collect({$goods.goods_id});" class="abg">收藏</a>
+    		<a href="javascript:addToCart({$goods.goods_id});" nctype="add_cart" class="adc">加入购物车</a>
+    	</li>
+    </ul>
+    <!--{/foreach}-->
+    </div>
+    <!-- {elseif $pager.display == 'grid'} -->
+    <div class="squares clearfix">
+      <ul class="list_pic">
+        <!--{foreach from=$goods_list item=goods name=name}--> 
+        <!-- {if $goods.goods_id} -->
+        <li class="item" {if $smarty.foreach.name.iteration % 4 eq 1}style="margin-left:0px;"{/if} id="li_{$goods.goods_id}">
+          <div class="goods-content" >
+            <div class="goods-pic" ><a href="{$goods.url}" target="_blank"  title="{$goods.name|escape:html}"><img data-original="{$goods.goods_thumb}" src="themes/68ecshopcom_360buy/images/loading.gif" title="{$goods.name|escape:html}" class="pic_img_{$goods.goods_id}"></a> </div>
+            <div class="goods-info"> 
+              <div class="goods-name"><a href="{$goods.url}" target="_blank" title="{$goods.name|escape:html}">{$goods.name|escape:html}<em></em></a></div>
+              <div class="goods-price"> <em class="sale-price" title="本店价：<!--{if $goods.promote_price neq "" } -->{$goods.promote_price}<!--{else}-->{$goods.shop_price}<!--{/if}-->"><!--{if $goods.promote_price neq "" } -->{$goods.promote_price}<!--{else}-->{$goods.shop_price}<!--{/if}--></em> <em class="market-price" title="">{$goods.market_price}</em></div>
+              <div class="sell-stat">
+                <ul>
+                  <li><a href="{$goods.url}" target="_blank" class="status">{$goods.count}</a>
+                    <p>商品销量</p>
+                  </li>
+                  <li><a href="{$goods.url}#product-detail" target="_blank">{$goods.comment_count}</a>
+                    <p>用户评论</p>
+                  </li>
+                  <li><em member_id="46"><a class="chat chat_offline" href="javascript:;">{$goods.click_count}</a>&nbsp;</em>
+                    <p>关注人气</p>
+                  </li>
+                </ul>
+              </div>
+              <div class="store"> <a href="javascript:collect({$goods.goods_id});" class="name">钉一下</a> <a class="compare-btn shop-compare" data-goods="{$goods.goods_id}" data-type="{$goods.type}" onclick="Compare.add({$goods.goods_id},'{$goods.name|escape:"html"}','{$goods.type}', '{$goods.goods_thumb}', '{$goods.shop_price}')"></a> </div>
+              <div class="add-cart"> <a href="javascript:addToCart({$goods.goods_id});"><i class="icon-shopping-cart"></i>加入购物车</a> </div>
+            </div>
+          </div>
+        </li>
+        <!--{/if}--> 
+        <!--{/foreach}-->
+      </ul>
+    </div>
+    <!-- {elseif $pager.display == 'text'} -->
+    <div class="goodsList clearfix">
+    <!--{foreach from=$goods_list item=goods name=goods_list }-->
+     <ul class="clearfix bgcolor" {if $smarty.foreach.goods_list.index mod 2 eq 0}id=""{else}id="bgcolor"{/if}>
+    <li class="goodsName">
+    <a href="{$goods.url}" class="f6 f5">
+        <!-- {if $goods.goods_style_name} -->
+        {$goods.goods_style_name}<br />
+        <!-- {else} -->
+        {$goods.goods_name}<br />
+        <!-- {/if} -->
+      </a>
+     <!-- {if $goods.goods_brief} -->
+    {$lang.goods_brief}{$goods.goods_brief}<br />
+    <!-- {/if} -->
+    </li>
+    <li>
+    <!-- {if $show_marketprice} -->
+    {$lang.market_price}<font class="market">{$goods.market_price}</font><br />
+    <!-- {/if} -->
+    <!--{if $goods.promote_price neq "" } -->
+    {$lang.promote_price}<font class="shop">{$goods.promote_price}</font><br />
+    <!--{else}-->
+    {$lang.shop_price}<font class="shop">{$goods.shop_price}</font><br />
+    <!--{/if}-->
+    </li>
+    <li class="action">
+			<a class="compare-btn" data-goods="{$goods.goods_id}" data-type="{$goods.type}" onclick="Compare.add({$goods.goods_id},'{$goods.name|escape:"html"}','{$goods.type}', '{$goods.goods_thumb}', '{$goods.shop_price}')"></a>
+    		<a href="javascript:collect({$goods.goods_id});" class="abg">收藏</a>
+    		<a href="javascript:addToCart({$goods.goods_id});" nctype="add_cart" class="adc">加入购物车</a>   
+       </li>
+    </ul>
+    <!--{/foreach}-->
+    </div>
+    <!-- {/if} -->
+    <!-- {if $category > 0} -->
+  </form>
+  <!-- {/if} --> 
+  
+</div>
+<style type="text/css">
+.goods-guess-like { border: solid 1px #EEE; margin: 0 auto 20px auto;}
+.goods-guess-like .title {  font: bold 14px/20px "microsoft yahei"; color: #666; padding: 8px 19px; border-bottom: solid 1px #EEE;}
+.goods-pic { width: 200px; height: 200px; margin: 15px auto 0 auto;}
+.goods-pic a { line-height: 0; text-align: center; vertical-align: middle; display: table-cell; *display: block; width: 200px; height: 200px; padding: 0; overflow: hidden;}
+.goods-pic a img { max-width: 200px; max-height: 200px; margin-top:expression(200-this.height/2); *margin-top:expression(100-this.height/2)/*IE6,7*/;}
+.goods-info { width: 200px; margin: 5px auto 15px auto;}
+.goods-info dt { line-height: 18px; height: 36px; overflow: hidden;}
+.goods-info dd { font: bold 12px/20px Verdana; color: #C00;}
+.goods-info dd em { font-size: 14px; font-weight: 600; margin: 0 4px;}
+.goods-promotion { font: 700 12px/15px "microsoft yahei"; color: #FFFFFF; background: url("http://www.shopnctest.com/b2b2c/2014/demo/shop/templates/default/images/2014shop_background_img.png") no-repeat scroll 0 -100px rgba(0, 0, 0, 0); text-align: center; width: 30px; height: 30px; padding: 20px 9px 15px; position: absolute; top: 5px; right: 5px; z-index: 2;}
+
+.noguess { color: #AAA; text-align: center; padding: 50px 0;}
+
+</style>
+<div class="blank5"></div>
+<script type="Text/Javascript" language="JavaScript">
+<!--
+{literal}
+function selectPage(sel)
+{
+  sel.form.submit();
+}
+{/literal}
+//-->
+</script> 
+<script type="text/javascript">
+window.onload = function()
+{
+  Compare.init();
+  fixpng();
+}
+{foreach from=$lang.compare_js item=item key=key}
+{if $key neq 'button_compare'}
+var {$key} = "{$item}";
+{else}
+var button_compare = '';
+{/if}
+{/foreach}
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+</script> 
+<script type="text/javascript" src="js/json2.js"></script> 
+<script>
+$(document).ready(function(e) {
+    $('#compareBox .menu li').click(function(e) {
+		$('#compareBox .menu li').each(function(index, element) {
+			$(this).removeClass('current');
+        });
+		if($(this).attr('data-value') == 'compare')
+		{
+			$('#historyList').css('display', 'none');
+			$('#compareList').css('display', 'block');
+		}
+		else
+		{
+			$('#historyList').css('display', 'block');
+			$('#compareList').css('display', 'none');
+		}
+        $(this).addClass('current');
+    });
+	if($('#historyList li').length > 4)
+	{
+		$('#historyList ul').css('width', (226*$('#historyList li').length)+'px');
+		$('#historyList #sc-prev').addClass('disable');
+		var count = 0;
+		$('#historyList #sc-next').click(function(e) {
+			if(($('#historyList li').length-4) > count)
+			{
+				count++;
+				$('#historyList #sc-prev').removeClass('disable');
+				if(($('#historyList li').length-4) >= count)
+					$('#historyList ul').animate({marginLeft:(-226*count)+'px'});
+				if(($('#historyList li').length-4) == count)
+					$('#historyList #sc-next').addClass('disable');
+			}
+        });
+		$('#historyList #sc-prev').click(function(e) {
+			if(count > 0)
+			{
+				count--;
+				$('#historyList #sc-next').removeClass('disable');
+				if(count >= 0)
+					$('#historyList ul').animate({marginLeft:(-226*count)+'px'});
+				if(count == 0)
+					$('#historyList #sc-prev').addClass('disable');
+			}
+        });
+	}
+	else
+	{
+		$('#historyList #sc-prev').css('display', 'none');
+		$('#historyList #sc-next').css('display', 'none');
+	}
+	var compareData = new Object();
+	var compareCookie = document.getCookie('compareItems');
+	var count = 0;
+	if(compareCookie != null)
+	{
+		compareData = JSON.parse(compareCookie);
+        for(var k in compareData)
+        {
+            if(typeof(compareData[k])=="function")
+            	continue;
+            $('.compare-btn').each(function(index, element) {
+            	if(k == $(this).attr('data-goods'))
+					$(this).css('background-position', '0 -24px');
+        	});
+			count ++;
+        }
+	}
+	if(count>0)
+	{
+		$('#compareBox').css('display', 'block');
+	}
+	
+});
+function toggle_compare_box()
+{
+	if($('#compareBox').css('display') == 'none')
+	{
+		$('#compareBox').css('display', 'block');
+	}
+	else
+	{
+		$('#compareBox').css('display', 'none');
+	}
+}
+</script>
+<div align="center" id="compareBox" style="display:none">
+  <div class="menu">
+    <ul>
+      <li class="current" data-value='compare'>对比栏</li>
+      <li data-value='history'>最近浏览</li>
+    </ul>
+    <a style="color:#005AA0;float: right; line-height: 32px; margin-right: 20px;" href="javascript:void(0)" onClick="toggle_compare_box()">隐藏</a>
+    <div style="clear:both"></div>
+  </div>
+  <div id="compareList"> </div>
+  <div id="historyList" style="display:none;"> <span id="sc-prev" class="sc-prev scroll-btn"></span> <span id="sc-next" class="sc-next scroll-btn"></span>
+    <div class="scroll_wrap"> {insert name='history_list'} </div>
+  </div>
+</div>

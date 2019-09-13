@@ -1,0 +1,31 @@
+{if $full_page}
+{include file="pageheader.htm"}
+{insert_scripts files="../js/utils.js,listtable.js"}
+{insert_scripts files="validator.js"}
+
+<div id="separate">
+<div class="form-div">
+<form method="post" action="diy_cat.php">
+            <table width="100%" border="0" cellspacing="0" cellpadding="4">
+			<tr><td align="right" class="label"></td><td>设置DIY页面对应的分类</td><tr>
+			 {foreach from=$diy_cat item=diy name=num}
+				<tr>
+                    <td align="right" class="label">{$diy.diy_name}：</td>
+                    <td><select name="diy_cat[{$diy.diy_id}]" ><option value="0">{$lang.select_please}</option>{$diy.cat_list}</select></td>
+                </tr>
+			 {/foreach}
+			    <tr>
+				    <td></td>
+                    <td><input type="hidden" name="act" value="update" /><input type="submit" value="{$lang.button_submit}" class="button" /></td>
+                </tr>
+            </table>
+    </form>
+</div>
+
+</div>
+<script type="Text/Javascript" language="JavaScript">
+
+//-->
+</script>
+{include file="pagefooter.htm"}
+{/if}

@@ -1,0 +1,43 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <?php
+	  $GLOBALS['smarty']->assign('categories',       get_categories_tree(0)); // 分类树
+	  ?>
+<div class="m" id="sortlist">
+      <div class="mt">
+        <h2>商品分类</h2>
+      </div>
+      <div class="mc">
+	  
+	  <!--{foreach from=$categories item=cat}-->
+        <div id="child_{$cat.id}" class='item <!-- {if $cat.id eq $category} -->current<!-- {/if} -->'>
+          <h3 style="text-align:left; font-weight:bold"><b></b>{$cat.name|escape:html}</h3>
+          <ul>
+		  <!--{foreach from=$cat.cat_id item=child}-->
+		  <!-- {if $child.id eq $category} -->
+		  <script language="javascript">
+		  $('#child_{$cat.id}').addClass("current");
+		  </script>
+		  <!-- {/if} -->
+            <li><a href="{$child.url}" <!-- {if $child.id eq $category} -->style="color:#FF0000"<!-- {/if} -->>{$child.name|escape:html}</a></li>
+          <!--{/foreach}-->
+          </ul>
+        </div>
+	 <!--{/foreach}-->		
+       
+      </div>
+    </div>
+<div class="blank5"></div>	
+    <!--sortlist end-->
+<script type="text/javascript">
+            $("#sortlist h3").bind("click",function(){
+	            var element=$(this).parent();
+	            if (element.hasClass("current")){
+		            element.removeClass("current");
+	            }else{
+		            element.addClass("current");
+	            }
+            })
+            </script>  
+
+
+

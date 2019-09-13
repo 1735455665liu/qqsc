@@ -1,0 +1,113 @@
+﻿<div style="style:display:none"></div>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+$(document).ready(function(){
+  var a = $("#specialId").children("div");
+  var b = $("#showcase"); 
+  if($(a).length > 0){ 
+		b.css({"display":"block"});
+
+	} 
+	else{ 
+		b.css({"display":"none"});
+	} 
+});
+</script>
+<script>
+$(document).ready(function(){
+	$(".s-img").hover(function(){
+		var m=$(this).find("img");
+		m.stop().animate({left:"-10px"},100);
+		},function(){
+			var m=$(this).find("img");
+			m.stop().animate({left:"0"},100);
+	});
+});
+</script>
+<div id="showcase" class="w advanced" style="display:none">
+  <!--<div class="m">
+    <div class="mt">
+      <h2>品牌专区</h2>
+      <img alt="品牌专区" height="24" data-original="themes/68ecshopcom_360buy/images/upgrade_ad/ad/title.png" src="themes/68ecshopcom_360buy/images/loading.gif" class="err-product"> 
+    </div>
+    <div class="mc">
+      <div id="specialId" class="sc-list clearfix">
+        <div class="item w-bg">
+          <div class="aside">
+            <h3>品牌专区</h3>
+            <div class="s-name"><a target="_blank" href="#">得力专区</a> </div>
+            <div class="s-ext"><b>满500减100</b></div>
+            <ul class="s-hotword">
+              <li><i></i>更多品牌</li>
+              <li><i></i>进入品牌专区</li>
+            </ul>
+          </div>
+          <a class="s-img" target="_blank" href="/topic.php?topic_id=1"> <img class="err-product" width="305px" height="190px" alt="" data-original="themes/68ecshopcom_360buy/images/upgrade_ad/ad/1.jpg" src="themes/68ecshopcom_360buy/images/loading.gif"> </a> </div>
+        <div class="item ">
+          <div class="aside"> <a class="s-link" target="_blank" href="#"></a>
+            <h3>天天低价</h3>
+            <div class="s-name"> <a target="_blank" href="#">文具专区</a> </div>
+            <div class="s-ext"><b>直降75元秒杀</b></div>
+            <ul class="s-hotword">
+            </ul>
+          </div>
+          <a class="s-img" target="_blank" href="/topic.php?topic_id=2"> <img class="err-product" width="305px" height="190px" alt="" data-original="themes/68ecshopcom_360buy/images/upgrade_ad/ad/2.jpg" src="themes/68ecshopcom_360buy/images/loading.gif"> </a> </div>
+        <div class="item w-bg">
+          <div class="aside">
+            <h3>好东西</h3>
+            <div class="s-name"> <a target="_blank" href="#">惠普打印机</a> </div>
+            <div class="s-ext"><b>1299送保护套</b></div>
+            <ul class="s-hotword">
+              <li><i></i>新春大焕新</li>
+              <li><i></i>逛更多&gt;</li>
+            </ul>
+          </div>
+          <a class="s-img" target="_blank" href="#"> <img class="err-product" width="305px" height="190px" alt="" data-original="themes/68ecshopcom_360buy/images/upgrade_ad/ad/3.jpg" src="themes/68ecshopcom_360buy/images/loading.gif"> </a> </div>
+        <div class="item ">
+          <div class="aside">
+            <h3>今日团购</h3>
+            <div class="s-name"> <a target="_blank" href="#">100元代金券</a> </div>
+            <div class="s-ext"><b></b></div>
+            <a class="s-tuangou" href="#" target="_blank"> <em>团购价</em><strong>￥85</strong> </a> </div>
+          <a class="s-img" target="_blank" href="/topic.php?topic_id=3"> <img class="err-product" width="305px" height="190px" alt="" data-original="themes/68ecshopcom_360buy/images/upgrade_ad/ad/4.jpg" src="themes/68ecshopcom_360buy/images/loading.gif"> </a> </div>
+        <div class="item ">
+          <div class="aside">
+            <h3>京东首发</h3>
+            <div class="s-name"> <a target="_blank" href="#">设备管理</a> </div>
+            <div class="s-ext"><b>待修改</b></div>
+            <ul class="s-hotword">
+            </ul>
+          </div>
+          <a class="s-img" target="_blank" href="/topic.php?topic_id=4"> <img class="err-product" width="305px" height="190px" alt="" data-original="themes/68ecshopcom_360buy/images/upgrade_ad/ad/5.jpg" src="themes/68ecshopcom_360buy/images/loading.gif"> </a> </div>
+        <div class="item w-bg">
+          <div class="aside">
+            <h3>优惠券</h3>
+            <div class="s-name"> <a target="_blank" href="#">施华洛世奇</a> </div>
+            <div class="s-ext"><b>新年好礼送</b></div>
+            <ul class="s-hotword">
+            </ul>
+          </div>
+          <a class="s-img" target="_blank" href="/topic.php?topic_id=5"> <img class="err-product" width="305px" height="190px" alt="" data-original="themes/68ecshopcom_360buy/images/upgrade_ad/ad/6.jpg" src="themes/68ecshopcom_360buy/images/loading.gif"> </a> </div>
+        <div class="item ">
+          <div class="aside">
+            <h3>京东预售</h3>
+            <div class="s-name"> <a target="_blank" href="#">优酷路由宝</a> </div>
+            <div class="s-ext"><b>能赚钱的神器</b></div>
+            <ul class="s-hotword">
+            </ul>
+          </div>
+          <a class="s-img" target="_blank" href="#"> <img class="err-product" width="305px" height="190px" alt="" data-original="themes/68ecshopcom_360buy/images/upgrade_ad/ad/7.jpg" src="themes/68ecshopcom_360buy/images/loading.gif"> </a> </div>
+        <div class="item w-bg">
+          <div class="aside">
+            <h3>金融精选</h3>
+            <div class="s-name"> <a target="_blank" href="#">打白条0元购</a> </div>
+            <div class="s-ext"><b>iPad Air分期购</b></div>
+            <ul class="s-hotword">
+            </ul>
+          </div>
+          <a class="s-img" target="_blank" href="#"> <img class="err-product" width="305px" height="190px" alt="" data-original="themes/68ecshopcom_360buy/images/upgrade_ad/ad/8.jpg" src="themes/68ecshopcom_360buy/images/loading.gif"> </a> </div>
+      </div>
+    </div>
+  </div>-->
+</div>
+<div style="style:display:none"></div>

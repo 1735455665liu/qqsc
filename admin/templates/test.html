@@ -1,0 +1,22 @@
+<!DOCTYPE>
+<html lang="zh_CN">
+	<head>
+		<meta charset="utf-8"/>
+		<title>{$test}</title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	</head>
+	<body>
+		{$test}<hr />
+		<form action="goods_actions.php?act=1" method="post" enctype="multipart/form-data">
+			<input type="text" id="text1" value="">
+			
+		</form>
+	</body>
+	<script>
+		$(document).ready(function(){
+			$('#text1').keydown(function(ev){
+				alert(ev.keyCode);
+			});
+		});
+	</script>
+</html>

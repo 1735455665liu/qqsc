@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<link rel="Stylesheet" type="text/css" href="themes/360buy/images/misc/201007/skin/df/allbrands20120221.css" />
+<style>
+#b-allbrand{width:990px;}
+.root61 #b-allbrand{width:1210px;}
+</style>
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<script type="text/javascript" src="themes/360buy/images/misc/lib/js/2012/base-2011.js"></script>
+<div class="w">
+  <ul class="tab" id="tab-link">
+    <li><a href="catalog.php">全部商品分类</a></li>
+    <li class="curr"><a href="brand.php">全部品牌</a></li>
+    <li><a href="search.php">全部商品</a></li>
+  </ul>
+  <!--tab end-->
+</div>
+ <?php
+	  $GLOBALS['smarty']->assign('categories',       get_categories_tree(0)); // 分类树
+	  ?>
+
+    <div style="border:1px solid #cccccc;  margin:0px auto; margin-bottom:20px; padding-bottom:20px;" id="b-allbrand">
+     
+	  <ul id="tab-sort" class="tab">
+	  <!--{foreach from=$categories item=cat name=categories}-->
+	  <!-- {if $smarty.foreach.categories.iteration < 12} -->
+        <li <!-- {if $smarty.foreach.categories.iteration eq 1} -->class="curr"<!-- {/if} -->><a href="#JDS_0{$smarty.foreach.categories.iteration}">{$cat.name|escape:html}</a></li>
+	  <!-- {/if} -->	
+	  <!--{/foreach}-->	  
+
+      </ul>
+	  <!--{foreach from=$categories item=cat name=categories}-->
+	  <!-- {if $smarty.foreach.categories.iteration < 12} -->
+	  <?php
+					 $GLOBALS['smarty']->assign('get_cat_brands', get_cat_brands($GLOBALS['smarty']->_var['cat']['id']));
+  ?>
+      <div class="brandslist tabcon <!-- {if $smarty.foreach.categories.iteration neq 1} -->hide<!-- {/if} -->">
+	  <!-- {if $get_cat_brands} -->
+        <ul class="list-h">
+		
+		<!--{foreach from=$get_cat_brands item=brand_cat name=get_cat_brands}-->
+          <li>
+            <div><span class="b-img"><a target="_blank" href="brand.php?id={$brand_cat.id}"><img width="138" height="46" alt="{$brand_cat.name}" src="data/brandlogo/{$brand_cat.logo}"/></a></span><span class="b-name"><a target="_blank" href="brand.php?id={$brand_cat.id}">{$brand_cat.name}</a></span></div>
+          </li>
+         <!--{/foreach}--> 
+        </ul>
+        <!-- {else} -->
+		<div style="padding:20px; width:150px; margin:0px auto; font-size:14px; font-weight:bold ">当前分类无品牌!</div>
+		
+		<!-- {/if} -->
+      </div>
+      <!-- {/if} -->	
+       <!--{/foreach}-->
+	   
+	   	
+	
+	  
+	  
+	   
+	   
+    </div>
+  
+ 
+<script type="text/javascript">
+	$("#b-allbrand").jdTab({
+		event:"click"
+	},function(url,object,n){
+		object.find("img").each(function(){
+			var src2=$(this).attr("src2");
+			$(this).attr("src",src2);
+			$(this).removeAttr("src2");
+		})
+	});
+	</script>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<script type="text/javascript" src="themes/360buy/images/misc/lib/js/2012/lib-v1.js"></script>
+</body>
+</html>
+

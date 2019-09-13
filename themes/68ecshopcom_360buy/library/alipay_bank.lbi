@@ -1,0 +1,51 @@
+<script>
+function payment_alipay_bank()
+{
+	document.getElementById('alipay_bank').checked=true;
+}
+function clear_radio_alipay_bank(){
+	var x=document.getElementsByName("w_bank");  
+	for(var i=0;i<x.length;i++){ 
+		if (x[i].checked==true)
+		{
+			x[i].checked=false;
+		}
+	}
+}
+</script>
+<ul>
+<li><input type="radio" onclick="payment_alipay_bank();" name="w_bank" value="ICBCB2C" ><img src="images/alipay_bank/10.gif" align="absmiddle"></li>
+<li><input type="radio" onclick="payment_alipay_bank();" name="w_bank" value="CMB" ><img src="images/alipay_bank/17.gif" align="absmiddle"></li>
+<li><input type="radio" onclick="payment_alipay_bank();" name="w_bank" value="CCB" ><img src="images/alipay_bank/2.gif" align="absmiddle"></li>
+
+<li><input type="radio" onclick="payment_alipay_bank();" name="w_bank" value="ABC" ><img src="images/alipay_bank/1.gif" align="absmiddle"></li>
+<li><input type="radio" onclick="payment_alipay_bank();" name="w_bank" value="COMM" ><img src="images/alipay_bank/5.gif" align="absmiddle"></li>
+<li><input type="radio" onclick="payment_alipay_bank();" name="w_bank" value="CMBC" ><img src="images/alipay_bank/4.gif" align="absmiddle"></li>
+
+<li ><input type="radio" onclick="payment_alipay_bank();" name="w_bank" value="BOCB2C" >
+<img src="images/alipay_bank/19.gif" align="absmiddle">
+</li>
+<li><input type="radio" onclick="payment_alipay_bank();" name="w_bank" value="CITIC" ><img src="images/alipay_bank/7.gif" align="absmiddle"></li>
+<li><input type="radio" onclick="payment_alipay_bank();" name="w_bank" value="CEB-DEBIT" >
+<img src="images/alipay_bank/3.gif" align="absmiddle"></li>
+
+
+<li><input type="radio" onclick="payment_alipay_bank();" name="w_bank" value="CIB" ><img src="images/alipay_bank/27.gif" align="absmiddle"></li>
+<li><input type="radio" onclick="payment_alipay_bank();" name="w_bank" value="SDB" ><img src="images/alipay_bank/8.gif" align="absmiddle"></li>
+<li><input type="radio" onclick="payment_alipay_bank();" name="w_bank" value="GDB" ><img src="images/alipay_bank/6.gif" align="absmiddle"></li>
+
+
+<li><input type="radio" onclick="payment_alipay_bank();" name="w_bank" value="BJBANK" ><img src="images/alipay_bank/11.gif" align="absmiddle"></li>
+<li><input type="radio" onclick="payment_alipay_bank();" name="w_bank" value="SPDB" ><img src="images/alipay_bank/12.gif" align="absmiddle"></li>
+<li><input type="radio" onclick="payment_alipay_bank();" name="w_bank" value="SHBANK" ><img src="images/alipay_bank/20.gif" align="absmiddle"></li>
+
+
+
+<li><input type="radio" onclick="payment_alipay_bank();" name="w_bank" value="PSBC-DEBIT" ><img align="absmiddle" src="images/alipay_bank/29.gif"></li>
+<li><input type="radio" onclick="payment_alipay_bank();" name="w_bank" value="SPABANK" ><img align="absmiddle" src="images/alipay_bank/18.gif"></li>
+<li><input type="radio" onclick="payment_alipay_bank();" name="w_bank" value="HZCBB2C" ><img align="absmiddle" src="images/alipay_bank/26.gif"></li>
+
+
+<li><input type="radio" onclick="payment_alipay_bank();" name="w_bank" value="NBBANK" ><img align="absmiddle" src="images/alipay_bank/21.gif"></li>
+
+</ul>

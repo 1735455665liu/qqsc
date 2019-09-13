@@ -1,0 +1,33 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<form name="selectPageForm" action="{$smarty.server.PHP_SELF}" method="get">
+<div class="m clearfix">
+      <div class="pagin fr"> 
+	  <!-- {if $pager.page_prev} -->
+	  <a href="{$pager.page_prev}" class="prev" >上一页<b></b></a>
+	  <!-- {else} -->
+	  <span class="prev-disabled">上一页<b></b></span>
+	  <!-- {/if} -->
+	  <!--{foreach from=$pager.page_number key=key item=item}-->
+      <!-- {if $pager.page eq $key} -->
+	  <a href="{$item}" class="current">{$key}</a>
+      <!-- {else} -->
+      <a href="{$item}">{$key}</a>
+      <!-- {/if} -->
+    <!--{/foreach}-->
+
+	  <!-- {if $pager.page_next} -->
+	  <a href="{$pager.page_next}" class="next" >下一页<b></b></a>
+	  <!-- {else} -->
+	  <span class="next-disabled">下一页<b></b></span>
+	  <!-- {/if} -->
+	  </div>
+      <!--pagin end-->
+    </div>
+	<!--{foreach from=$pager.search key=key item=item}-->
+      {if $key eq 'keywords'}
+          <input type="hidden" name="{$key}" value="{$item|escape:decode_url}" />
+        {else}
+          <input type="hidden" name="{$key}" value="{$item}" />
+      {/if}
+    <!--{/foreach}-->
+</form>	

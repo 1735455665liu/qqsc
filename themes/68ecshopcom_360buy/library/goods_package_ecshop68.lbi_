@@ -1,0 +1,75 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+{if $package_goods_list_1}
+<style>
+.B_eee{border:1px solid #eee;width:100px;height:100px;}
+.none{display:none;}
+.package{background:#fff; padding-bottom:2px; overflow:hidden;}
+.pa_tit{width:100%;height:35px;border-left:1px solid #ddd;border-bottom:2px #E31939 solid}
+.pa_tit h2{
+	float:left;
+	width:132px;
+	height:34px;
+	line-height:34px;
+	border-right:#ddd 1px solid;
+	border-top:#ddd 1px solid;
+	font-size:14px;
+	text-align:center;
+	color:#666;
+	font-weight:normal;
+	font-family:Arial, Verdana, microsoft yahei;
+	MARGIN-LEFT: -1px;
+}
+.pa_tit h2.current{height:34px;line-height:34px;background:#E31939;border:#E31939 1px solid;color:#ffffff}
+.pa_box{height:auto;border:1px solid #dadada;border-top:none;}
+.pa_box ul{float:left;width:77%;padding:20px 10px;overflow:hidden;}
+.pa_box ul li{float:left;width:133px;padding-left:10px;background:url(themes/68ecshopcom_360buy/images/ico_add.gif) no-repeat right 50px;}
+.pa_box ul li a{color:#333;text-decoration:none;width:100px;display:block;margin-bottom:8px}
+.pa_box ul li a:hover{color:#E31939}
+.pa_box ul li.last{background:none;}
+.pa_box .buypack{float:right;width:20%;padding-top:30px;color:#333;}
+.pa_box .buypack .f_yuan{font-size:14px; text-decoration:line-through;}
+.pa_box .buypack .f_save{font-size:14px;}
+.pa_box .buypack .f_pack{color:#e4393c; font-size:17px; font-weight:bold;}
+.pa_box .buypack .f_pack1{color:#e4393c;font-size:14px;}
+.btn_pack{width:120px;height:32px;margin-top:10px;line-height:32px;text-align:center;border:none;background:#E31939;color:#ffffff;font-size: 14px;font-family: "微软雅黑";cursor:pointer;}
+</style>
+
+<div class="package">
+	<div class="pa_tit" id="package_tit">
+	{foreach from=$package_goods_list_1 name="pa_list" item=pa_item}
+	<h2 {if $smarty.foreach.pa_list.iteration eq 1}class="current"{/if}>优惠套餐{$smarty.foreach.pa_list.iteration}</h2>
+	{/foreach}
+	</div>
+	<div class="pa_box clearfix" >		
+		{foreach from=$package_goods_list_1 name="pa_list" item=pa_item}
+		<div id="package_box_{$smarty.foreach.pa_list.index}" {if $smarty.foreach.pa_list.index > 0 }class="none"{/if}>
+		<ul >
+			{foreach from=$pa_item.goods_list name="pa_list_goods" item=pa_goods}
+			<li {if $smarty.foreach.pa_list_goods.last}class="last"{/if}>
+			<a href="goods.php?id={$pa_goods.goods_id}" target="_blank" title="{$pa_goods.goods_name}">
+			<img src="{$pa_goods.goods_thumb}" class="B_eee" >
+			</a>
+			<a href="goods.php?id={$pa_goods.goods_id}" target="_blank" title="{$pa_goods.goods_name}">
+			{$pa_goods.goods_name|truncate:7}{$pa_goods.goods_attr_str}
+			</a>
+			<input type="checkbox" name="{$pa_goods.rank_price}" id="{$pa_goods.rank_price_zk}" value="{$pa_goods.goods_id}-{$pa_goods.product_id}" checked=checked onClick="check_package({$smarty.foreach.pa_list.index},this);" {if $smarty.foreach.pa_list_goods.index eq 0}style="display:none;"{/if}  autocomplete="off">
+			<font color=#e4393c>{$pa_goods.rank_price_zk_format}  </font>
+			</li>
+			{/foreach}
+		</ul>
+		<div class="buypack">
+			{$lang.old_price}<font class="f_yuan" id="price_yuan_{$smarty.foreach.pa_list.index}">{$pa_item.subtotal}</font><br />
+			<strong><font class="f_pack1" >套餐价：</font></strong><font class="f_pack" id="price_pack_{$smarty.foreach.pa_list.index}">{$pa_item.package_price}</font><br />
+			{$lang.then_old_price}<font class="f_save" id="price_save_{$smarty.foreach.pa_list.index}">{$pa_item.saving} </font><br />
+			<input type="button" class="btn_pack" value="购买此套餐" onClick="javascript:addPackageToCart({$pa_item.act_id}, {$smarty.foreach.pa_list.index})" >			
+		</div>
+		</div>
+		{/foreach}
+	</div>	 
+	  
+</div>
+<div class="blank"></div>
+<script type="text/javascript">
+reg_package();
+</script>
+{/if}

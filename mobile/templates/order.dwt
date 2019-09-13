@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>确认订单 - {$shop_name}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="ecy.cc">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="style/base2013.css" />
+<link rel="stylesheet" type="text/css" href="style/all_html5.css" />
+<link rel="stylesheet" type="text/css" href="style/chapter.css" />
+{insert_scripts files='../../js/transport.js,../js/utils.js'}
+{insert_scripts files="shopping_flow.js"}
+<script type="text/javascript">
+	function submit(obj){
+		obj.submit();
+	}
+	function check(theForm){
+		var paymentSelected = false;
+		var shippingSelected = false;
+		for (i = 0; i < theForm.elements.length; i ++ ){
+			if (theForm.elements[i].name == 'shipping' && theForm.elements[i].checked){
+				shippingSelected = true;
+			}
+			if (theForm.elements[i].name == 'payment' && theForm.elements[i].checked){
+				paymentSelected = true;
+			}
+		}
+		var flow_no_shipping = "必须选定一个配送方式。";
+		var flow_no_payment = "必须选定一个支付方式。";
+		if ( !shippingSelected){
+			alert(flow_no_shipping);
+			return false;
+		}
+		if ( ! paymentSelected){
+			alert(flow_no_payment);
+			return false;
+		}
+		theform.submit();
+	}
+</script>
+<script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="js/common1.js" type="text/javascript"></script>
+</head>
+<body>
+{include file='head2.dwt'}
+<div class="order_lise pagepadd">
+	<form onSubmit="javascript:return check(theForm);" action="order.php?act=done" method="post" name="theForm" id="theForm" >
+		<input type="hidden" name="order_type" value="2">
+		<!--订单信息-->
+		<h3>商品列表</h3>
+		<table width="100%" border="0" cellpadding="5" cellspacing="1">
+			<!-- {foreach from=$goods_list item=goods} -->
+			<tr>
+				<td><!-- {if $goods.goods_id gt 0 && $goods.extension_code eq 'package_buy'} -->
+					<a href="javascript:void(0)" onClick="setSuitShow({$goods.goods_id})">{$goods.goods_name}<span style="color:#FF0000;">（{$lang.remark_package}）</span></a>
+					<div id="suit_{$goods.goods_id}" style="display:none">
+						<!-- {foreach from=$goods.package_goods_list item=package_goods_list} -->
+						<a href="goods.php?id={$package_goods_list.goods_id}" class="f6">{$package_goods_list.goods_name}</a><br />
+						<!-- {/foreach} -->
+					</div>
+					<!-- { else } -->
+					<a href="goods.php?id={$goods.goods_id}" class="f6">{$goods.goods_name}</a>
+					<!-- {if $goods.parent_id > 0} -->
+					<span style="color:#FF0000">（相关配件）</span>
+					<!-- {elseif $goods.is_gift} -->
+					<span style="color:#FF0000">（赠品）</span>
+					<!-- {/if} -->
+					<!-- {/if} -->
+					<!-- {if $goods.is_shipping} -->
+					(<span style="color:#FF0000">免运费商品</span>)
+					<!-- {/if} -->
+					{$goods.formated_goods_price} <span class="red">x</span> {$goods.goods_number}</td>
+			</tr>
+			<!-- {/foreach} -->
+			<tr>
+				<td colspan="1"><!-- {if $discount gt 0} -->
+					{$your_discount}<br />
+					<!-- {/if} -->
+					<span class="red">{$shopping_money}</span>
+					<!-- {if $show_marketprice} -->
+					，{$market_price_desc}
+					<!--{/if}--></td>
+			</tr>
+		</table>
+		<h3>收货人信息</h3>
+		<table width="100%" border="0" cellpadding="5" cellspacing="1">
+			<tr>
+				<td width="80">收货人:</td>
+				<td>{$consignee.consignee|escape}</td>
+			</tr>
+			<!-- {if $total.real_goods_count gt 0} -->
+			<tr>
+				<td>详址:</td>
+				<td>{$consignee.address|escape} </td>
+			</tr>
+			<!-- {/if} -->
+			<tr>
+				<td>电话:</td>
+				<td>{$consignee.tel}</td>
+			</tr>
+		</table>
+		<h3>配送方式</h3>
+		<table width="100%" border="0" cellpadding="5" cellspacing="1">
+			<!-- {foreach from=$shipping_list item=shipping} 循环配送方式 -->
+			<tr>
+				<td width="10" valign="middle"><input name="shipping" id="shipping" type="radio" value="{$shipping.shipping_id}"{if $order.shipping_id eq $shipping.shipping_id and $shipping.support_cod neq 1} checked{/if} supportCod="{$shipping.support_cod}" insure="{$shipping.insure}" onClick="selectShipping(this)" /></td>
+				<td width="80" valign="middle">{$shipping.shipping_name}</td>
+				<td valign="middle">{$shipping.format_shipping_fee}</td>
+			</tr>
+			<!-- {/foreach} 循环配送方式 -->
+			<tr>
+				<td colspan="3" ><label for="ECS_NEEDINSURE">
+						<input name="need_insure" id="ECS_NEEDINSURE" type="checkbox"  onclick="selectInsure(this.checked)" value="1" {if $order.need_insure}checked="true"{/if} {if $insure_disabled}disabled="true"{/if} />
+						配送是否需要保价</label></td>
+			</tr>
+		</table>
+		<h3>支付方式</h3>
+		<table width="100%" border="0" cellpadding="5" cellspacing="1">
+			<!-- {foreach from=$payment_list item=payment name=paymentit} -->
+			<!-- 循环支付方式 -->
+			<tr>
+				<td width="10" valign="middle"><input type="radio" name="payment" id="payment" value="{$payment.pay_id}"{if $order.pay_id eq $payment.pay_id and ($cod_disabled and $payment.is_cod neq "1")} checked{/if} isCod="{$payment.is_cod}" onclick="selectPayment(this)" {if $cod_disabled and $payment.is_cod eq "1"}disabled="true"{/if}/></td>
+				<td valign="middle">{$payment.pay_name}</td>
+			</tr>
+			<!-- {/foreach} 循环支付方式 -->
+		</table>
+		{include file='order_total.dwt'}
+		<input type="submit" name="Submit" class="new-abtn-type3" style="width:100%;border:0;cursor:pointer;" value="提交订单" />
+	</form>
+</div>
+{include file='foot.dwt'}
+</body>
+</html>

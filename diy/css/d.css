@@ -1,0 +1,51 @@
+.diy_body {
+	MARGIN: 0px;overflow:hidden; font-size:12px
+}
+.diy_body *{
+	overflow:hidden
+}
+.diy_body .table_01 {
+	FONT-SIZE: 12px; BORDER-BOTTOM: #C1C1C1 1px solid; 
+}
+.diy_body .table_001 {
+	FONT-SIZE: 12px; BORDER-TOP: #DFDFDF 1px solid;  
+}
+.diy_body .table_02 {
+	BORDER-RIGHT: #ebebeb 1px solid; BORDER-TOP: #ebebeb 1px solid; BORDER-LEFT: #ebebeb 1px solid; BORDER-BOTTOM: #ebebeb 1px solid
+}
+.diy_body A {
+	FONT-SIZE: 12px; COLOR: #000000; LINE-HEIGHT: 18px; TEXT-DECORATION: none
+}
+.diy_body A:hover {
+	COLOR: #0b7fac; TEXT-DECORATION: underline
+}
+.diy_body .input_01 {
+	 FONT-SIZE: 12px; LINE-HEIGHT: 16px;
+}
+.diy_body .text_12 {
+	FONT-SIZE: 12px; FONT-FAMILY: "宋体"
+}
+.diy_body .txt_14 {
+	FONT-SIZE: 14px; COLOR: #005e9d; LINE-HEIGHT: 25px; FONT-FAMILY: "宋体"
+}
+.diy_body .txt_14 A {
+	FONT-SIZE: 14px; COLOR: #005e9d; TEXT-DECORATION: none
+}
+.diy_body .txt_14 A:hover {
+	FONT-SIZE: 14px; COLOR: #ff6600; TEXT-DECORATION: underline
+}
+.diy_body .table_03 {
+	BORDER-RIGHT: #E7CA96 1px solid; BORDER-LEFT: #E7CA96 1px solid; BORDER-BOTTOM: #E7CA96 1px solid
+}
+.diy_body .table_04 {
+	BORDER-RIGHT: #C1C1C1 1px dotted
+}
+.diy_body .table_05 {
+	BORDER-RIGHT: #e3e3e3 1px dotted
+}
+.diy_body .text_18 {
+	FONT-WEIGHT: bolder; FONT-SIZE: 18px; COLOR: #005e9d; FONT-FAMILY: "宋体"
+}
+.diy_body .￥ {
+	FONT-WEIGHT: bold; FONT-SIZE: 14px; COLOR: #cc0000; FONT-FAMILY: "宋体"
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link rel="stylesheet" type="text/css" href="themes/360buy/images/misc/201007/skin/df/plist20120221.css" media="all" />
+<link rel="stylesheet" type="text/css" href="themes/360buy/images/misc/201007/skin/df/plist_2.css" media="all" />
+
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<div class="w">
+  <div class="breadcrumb"> <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --> </div>
+</div>
+<!--crumb end-->
+<div class="w main">
+  <div class="right-extra">
+
+	
+	<div class="content fr" id="right" style="width:100%">
+      <div class="m">
+        <div class="mt">
+          <h2>{$lang.pick_out}</h2>
+          <div class="extra"></div>
+        </div>
+        <div class="mc" style="border:0px">
+          <div class="boxCenterList" style="border:0px">
+		  <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
+		  <!--{foreach from=$condition item=caption}-->
+		  <tr>
+			<td bgcolor="#e5ecfb" style="border-bottom: 0px solid #DADADA">
+			  <strong class="f_red">{$caption.name}</strong></td>
+		  </tr>
+		  <!--{foreach from=$caption.cat item=cat}-->
+		  <tr>
+			<td bgcolor="#ffffff">&nbsp;&nbsp;<strong>{$cat.cat_name}</strong></td>
+		  </tr>
+		  <tr>
+			<td bgcolor="#ffffff">&nbsp;&nbsp;
+			  <!--{foreach from = $cat.list item=list}-->
+			  &nbsp;&nbsp;<a href="{$list.url}" class="f6">{$list.name}</a>
+			  <!--{/foreach}-->
+			</td>
+		  </tr>
+		  <!--{/foreach}-->
+		  <!--{/foreach}-->
+		</table>
+		</div>
+		  
+        </div>
+      </div>
+    </div>
+	
+	<div class="content fr" id="right" style="width:100%">
+      <div class="m">
+        <div class="mt">
+          <h2>{$lang.your_choice}</h2>
+          <div class="extra"></div>
+        </div>
+        <div class="mc" style="border:0px">
+          <div class="boxCenterList" style="border:0px">
+		  <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
+		  
+		 
+		  <tr>
+		  <!--{foreach from = $picks item=pick }-->
+			<td bgcolor="#ffffff"><a href="{$pick.url}">{$pick.name}</a></td>
+		  <!--{/foreach}-->	
+		  </tr>
+		  
+		</table>
+		</div>
+		  
+        </div>
+      </div>
+    </div>
+
+    <div id="advanced" style="border:0px; margin-bottom:10px"> </div>
+   
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+      <div id="filter"  clstag="thirdtype|keycount|thirdtype|filter">
+        <div class="fore item"></div>
+        <ul class="item tab">
+<li class='curr'><a rel='nofollow'>{$lang.search_result}</a><span></span></li>
+        </ul>
+        <div class="pagin pagin-m fr"> 
+		
+		<div class='total fr'>
+		<span>共<strong>{$count}</strong>个商品</span>
+		
+		</div>
+        </div>
+        <span class="clr" style="display:block;overflow:hidden;clear:both;height:0;line-height:0;font-size:0;"></span>
+        <div class="extra">
+          
+          <span class='clr' style="display:block;overflow:hidden;clear:both;height:0;line-height:0;font-size:0;"></span></div>
+      </div>
+  
+    <!--filter end-->
+    <div class="m" id="plist">
+      <!-- {if $pickout_goods} -->
+      <ul class="list-h">
+        <!--{foreach from=$pickout_goods item=goods}-->
+       
+        <li>
+          <div class='p-img'><a target='_blank' href='{$goods.url}'><img onerror="this.src='themes/360buy/images/none_150.gif'" src='{$goods.thumb}' width="160" height="160" alt='{$goods.name|escape:html}' /></a>
+            <!-- {if $goods.is_promote} -->
+            <div class="pi7"></div>
+            <!-- {elseif $goods.is_hot}-->
+            <div class="pi2"></div>
+            <!-- {elseif $goods.is_best}-->
+            <div class="pi8"></div>
+            <!-- {elseif $goods.is_new}-->
+            <div class="pi1"></div>
+            <!--{/if}-->
+          </div>
+          <div class='p-name'><a target='_blank' href='{$goods.url}'>{$goods.short_name}<font style='color:#ff0000' class='adwords' name='573692'></font></a></div>
+          <div  class='p-price' style="color:#FF0000; font-weight:bold"><!--{if $goods.promote_price neq "" } -->{$goods.promote_price}<!--{else}-->{$goods.shop_price}<!--{/if}-->
+          </div>
+          
+          <div class='btns' style="text-align:center; padding-left:60px "><a href='javascript:addToCart({$goods.id})' class='btn-buy'>购买</a>
+            <input type='button' class='btn-coll' value='收藏' onclick='javascript:collect({$goods.id});' />
+          </div>
+        </li>
+        
+        <!--{/foreach}-->
+      </ul>
+      <!-- {else} -->
+      <div style="font-size: 14px; text-align: center;">抱歉！没有找到符合条件的结果</div>
+      <!-- {/if} -->
+    </div>
+	
+	<div class="m clearfix">
+      <div class="pagin fr"> 
+	  <!--{if $count > 6}-->
+		 <div class="more f_r" style="clear:both;"><a href="{$url}">更多商品</a></div>
+		 <!--{/if}-->
+	  
+	  </div>
+      <!--pagin end-->
+    </div>
+    <!--plist end-->
+    <script type="text/javascript">
+window.onload = function()
+{
+  //Compare.init();
+  fixpng();
+}
+{foreach from=$lang.compare_js item=item key=key}
+{if $key neq 'button_compare'}
+var {$key} = "{$item}";
+{else}
+var button_compare = '';
+{/if}
+{/foreach}
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+</script>
+  </div>
+  <!--right-extra end-->
+  <div class="left">
+
+    <!-- #BeginLibraryItem "/library/category_tree.lbi" --><!-- #EndLibraryItem -->
+
+    <?php
+
+		 $GLOBALS['smarty']->assign('new_goods', get_cat_recommend_goods('new', get_children(0), 5));
+		?>
+    <!-- #BeginLibraryItem "/library/goods_new.lbi" --><!-- #EndLibraryItem -->
+    <!--关注手机最终购买-->
+    <?php
+
+		 $GLOBALS['smarty']->assign('hot_goods', get_cat_recommend_goods('hot', get_children(0), 10));
+		?>
+    <!-- #BeginLibraryItem "/library/goods_hot.lbi" --><!-- #EndLibraryItem -->
+    <!--rank end-->
+    <div id="alsobuy" class="hide m m0"></div>
+    <!--关注手机为您推荐-->
+    <!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem -->
+    <div class="m" clstag="thirdtype|keycount|thirdtype|m" id="da211x261-1"> </div>
+  </div>
+  <!--left end-->
+  <span class="clr"></span>
+  <div id="Collect_Tip" class="Tip360 w260"></div>
+</div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>
+

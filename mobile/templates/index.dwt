@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{$shop_name}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="ecy.cc">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="style/base2013.css" />
+<link rel="stylesheet" type="text/css" href="style/index.css" />
+<script src="js/jquery-1.6.2.min.js"></script>
+<script src="js/jquery.tabify.js" type="text/javascript" charset=utf-8></script>
+<script src="js/jquery.flexslider.js"></script>
+<script type="text/javascript">
+	$(window).load(function() {
+		$('.images_slider').flexslider({
+		animation: "slide",
+		directionNav: false,
+		controlNav: true,
+		animationLoop: true,
+		animationDuration: 300, 
+		slideshow: false
+		});
+	});
+</script>
+</head>
+<body id="body" style="width:320px;margin:0 auto">
+{include file='head.dwt'}
+<div class="new-body-w320">
+</div>
+ <div class="new-ct">
+	<div class="new-main">
+            <div class="images_slider_container">
+            <div class="images_slider">
+                <ul class="slides">
+                
+				<li><a href='goods.php?id=22305 '><img src="./../mobile/images/1.jpg" width="320" height="200"/></a></li>
+				<li><a href='goods.php?id=17754'><img src="./../mobile/images/2.jpg" width="320" height="200"/></a></li>
+				<li><a href='goods.php?id=22111'><img src="./../mobile/images/3.jpg" width="320" height="200"/></a></li>  
+				<li><a href='goods.php?id=20526'><img src="./../mobile/images/4.jpg" width="320" height="200"/></a></li>
+				<li><a href='goods.php?id=21048'><img src="./../mobile/images/5.jpg" width="320" height="200"/></a></li>
+				<li><a href='goods.php?id=24357'><img src="./../mobile/images/6.jpg" width="320" height="200"/></a></li>
+				<li><a href='article.php?act=detail&a_id=4'><img src="./../mobile/images/7.jpg" width="320" height="200"/></a></li>
+				
+                </ul>
+           </div>
+        </div>
+        
+        <div class="new-mian-cont new-mg-t10">
+        	<ul class="new-main-sale new-tbl-type">
+            <li class="new-tbl-cell">
+            	<a href="category.php?cid=41">
+                	<img src="./../mobile/images/a1.jpg" width="147px" height="80"/>
+                </a>
+            </li>
+            <li class="new-tbl-cell">
+				<a href="category.php?cid=1074">
+				   <img src="./../mobile/images/a2.jpg" width="147px" height="80"/>
+                </a>
+            </li>
+            </ul>
+            <div class="new-msale-lst new-p-re">
+                <ul class="new-tbl-type" style="position:absolute;margin-left:0px" id="slider">
+						{if $best_num > 0}
+						{foreach from=$best_goods item=best_data name=goo} 
+						 {if $smarty.foreach.goo.iteration <4}
+							<li class="new-tbl-cell"><a href="goods.php?id={$best_data.id}"><img src="./../{$best_data.thumb}" width="90" height="90"><span>  {if $promote_price}{$best_data.promote_price}{else}{$best_data.shop_price}{/if} </span></a></li>
+							{/if}
+							{/foreach}
+						{/if}		
+					   </ul>
+            </div>
+				<div class="new-service">
+                <div class="new-serv-lst new-p-re">
+                    <ul class="new-tbl-type">
+                        <li class="new-tbl-cell">
+                        	<div>
+                            	<a href="category.php" class="new-serv1"><span class="icon"><span></span></span><span>商品分类</span></a><a href="user.php?act=user_center" class="new-serv2"><span class="icon"><span></span></span><span>订单速查</span></a><a href="brands.php" class="new-serv3"><span class="icon"><span></span></span><span>品牌中心</span></a><a href="category.php?id=1866" class="new-serv4"><span class="icon"><span></span></span><span>会员中心</span></a>
+                            </div>
+                            <div>
+                            	<a href="category.php?cid=105" class="new-serv5">
+                                	<img src="./../mobile/images/a3.jpg" width="145px" height="70"/>
+                                </a><a href="category.php?cid=775" class="new-serv6">
+                                <img src="./../mobile/images/a4.jpg" width="145px" height="70"/>
+                                </a>
+                            </div>
+                        </li>
+                       <li class="new-tbl-cell">
+                           <div>
+                            	<a href="#" class="new-serv7"><span class="icon"><span></span></span><span>电影票</span></a><a href="#"class="new-serv8">
+                                	<span class="icon"><span></span></span>
+                                    <span class="last">景点门票</span>
+                                </a><a href="#" class="new-serv9 new-p-re"  target="_blank"><span class="icon"><span></span></span><span>电子书</span><span class="new-icon-new">new</span></a>
+                            </div><div><a href="#" class="new-serv10"><span class="icon"><span></span></span>
+                                    <span class="last">酒店</span>
+                                </a><a href="#" class="new-serv11">
+                                	<span class="icon"><span></span></span>
+                                    <span class="last">机票</span>
+                                </a>
+                            </div>
+                       </li>
+                    </ul>
+                </div>
+
+                <div class="new-m-fl new-mg-t10">
+                    <div class="new-tbl-type">
+                    	 <a href="category.php?cid=1525"><img src="./../mobile/images/ad/img_fl5.gif" width="214" height="81" alt="" class="new-mg-lf2"></a>
+                    <a class="new-tbl-cell new-mfl-tit5" href="category.php?cid=651">
+                        	<img src="./../mobile/images/a9.jpg" width="81px" height="81"/>
+                        </a>
+                       </div>
+                    <div class="new-tbl-type new-mg-t5">
+                        <a href="category.php?cid=70" class="new-tbl-cell w50"><span>高品质音响</span></a>
+                        <a href="category.php?cid=775" class="new-tbl-cell w50"><span>键鼠鼠标</span></a>
+                    </div>
+                </div>
+				
+				<div class="new-m-fl new-mg-t10">
+                    <div class="new-tbl-type">
+                    	<a class="new-tbl-cell new-mfl-tit5" href="category.php?cid=685">
+                        	<img src="./../mobile/images/a14.jpg" width="81px" height="81"/>
+                        </a>
+                        <a href="category.php?cid=236"><img src="./../mobile/images/ad/img_fl10.gif" width="214" height="81" alt="" class="new-mg-lf2"></a>
+                    </div>
+                    <div class="new-tbl-type new-mg-t5">
+                        <a href="category.php?cid=686" class="new-tbl-cell w50"><span>机顶盒</span></a>
+                        <a href="category.php?cid=820" class="new-tbl-cell w50"><span>录音笔</span></a>
+                    </div>
+                </div>
+				
+				 <div class="new-m-fl new-mg-t10">
+                    <div class="new-tbl-type">
+                    	 <a href="category.php?cid=756"><img src="./../mobile/images/ad/img_fl11.gif" width="214" height="81" alt="" class="new-mg-lf2"></a>
+                    <a class="new-tbl-cell new-mfl-tit5" href="category.php?cid=651">
+                        	<img src="./../mobile/images/a15.jpg" width="81px" height="81"/>
+                        </a>
+                       </div>
+                    <div class="new-tbl-type new-mg-t5">
+                        <a href="category.php?cid=739" class="new-tbl-cell w50"><span>耳麦</span></a>
+                        <a href="category.php?cid=683" class="new-tbl-cell w50"><span>鼠标垫</span></a>
+                    </div>
+                </div>
+				
+				<div class="new-m-fl new-mg-t10">
+                    <div class="new-tbl-type">
+                    	<a class="new-tbl-cell new-mfl-tit5" href="category.php?cid=1002">
+                        	<img src="./../mobile/images/a10.jpg" width="81px" height="81"/>
+                        </a>
+                        <a href="category.php?cid=97"><img src="./../mobile/images/ad/img_fl6.gif" width="214" height="81" alt="" class="new-mg-lf2"></a>
+                    </div>
+                    <div class="new-tbl-type new-mg-t5">
+                        <a href="category.php?cid=1003" class="new-tbl-cell w50"><span>监控摄像头</span></a>
+                        <a href="category.php?cid=100" class="new-tbl-cell w50"><span>硬盘录像机</span></a>
+                    </div>
+                </div>
+				
+                 <div class="new-m-fl new-m-fl-v1 new-mg-t10">
+                    <div class="new-tbl-type">
+                        <a href="category.php?cid=555" class="new-tbl-cell new-p-re"><img src="./../mobile/images/ad/img_fl4.gif" width="214" height="81" alt="" class="new-mg-rg2"></span>
+                    	<a href="category.php?cid=75" class="new-tbl-cell new-mfl-tit4">
+                        	<img src="./../mobile/images/a8.jpg" width="81px" height="81"/>
+                        </a>
+                    </div>
+                    <div class="new-tbl-type new-mg-t5">
+                        <a href="category.php?cid=105" class="new-tbl-cell w33"><span>路由器</span></a>
+                        <a href="category.php?cid=78" class="new-tbl-cell w33"><span>U盘</span></a>
+                        <a href="category.php?cid=415" class="new-tbl-cell w33"><span>手机内存卡</span></a>
+                    </div>
+                </div>
+                
+				<div class="new-m-fl new-mg-t5">
+                    <div class="new-tbl-type">
+                    	<a href="category.php?cid=570" class="new-tbl-cell new-mfl-tit">
+                        	<img src="./../mobile/images/a5.jpg" width="81px" height="81"/>
+                        </a>
+                        <a href="category.php?cid=1866" class="new-tbl-cell new-p-re"><img src="./../mobile/images/ad/img_fl.gif" width="214" height="81" alt="" class="new-mg-lf2"></a>
+                    </div>
+                    <div class="new-tbl-type  new-mg-t5">
+                        <a href="category.php?cid=241" class="new-tbl-cell w50"><span>手机</span></a>
+                        <a href="category.php?cid=558" class="new-tbl-cell w50"><span>手机配件</span></a>
+                    </div>
+                </div>
+                
+				
+                <div class="new-m-fl new-m-fl-v1 new-mg-t10">
+                    <div class="new-tbl-type">
+                        <a class="new-tbl-cell new-p-re" href="category.php?cid=562"><img src="./../mobile/images/ad/img_fl2.gif" width="214" height="81" alt="" class="new-mg-rg2"></a>
+                    	<a class="new-tbl-cell new-mfl-tit2" href="category.php?cid=1">
+                        	<img src="./../mobile/images/a6.jpg" width="81px" height="81"/>
+                        </a>
+                    </div>
+                    <div class="new-tbl-type new-mg-t5">
+                        <a href="category.php?cid=61" class="new-tbl-cell w33"><span>平板电脑</span></a>
+                        <a href="category.php?cid=823" class="new-tbl-cell w33"><span>笔记本</span></a>
+                        <a href="category.php?cid=405" class="new-tbl-cell w33"><span>一体机</span></a>
+                    </div>
+                </div>
+                
+                <div class="new-m-fl new-mg-t10">
+                    <div class="new-tbl-type">
+                    	<a href="category.php?cid=52" class="new-tbl-cell new-mfl-tit3">
+                        	<img src="./../mobile/images/a7.jpg" width="81px" height="81"/>
+                        </a>
+                        <a class="new-tbl-cell" href="category.php?cid=54"><img src="./../mobile/images/ad/img_fl3.gif" width="214" height="81" alt="" class="new-mg-lf2"></a>
+                    </div>
+                    <div class="new-tbl-type new-mg-t5">
+                        <a href="category.php?cid=656" class="new-tbl-cell w33"><span>CPU</span></a>
+                        <a href="category.php?cid=177" class="new-tbl-cell w33"><span>内存</span></a>
+                        <a href="category.php?cid=57" class="new-tbl-cell w33"><span>硬盘</span></a>
+                    </div>
+                </div>
+                
+               <div class="new-m-fl new-m-fl-v1 new-mg-t10">
+                    <div class="new-tbl-type">
+                        <a class="new-tbl-cell new-p-re" href="category.php?cid=13"><img src="./../mobile/images/ad/img_fl7.gif" width="214" height="81" alt="" class="new-mg-rg2"></a>
+                    	<a class="new-tbl-cell new-mfl-tit2" href="category.php?cid=2">
+                        	<img src="./../mobile/images/a11.jpg" width="81px" height="81"/>
+                        </a>
+                    </div>
+                    <div class="new-tbl-type new-mg-t5">
+                        <a href="category.php?cid=11" class="new-tbl-cell w33"><span>华硕</span></a>
+                        <a href="category.php?cid=12" class="new-tbl-cell w33"><span>技嘉</span></a>
+                        <a href="category.php?cid=26" class="new-tbl-cell w33"><span>昂达</span></a>
+                    </div>
+                </div> 
+                
+				<div class="new-m-fl new-mg-t10">
+                    <div class="new-tbl-type">
+                    	<a class="new-tbl-cell new-mfl-tit5" href="category.php?cid=27">
+                        	<img src="./../mobile/images/a12.jpg" width="81px" height="81"/>
+                        </a>
+                        <a href="category.php?cid=339"><img src="./../mobile/images/ad/img_fl8.gif" width="214" height="81" alt="" class="new-mg-lf2"></a>
+                    </div>
+                    <div class="new-tbl-type new-mg-t5">
+                        <a href="category.php?cid=351" class="new-tbl-cell w33"><span>昂达</span></a>
+                        <a href="category.php?cid=520" class="new-tbl-cell w33"><span>小影霸</span></a>
+                        <a href="category.php?cid=31" class="new-tbl-cell w33"><span>七彩虹</span></a>
+                    </div>
+                </div>
+				
+                <div class="new-m-fl new-mg-t10">
+                    <div class="new-tbl-type">
+                    	 <a href="category.php?cid=10"><img src="./../mobile/images/ad/img_fl9.gif" width="214" height="81" alt="" class="new-mg-lf2"></a>
+                    <a class="new-tbl-cell new-mfl-tit5" href="category.php?cid=3">
+                        	<img src="./../mobile/images/a13.jpg" width="81px" height="81"/>
+                        </a>
+                       </div>
+                    <div class="new-tbl-type new-mg-t5">
+                        <a href="category.php?cid=9" class="new-tbl-cell w33"><span>三星</span></a>
+                        <a href="category.php?cid=22" class="new-tbl-cell w33"><span>AOC</span></a>
+						<a href="category.php?cid=174" class="new-tbl-cell w33"><span>LG</span></a>
+                        
+                    </div>
+                </div>
+				
+				<div class="new-m-fl new-mg-t10">
+                    <div class="new-tbl-type">
+                    	<a class="new-tbl-cell new-mfl-tit5" href="category.php?cid=41">
+                        	<img src="./../mobile/images/a16.jpg" width="81px" height="81"/>
+                        </a>
+                        <a href="category.php?cid=45"><img src="./../mobile/images/ad/img_fl12.gif" width="214" height="81" alt="" class="new-mg-lf2"></a>
+                    </div>
+                    <div class="new-tbl-type new-mg-t5">
+                        <a href="category.php?cid=46" class="new-tbl-cell w50"><span>先马</span></a>
+                        <a href="category.php?cid=42" class="new-tbl-cell w50"><span>金河田</span></a>
+                    </div>
+                </div>
+				
+                <div class="new-m-message">
+                	<a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=1850302635@qq.com">改版啦！用的不爽，过来说一句 &gt;</a>
+                </div>
+				<div class="new-m-message">
+                	<a href="article.php">新闻快报 &gt;</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>
+</div>
+{include file='foot.dwt'}
+<script type="text/javascript" src="js/hotpic.js"></script>
+</body>
+</html>

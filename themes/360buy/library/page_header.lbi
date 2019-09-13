@@ -1,0 +1,254 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+{insert_scripts files='utils.js'}
+<link rel="stylesheet" href="themes/360buy/images/misc/lib/skin/2012/base.css">
+<script type="text/javascript" src="themes/360buy/images/misc/lib/js/e/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="themes/360buy/images/misc/lib/js/2012/base-2011.js"></script>
+<script type="text/javascript" src="themes/360buy/images/misc/lib/js/2012/base-v1.js"></script>
+<script type="text/javascript" src="themes/360buy/images/misc/lib/js/e/transport.js"></script>
+<script type="text/javascript" src="themes/360buy/images/misc/lib/js/e/common.js"></script>
+<link href="suggest.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="suggest.js"></script>
+<div id="search_suggest" style="display:none;top:200px;left:757px;" onmouseover='javascript:_over();' onmouseout='javascript:_out();'></div>
+<div id="shortcut">
+  <div class="w">
+    <ul class="fl lh">
+      <li class="fore1 ld"><b></b><a href="javascript:add_to_favorite('http://www.77sc.com.cn/', '傲八马商城')">收藏傲八马{$77sc.com.cn}</a></li>
+    </ul>
+    <ul class="fr lh">
+      <li class="fore1 ld" id="loginbar" clstag="homepage|keycount|home2012|01e">
+        {if $smarty.session.user_name}
+
+        您好，{$smarty.session.user_name}！<a class="link-logout" href="user.php?act=logout">[退出]</a>
+        {else}
+        您好！欢迎来到傲八马！<a href="user.php">[登录]</a>&nbsp;<a href="user.php?act=register">[免费注册]</a>
+        {/if}
+	</li>
+      <li class="fore2" clstag="homepage|keycount|home2012|01f"><a href="user.php?act=order_list">我的订单</a></li>
+      <li class="fore6 menu" data-widget="dropdown" clstag="homepage|keycount|home2012|01j">
+        <dl>
+          <dt class="ld"><a>客户服务<b></b></a></dt>
+          <dd>
+            <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+            <div><a href="{$nav.url}" 
+              <!-- {if $nav.opennew eq 1} -->
+              target="_blank"
+              <!-- {/if} -->
+              >{$nav.name}</a></div>
+            <!-- {/foreach} -->
+          </dd>
+        </dl>
+      </li>
+    </ul>
+    <span class="clr"></span> </div>
+</div>
+<!--shortcut end-->
+<!-- shortcut end -->
+<div id="o-header">
+<div class="w" id="header">
+<div id="logo" class="ld"><a href="index.php"><b></b><img src="themes/360buy/images/logo.gif" width="259" height="50"></a></div>
+<!--logo end-->
+<div id="search">
+<div class="i-search ld">
+<b></b><s></s>
+<ul id="shelper" class="hide">
+</ul>
+<div class="form">
+<script type="text/javascript">
+		{literal}
+		<!--
+		function checkSearchForm()
+		{
+			if(document.getElementById('key').value)
+			{
+				return true;
+			}
+			else
+			{
+				alert("{$lang.no_keywords}");
+				return false;
+			}
+		}
+		-->
+		{/literal}
+		</script>
+<form id="searchForm" name="searchForm" method="get" action="search.php" onSubmit="return checkSearchForm()">
+<input type="text" class="text" accesskey="s" id="keyword"  name="keywords"  onkeyup="keyupdeal(event,this.value);" onkeydown="keydowndeal(event);" onclick="keyupdeal(event,this.value);" onblur="closediv();" autocomplete="off" onkeydown="javascript:if(event.keyCode==13) return checkSearchForm();"/>
+<input type="submit" value="搜索" class="button" clstag="homepage|keycount|home2012|03a"/>
+</form>
+</div>
+</div>
+<script> (function(){
+
+var B=["请输入商品关键字"];
+B=pageConfig.FN_GetRandomData(B);$("#key").val(B).bind("focus",function(){if (this.value==B){this.value="";this.style.color="#333"}}).bind("blur",function(){if (!this.value){this.value=B;this.style.color="#999"}});
+})();</script>
+<div id="hotwords" clstag="homepage|keycount|home2012|03b"> <strong>热门搜索：</strong> {foreach from=$searchkeywords item=val} <a href="search.php?keywords={$val|escape:url}">{$val}</a> {/foreach} </div>
+</div>
+<!--search end-->
+<div id="my360buy" clstag="homepage|keycount|home2012|04a">
+  <dl load='1'>
+    <dt class="ld"><s></s><img src="themes/360buy/images/misc/lib/img/e/blank.gif" width="24" height="24" alt="头像"><a href="user.php">用户中心</a><b></b></dt>
+    <dd>
+	<!-- {if $smarty.session.user_id gt 0} -->
+	<div class="prompt">  <span class="fl"><strong>{$smarty.session.user_name}</strong></span><span class="fr"><a href="user.php">去我的用户中心首页 &gt;</a></span>            </div>
+	<!-- {else} -->
+      <div class="prompt"> <span class="fl">您好，请登录</span> <span class="fr"><a class="btn-login" href="user.php">登录商城</a></span> </div>
+	<!-- {/if} -->  
+      <div class="uclist">
+        <ul class="fore1 fl">
+          <li><a href="user.php?act=profile" target="_blank">用户信息 &gt;</a></li>
+          <li><a href="user.php?act=order_list" target="_blank">我的订单 &gt;</a></li>
+          <li><a href="user.php?act=address_list" target="_blank">收货地址 &gt;</a></li>
+          <li><a href="user.php?act=collection_list" target="_blank">我的收藏 &gt;</a></li>
+        </ul>
+        <ul class="fore2 fl">
+          <li><a href="user.php?act=message_list" target="_blank">我的留言 &gt;</a></li>
+          <li><a href="user.php?act=bonus" target="_blank">我的红包 &gt;</a></li>
+          <li><a href="user.php?act=comment_list" target="_blank">我的评论 &gt;</a></li>
+          <li><a href="user.php?act=account_log" target="_blank">资金管理 &gt;</a></li>
+        </ul>
+      </div>
+      <?php
+				 $GLOBALS['smarty']->assign('historys', get_history());
+		       ?>
+      <!--{if $historys}-->
+      <div class="viewlist">
+        <div class="smt">
+          <h4>最近浏览的商品：</h4>
+        </div>
+        <div id="jduc-viewlist" class="smc">
+          <div class="loading-style1" style="display: none;">加载中，请稍候...</div>
+          <ul class="lh hide" style="display: block;">
+            <!--{foreach from=$historys item=item name=historys}-->
+            <li><a title="{$item.name|escape:html}" target="_blank" href="{$item.url}"><img width="50" height="50" alt="{$item.name|escape:html}" src="{$item.goods_thumb}"/></a></li>
+            <!--{/foreach}-->
+          </ul>
+        </div>
+      </div>
+      <!-- {/if} -->
+    </dd>
+  </dl>
+</div>
+<!--my360buy end-->
+<div id="settleup" clstag="homepage|keycount|home2012|05a">
+  <dl>
+    <dt class="ld"> <s><span id="shopping-amount"></span></s> <a href="flow.php">去购物车结算</a> <b></b> </dt>
+    <dd>
+      <?php
+	  $GLOBALS['smarty']->assign('cart_info',get_cart_info());	
+	  $cart_goods = get_cart_goodsex();
+      $GLOBALS['smarty']->assign('cart_goods_list', $cart_goods['goods_list']);
+      $GLOBALS['smarty']->assign('total_cart', $cart_goods['total']);
+	  ?>
+      <!-- {if !$cart_goods_list} -->
+      <div class="prompt">购物车中还没有商品，赶紧选购吧！</div>
+      <!-- {else} -->
+      <div class="sm">
+        <div class="smt">
+          <h4 class="fl">最新加入的宝贝</h4>
+        </div>
+        <div class="smc">
+          <ul>
+            <!-- {foreach from=$cart_goods_list item=goods_items name=goods_list} -->
+            <li class="style1">
+              <div class="p-img fl"><a target="_blank" href="goods.php?id={$goods_items.goods_id}"><img width="50" height="50" alt="{$goods_items.goods_name}" src="{$goods_items.goods_thumb}"/></a></div>
+              <div class="p-name fl"><a href="goods.php?id={$goods_items.goods_id}">{$goods_items.goods_name}</a></div>
+              <div class="p-detail fr ar"> <span class="p-price"><strong>{$goods_items.goods_price}</strong>×{$goods_items.goods_number}</span><br/>
+                <a href="javascript:if (confirm('您确定要删除该商品吗？')) location.href='flow.php?step=drop_goods&amp;id={$goods_items.rec_id}';" name="RemoveGift" id="15150418" class="delete">删除</a> </div>
+              <span style="display:block;overflow:hidden;clear:both;height:0;line-height:0;font-size:0;"></span> </li>
+            <!-- {/foreach} -->
+          </ul>
+        </div>
+        <div class="smb ar">共<b>{$total_cart.real_goods_count}</b>件商品　共计<strong>{$total_cart.goods_price}</strong><br/>
+          <a id="btn-payforgoods" title="去购物车结算" href="user.php">去购物车结算</a></div>
+      </div>
+      <!-- {/if} -->
+    </dd>
+  </dl>
+</div>
+<!--settleup end-->
+</div>
+<!--header end-->
+<div class="w">
+  <div id="nav">
+    <div id="categorys">
+      <div class="mt ld" clstag="homepage|keycount|home2012|06a">
+        <h2><a href="catalog.php">全部商品分类<b></b></a></h2>
+      </div>
+      <div id="_JD_ALLSORT" class="mc" clstag="homepage|keycount|home2012|06b">
+        <?php
+         $GLOBALS['smarty']->assign('categories', get_categories_tree(0));
+		?>
+        <!--{foreach name=categories from=$categories item=cat}-->
+        <div class="item fore{$smarty.foreach.categories.iteration}"><span>
+          <h3 style="text-align:left"><a href="{$cat.url}" style="text-decoration:none">{$cat.name|escape:html}</a></h3>
+          <s></s></span>
+          <div class="i-mc" style="top:3px;">
+            <div class="close" onclick="$(this).parent().parent().removeClass('hover')"></div>
+            <div class="subitem">
+              <!--{foreach from=$cat.cat_id item=child name=cat_cat_id}-->
+              <dl class="fore{$smarty.foreach.cat_cat_id.iteration}">
+                <dt> <a href="{$child.url}&sort=sell_number&order=DESC" style="text-decoration:none">{$child.name|escape:html}</a> </dt>
+                <dd>
+                  <!--{foreach from=$child.cat_id item=childer}-->
+                  <em><a href="{$childer.url}&sort=sell_number&order=DESC" style="text-decoration:none">{$childer.name|escape:html}</a></em>
+                  <!--{/foreach}-->
+                </dd>
+              </dl>
+              <!--{/foreach}-->
+            </div>
+            <div class="fr">
+              <dl class="categorys-brands">
+                <dt>推荐品牌</dt>
+                <dd>
+                  <ul>
+				  <?php
+					 $GLOBALS['smarty']->assign('get_cat_brands', get_cat_brands($GLOBALS['smarty']->_var['cat']['id']));
+					?>
+				  <!--{foreach from=$get_cat_brands item=brand_cat}-->
+                    <li style="float:left;width:97px;"><a target="_blank" href="{$brand_cat.url}">{$brand_cat.name}</a></li>
+                  <!--{/foreach}-->
+                   
+                  </ul>
+                </dd>
+              </dl>
+			  <?php
+	     $cat_info = get_cat_info_ex($GLOBALS['smarty']->_var['cat']['id']);
+
+		 $GLOBALS['smarty']->assign('index_image',get_advlist('导航菜单-'.$cat_info['cat_name'].'-右侧-促销专题', 5));
+	  ?>
+               <!-- {if $index_image} -->
+              <dl class="categorys-promotions">
+                <dt>促销活动</dt>
+                <dd>
+                  <ul>
+				  {foreach from=$index_image item=ad name=index_image}
+                    <li><a target="_blank" href="{$ad.url}">{$ad.name}</a></li>
+                  {/foreach}
+                  </ul>
+                </dd>
+              </dl>
+			  <!-- {/if} -->
+            </div>
+          </div>
+        </div>
+        <!--{/foreach}-->
+        <div class="extra"><a href="catalog.php">全部商品分类</a></div>
+      </div>
+    </div>
+    <div id="treasure"></div>
+    <ul id="navitems">
+      <li class="fore1{if $navigator_list.config.index eq 1} curr{/if}" ><a href="../index.php">{$lang.home}</a></li>
+      <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav} -->
+      <li class="fore2{if $nav.active eq 1} curr{/if}"> <a  href="{$nav.url}" {if $nav.opennew eq 1}target="_blank" {/if}>{$nav.name}</a> </li>
+      <!-- {/foreach} -->
+    </ul>
+  </div>
+</div>
+</div>
+<!-- header end -->
+<!-- header end -->
+

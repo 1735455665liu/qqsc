@@ -1,0 +1,21 @@
+<!DOCTYPE>
+<html lang="zh_CN">
+	<head>
+		<meta charset="utf-8"/>
+		<title>商品销售记录</title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+	</head>
+	<body>
+	<table border="1">
+		<caption><h2>查询时间：{$date_.start2_}---{$date_.end2_}</h2></caption>
+		<tr>
+			<td>商品编号</td><td>销售数量</td><td>商品名</td>
+		</tr>
+		{foreach $info as $k=>$v}
+		<tr>
+			<td><a href="../goods.php?id={$v.goods_id}">{$v.goods_id}</a></td><td>{$v.total}</td><td>{$v.goods_name}</td>
+		</tr>
+		{/foreach}
+	</table>
+	</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable --><!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link href="style_diy.css" rel="stylesheet" type="text/css" />
+<link href="DIY.css" rel="stylesheet" type="text/css" />
+<link href="nnn.css" rel="stylesheet" type="text/css" />
+<link href="FONT.css" rel="stylesheet" type="text/css" />
+<link href="shop.css" rel="stylesheet" type="text/css" />
+<SCRIPT src="themes/jindong/images/nav.js" type=text/javascript></SCRIPT>
+<SCRIPT src="themes/jindong/images/jscook.js" type=text/javascript></SCRIPT>
+<SCRIPT src="themes/jindong/images/xiangdao.js" type=text/javascript></SCRIPT>
+</head>
+<body>
+<div class="width">
+  <div class="minwidth">
+    <div class="neirong">
+     <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+      <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->
+    </div>
+  </div></div>
+              <TABLE height=60 cellSpacing=0 cellPadding=0 width=1000 align=center border=0>
+  <TBODY>
+  <TR>
+    <TD width=609><IMG height=39 src="images/DIY_XD_03.gif" 
+      width=210></TD>
+    <TD align=middle width=391><A href="javascript:gotozx();"><IMG height=37 
+      src="images/DIY_XD_06.gif" width=258></A></TD></TR></TBODY></TABLE>
+	  <TABLE class=table_01 cellSpacing=0 cellPadding=0 width=1000 align=center 
+background=themes/360/images/DIY_XD_21.gif border=0>
+  <TBODY>
+  <TR>
+    <TD width=250>{$xiangdaoimg.cpu}</TD>
+    <TD width=250>{$xiangdaoimg.mainboard}</TD>
+    <TD width=250>{$xiangdaoimg.memory}</TD>
+    <TD width=250>{$xiangdaoimg.showcard}</TD></TR>
+  <TR>
+    <TD align=middle><SPAN id=cpuimage>{$wareboxcpubd_show}</SPAN></TD>
+    <TD align=middle><SPAN id=mainboardimage>{$wareboxmainboardbd_show}</SPAN></TD>
+    <TD align=middle><SPAN id=memoryimage>{$wareboxmemorybd_show}</SPAN></TD>
+    <TD align=middle><SPAN id=showcardimage>{$wareboxshowcardbd_show}</SPAN></TD></TR></TBODY></TABLE>
+<TABLE cellSpacing=0 cellPadding=0 width=1000 align=center border=0>
+  
+  <TBODY>
+  <TR>
+    <TD width=120>{$titleimg}</TD>
+    <TD class=text_12 align=right width=525 background=themes/360/images/DIY_XD_36.gif>
+	</TD>
+    <TD align=middle width=230 
+      background=themes/360/images/DIY_XD_36.gif></TD>
+    <TD width=124 background=themes/360/images/DIY_XD_36.gif></TD>
+    <TD width=1 bgColor=#5ab3d8></TD></TR>
+	</TBODY></TABLE>
+	<TABLE cellSpacing=0 cellPadding=0 width=1000 align=center 
+background=themes/360/images/DIY_XD_44.gif border=0>
+  <TBODY>
+  <TR>
+    <TD height=3></TD></TR></TBODY></TABLE>
+	<FORM name="Form2" action="{$action}" method="post">
+	<TABLE height=20 cellSpacing=0 cellPadding=0 width=1000 align=center 
+background=themes/360/images/DIY_XD_43.gif border=0>
+  <TBODY>
+  <TR>
+    <TD class=text_12 align=middle width=155>图片</TD>
+    <TD class=text_12 align=middle width=411>商品名称</TD>
+    <TD class=text_12 align=middle width=156>价格</TD>
+    <TD class=text_12 align=middle width=166>库存</TD>
+    <TD class=text_12 align=middle width=112>选用</TD></TR></TBODY></TABLE>
+	<TABLE class=table_01 cellSpacing=0 cellPadding=0 width=1000 align=center 
+background=themes/360/images/DIY_XD_44.gif border=0>
+  <TBODY>
+  <TR>
+    <TD height=3></TD></TR></TBODY></TABLE>
+	
+	
+	
+	 <!-- {foreach from=$goods_list item=goods} -->
+	<TABLE class=table_01 cellSpacing=0 cellPadding=5 width=1000 align=center 
+background=themes/360/images/DIY_XD_42.gif border=0>
+  <TBODY>
+  <TR>
+    <TD width=145>
+      <TABLE height=75 cellSpacing=0 cellPadding=0 width=100 align=center 
+      border=0>
+        <TBODY>
+        <TR>
+          <TD>
+		  <SPAN id=span1_{$goods.goods_id}><A href=goods.php?id={$goods.goods_id} target=_blank><IMG height=75 src={$goods.goods_thumb} width=100 border="0"></A></SPAN>
+		  </TD></TR></TBODY></TABLE></TD>
+    <TD width=401>
+	<SPAN id=span2_{$goods.goods_id}  style="margin-left:10px"><A href=goods.php?id={$goods.goods_id} target=_blank>{$goods.goods_name}</A></SPAN></TD>
+    <TD class=￥ align=middle width=146><SPAN id=span3_{$goods.goods_id}>￥{$goods.shop_price}</SPAN></TD>
+    <TD align=middle width=154>{$goods.goods_number}</TD>
+    <TD align=middle width=104><A onClick="javascript:checkbox{$func}('{$goods.goods_id}');" 
+      href="#"><IMG height=22 
+      src="images/DIY_XD_47.gif" width=65 
+  border=0></A></TD></TR></TBODY></TABLE>
+  <!-- {/foreach} -->
+ 
+
+
+	<TABLE class=table_01 cellSpacing=0 cellPadding=0 width=1000 align=center 
+background=themes/360/images/DIY_XD_44.gif border=0>
+  <TBODY>
+  <TR>
+    <TD class=text_12 align=right height=24>
+      {$lang.pager_1}{$pager.record_count}{$lang.pager_2}{$lang.pager_3}{$pager.page_count}{$lang.pager_4} <a href="{$pager.page_first}">{$lang.page_first}</a> <a href="{$pager.page_prev}">{$lang.page_prev}</a> <a href="{$pager.page_next}">{$lang.page_next}</a> <a href="{$pager.page_last}">{$lang.page_last}</a>
+	</TD></TR></TBODY></TABLE>
+	
+	<table width="1000" height="66" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="479" height="66"><a href="javascript:gotozx();"><img src="images/DIY_XD_06.gif" width="258" height="37" /></a></td>
+    <td width="304" align="right">{$topre}</td>
+    <td width="217" align="right"><input type="image" src="images/DIY_XD_53.gif" width="140" height="37" onclick="javascript:return nextselect{$func}();" /></td>
+  </tr>
+</table>
+	<INPUT id="warecpuid" type="hidden" name="warecpuid" value="{$warecpuid}">
+	<INPUT id="showwarecpu" type="hidden" name="showwarecpu" value="{$showwarecpu}">
+	<INPUT id="wareboxcpubd" type="hidden" name="wareboxcpubd" value="{$wareboxcpubd}">
+	
+	<INPUT id="waremainboardid" type="hidden" name="waremainboardid" value="{$waremainboardid}"> 
+	<input id="showwaremainboard" type="hidden" name="showwaremainboard" value="{$showwaremainboard}">
+	<INPUT id="wareboxmainboardbd" type="hidden" name="wareboxmainboardbd" value="{$wareboxmainboardbd}">
+	
+	<INPUT id="warememoryid" type="hidden" name="warememoryid" value="{$warememoryid}">
+	<input id="showwarememory" type="hidden" name="showwarememory" value="{$showwarememory}">
+	<INPUT id="wareboxmemorybd" type="hidden" name="wareboxmemorybd" value="{$wareboxmemorybd}">
+	
+	<INPUT id="wareshowcardid" type="hidden" name="wareshowcardid" value="{$wareshowcardid}">
+	<input id="showwareshowcard" type="hidden" name="showwareshowcard" value="{$showwareshowcard}">
+	<INPUT id="wareboxshowcardbd" type="hidden" name="wareboxshowcardbd" value="{$wareboxshowcardbd}">
+	
+	<INPUT id="clearmemory" type="hidden" name="clearmemory" value="{$clearmemory}">
+	</FORM>
+	
+<SCRIPT>
+//onloadbody{$func}();
+</SCRIPT>
+
+
+
+     <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem -->
+      <!--{if $img_links  or $txt_links }-->
+      <div id="links">
+        <!-- {if $img_links} -->
+        <!--开始图片类型的友情链接{foreach from=$img_links item=link}-->
+        <span> <a href="{$link.url}" target="_blank" title="{$link.name}"><img src="{$link.logo}" width="88" height="31" alt="{$link.name}" border="0" /></a> </span>
+        <!--结束图片类型的友情链接{/foreach}-->
+        <!-- {/if} -->
+        <!-- {if $txt_links} -->
+        <!--开始文字类型的友情链接{foreach from=$txt_links item=link}-->
+        <span> [<a href="{$link.url}" target="_blank" title="{$link.name}">{$link.name}</a>] </span>
+        <!--结束文字类型的友情链接{/foreach}-->
+        <!-- {/if} -->
+      </div>
+      <!--{/if}-->
+	  <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+      </div>
+  </div>
+</div>
+</body>
+</html>

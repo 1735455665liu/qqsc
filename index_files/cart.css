@@ -1,0 +1,364 @@
+﻿.tb-main {
+	width: 100%;
+}
+
+.tb-main-nk {
+	border: none;
+}
+
+.tb-main th {
+	height: 35px;
+	text-indent: 10px;
+}
+
+.tb-main td {
+	padding: 8px 0px 8px 10px;
+	border-bottom: 1px dashed #d5d5d5;
+}
+
+.tb-main .price {
+	color: #c00;
+	white-space: nowrap;
+}
+
+.tb-main .operate, .tb-main .operate a {
+	color: #0096ae;
+}
+
+.tb-main .operate a:hover {
+	color: #c00;
+}
+
+.tb-main .f-check, .tb-main .f-radio {
+	padding-top: 0;
+}
+
+.tb-main .f-check .f-check-item {
+	margin-right: 0;
+}
+
+.tb-main  .td-prd-img img {
+	border: 1px solid #cccccc;
+}
+
+.tb-main .td-prd-img a:hover img {
+	border-color: #cc0000;
+}
+
+.tb-main .addsubstract {
+	position: relative;
+	width: 40px;
+	height: 22px;
+	padding: 0 20px;
+}
+
+.tb-main .addsubstract a {
+	position: absolute;
+	width: 15px;
+	height: 15px;
+	overflow: hidden;
+	top: 3px;
+	*top: 4px;
+	background: url(/Content/images/i/sprite_user.png) 0 -200px no-repeat;
+}
+
+.tb-main .addsubstract .addnum {
+	right: 0;
+	background-position: 0 -250px;
+}
+
+.tb-main .addsubstract .subnum {
+	left: 0;
+}
+
+.tb-main .addsubstract input {
+	width: 32px;
+	height: 16px;
+	line-height: 16px;
+	padding: 2px 3px;
+	border: 1px solid #cccccc;
+	outline: none;
+	text-align: center;
+}
+
+.tb-main .flushcart {
+	padding-left: 18px;
+	background: url(/Content/images/i/sprite_user.png) 0 -300px no-repeat;
+	float: left;
+	display: inline;
+}
+
+.tb-main .tr-total td {
+	border-bottom: none;
+	vertical-align: top;
+}
+
+.tb-main .tr-total .td-total {
+	text-align: right;
+	padding-right: 30px;
+}
+
+.tb-main .tr-total2 {
+	vertical-align: top;
+}
+
+.tb-main .tr-total2 p {
+	height: 20px;
+	line-height: 20px;
+}
+
+.tb-main4 th {
+	text-indent: 0;
+	height: 30px;
+}
+
+.tb-main4 th, .tb-main4 td {
+	border-right: 1px solid #d5d5d5;
+	text-align: center;
+}
+
+.tb-main4 td {
+	padding: 5px;
+	border-bottom-style: solid;
+}
+
+.cartstep-status {
+	height: 30px;
+	overflow: hidden;
+	margin-bottom: 10px;
+	background: url(/Content/images/i/sprite_user.png) 0 -150px repeat-x;
+	border-left: 1px solid #cccccc;
+	border-right: 1px solid #cccccc;
+	color: #cccccc;
+}
+
+.cartstep-status li {
+	float: left;
+	display: inline;
+	width: 386px;
+	height: 30px;
+	text-align: center;
+	line-height: 30px;
+}
+
+.cartstep-status .current {
+	background-color: #0096ae;
+	color: #fefefe;
+}
+
+.cartstep-status .arrow-white, .cartstep-status .arrow-white-r, .cartstep-status .arrow-blue-r {
+	padding-left: 20px;
+	background-image: url(/Content/images/i/sprite_user.png);
+	background-repeat: no-repeat;
+}
+
+.cartstep-status .arrow-white {
+	background-position: 0px -100px;
+}
+
+.cartstep-status .arrow-white-r {
+	background-position: 0px -50px;
+}
+
+.cartstep-status .arrow-blue-r {
+	background-position: 0px 0px;
+}
+
+.box-cart-modify {
+	padding-bottom: 15px;
+}
+
+.box-cart-modify .bd {
+	padding: 15px 30px 0 30px;
+}
+
+.box-cart-modify .hd2, .box-cart-modify .bd2, .box-cart-modify .ft2 {
+	float: left;
+	display: inline;
+}
+
+.box-cart-modify .hd2 {
+	width: 150px;
+	margin-top: -5px;
+	min-height: 22px;
+}
+
+.box-cart-modify .bd2 {
+	margin-right: 30px;
+}
+
+.box-cart-modify .ft {
+	padding-left: 180px;
+	padding-top: 30px;
+}
+
+.box-cart-deduction .bd2 .f-box {
+	_display: inline;
+}
+/**/
+.box-cart-modify .f-label {
+	width: 6em;
+}
+
+.box-cart-modify .f-input {
+	padding-bottom: 10px;
+}
+
+.box-cart-modify .f-box {
+}
+
+.box-cart-modify .cart-wrap-tbmain {
+	width: 480px;
+	height: 180px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+.box-cart-success {
+	background-color: #f0f0f0;
+	padding: 50px 180px;
+	margin-bottom: 10px;
+}
+
+.box-cart-success .btn-lg {
+	width: 100px;
+}
+
+.sucmsg {
+	padding-left: 45px;
+	position: relative;
+	zoom: 1;
+}
+
+.sucmsg .ico-sucmsg-ok {
+	position: absolute;
+	width: 35px;
+	height: 38px;
+	left: 0px;
+	top: 0;
+	background: url(/Content/images/i/sprite_ico.png) 0 -600px no-repeat;
+}
+
+.sucmsg h6 {
+	font-weight: bold;
+	font-size: 20px;
+	padding-top: 5px;
+}
+
+#orderView {
+	border: 1px solid #cccccc;
+	width: 1200px;
+}
+
+.box .hd {
+	background: #eee;
+	height: 40px;
+	line-height: 40px;
+}
+
+.box .hd h2 {
+	padding-left: 20px;
+	font-weight: bold;
+}
+
+.ChooseTimtTitle {
+	float: left;
+	display: inline-block;
+	line-height: 26px;
+	margin-right: 10px;
+}
+
+.choose-time {
+	width: 250px;
+	height: 25px;
+	position: relative;
+	display: none;
+}
+
+.choose-time-input {
+	width: 217px;
+	padding: 0 25px 0 5px;
+	height: 24px;
+	line-height: 24px;
+	border: 1px solid #dddddd;
+	display: inline-block;
+	position: relative;
+	background: white url(/Content/images/i/choose-time-i.jpg) no-repeat 226px 4px;
+}
+
+.choose-time-input em {
+	color: #00abbd;
+	margin-right: 5px;
+}
+
+.choose-time-dialog {
+	position: absolute;
+	top: 25px;
+	left: 0;
+	z-index: 999;
+	width: 466px;
+	height: 75px;
+	overflow: hidden;
+	border: #00abbd solid 1px;
+	background: #fff;
+	color: #666;
+	box-shadow: 0 0 10px #999;
+	-moz-box-shadow: 0 0 10px #999;
+	-webkit-box-shadow: 0 0 10px #999;
+	display: none;
+}
+
+.choose-time-dialog table {
+	width: 467px;
+}
+
+.choose-time-dialog table th {
+	height: 42px;
+}
+
+.choose-time-dialog table th,.choose-time-dialog table td {
+	border-right: #ddd solid 1px;
+	text-align: center
+}
+
+.choose-time-dialog table td {
+	height: 28px;
+	border-top: #ddd solid 1px;
+	vertical-align: middle;
+	padding: 0;
+}
+
+.choose-time-dialog table .ctd-day {
+	width: 46px;
+}
+
+.choose-time-dialog table th.ctd-day b,.choose-time-dialog table th.ctd-day em {
+	display: block;
+	text-align: center;
+	width: 100%;
+}
+
+.choose-time-dialog table .ctd-day i {
+	width: 46px;
+	height: 28px;
+	background: url(/Content/images/i/choose-time-dialog.jpg) no-repeat;
+	display: inline-block;
+	cursor: pointer;
+}
+
+.choose-time-dialog table .ctd-day.iDisabled i {
+	background-position: 0 0;
+	cursor: no-drop;
+}
+
+.choose-time-dialog table .ctd-day.iHover i {
+	background-position: 0 -56px;
+}
+
+.choose-time-dialog table .ctd-day.iCur {
+	background: #00abbd;
+}
+
+.choose-time-dialog table .ctd-day.iCur i {
+	background-position: 0 -28px;
+}

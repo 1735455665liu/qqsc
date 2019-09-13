@@ -1,0 +1,19 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<div class="m rank">
+      <div class="mt">
+        <h2>{$lang.new_price}</h2>
+      </div>
+      <div class="mc">
+        <ul class="tabcon">
+ <!--{foreach from=$price_list item=item name=price_list}-->
+          <li>
+            <div class="p-name">{$item.user_name}&nbsp;&nbsp;{$item.bid_price}</div>
+          </li>
+    <!--{/foreach}-->     
+        </ul>
+      </div>
+    </div>
+
+
+

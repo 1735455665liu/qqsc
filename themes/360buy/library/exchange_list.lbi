@@ -1,0 +1,99 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<form method="GET" class="sort" name="listform" action="exchange.php">
+	<script language="javascript">
+function display_mode(mode){
+	document.listform.display.value = mode;
+	document.listform.submit();
+}
+
+function display_order(sort, order){
+	document.listform.sort.value = sort;
+	document.listform.order.value = order;
+	document.listform.submit();
+}
+
+</script>
+
+    <div id="filter"  clstag="thirdtype|keycount|thirdtype|filter">
+      <div class="fore item">排序&nbsp;</div>
+      <ul class="item tab">
+	    <li <!-- {if $pager.sort == 'goods_id' && $pager.order == 'DESC'} -->class='curr'<!--{/if}-->><a href="javascript:display_order('goods_id', 'DESC');" rel='nofollow'>上架时间</a><span></span></li>
+        <li <!-- {if $pager.sort == 'last_update' && $pager.order == 'DESC'} -->class='curr'<!--{/if}-->><a href="javascript:display_order('last_update', 'DESC');">更新时间</a><span></span></li>
+		<!-- {if $pager.sort == 'exchange_integral' && $pager.order == 'ASC'} -->
+		<li class='price curr up'><b></b><a href="javascript:display_order('exchange_integral', 'DESC');" rel='nofollow'>积分</a><span></span></li>
+		<!-- {elseif $pager.sort == 'exchange_integral' && $pager.order == 'DESC'} -->
+		<li class='price curr down'><b></b><a href="javascript:display_order('exchange_integral', 'ASC');" rel='nofollow'>积分</a><span></span></li>
+		<!--{else}-->
+        <li  ><b></b><a href="javascript:display_order('exchange_integral', 'ASC');" rel='nofollow'>积分</a><span></span></li>
+		<!--{/if}-->
+        
+      </ul>
+      <div class="pagin pagin-m fr">
+	  <span class="text">{$pager.page}/{$pager.page_count}</span>
+	  <!-- {if $pager.page_prev} -->
+	  <a href="{$pager.page_prev}" class="prev" >上一页<b></b>
+	  <!-- {else} -->
+	  <span class="prev-disabled">上一页<b></b></span>
+	  <!-- {/if} -->
+	  <!-- {if $pager.page_next} -->
+	  <a href="{$pager.page_prev}" class="next" >下一页<b></b>
+	  <!-- {else} -->
+	  <span class="next-disabled">下一页<b></b></span>
+	  <!-- {/if} -->
+
+	  </div>
+      <span class="clr" style="display:block;overflow:hidden;clear:both;height:0;line-height:0;font-size:0;"></span>
+      <div class="extra">
+        <div class='total fr'><span>共<strong>{$pager.record_count}</strong>个商品</span></div>
+        <span class='clr'></span></div>
+    </div>
+	<input type="hidden" name="category" value="{$category}" />
+  <input type="hidden" name="display" value="{$pager.display}" id="display" />
+  <input type="hidden" name="integral_min" value="{$integral_min}" />
+        <input type="hidden" name="integral_max" value="{$integral_max}" />
+  <input type="hidden" name="page" value="{$pager.page}" />
+  <input type="hidden" name="sort" value="{$pager.sort}" />
+  <input type="hidden" name="order" value="{$pager.order}" />
+  </form>
+    <!--filter end-->
+<div class="m" id="plist">
+	<!-- {if $goods_list} -->
+      <ul class="list-h">
+        
+		<!--{foreach from=$goods_list item=goods}-->
+    <!-- {if $goods.goods_id} -->
+        <li>
+          <div class='p-img'><a target='_blank' href='{$goods.url}'><img onerror="this.src='themes/360buy/images/none_150.gif'" src='{$goods.goods_thumb}' width="160" height="160" alt='{$goods.name|escape:html}' /></a>
+          </div>
+          <div class='p-name'><a target='_blank' href='{$goods.url}'>{$goods.goods_name}</a></div>
+          <div  class='p-price' style="color:#FF0000; font-weight:bold">{$lang.exchange_integral}{$goods.exchange_integral}</div>
+        
+        </li>
+        <!--{/if}-->
+    <!--{/foreach}-->
+		
+      </ul>
+	<!-- {else} -->  
+	<div style="font-size: 14px; text-align: center;">抱歉！没有找到符合条件的结果</div>
+	 <!-- {/if} --> 
+    </div>    
+    <!--plist end-->
+<script type="text/javascript">
+window.onload = function()
+{
+  //Compare.init();
+  fixpng();
+}
+{foreach from=$lang.compare_js item=item key=key}
+{if $key neq 'button_compare'}
+var {$key} = "{$item}";
+{else}
+var button_compare = '';
+{/if}
+{/foreach}
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+</script>

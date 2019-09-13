@@ -1,0 +1,365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link type="text/css" rel="stylesheet" href="themes/360buy/images/passport/new/misc/skin/df/regist.entry.css"/>
+<link type="text/css" rel="stylesheet" href="themes/360buy/images/passport/new/misc/skin/df/regist.personal.css"/>
+<link rel="stylesheet" href="themes/360buy/images/misc/lib/skin/2012/base.css">
+{insert_scripts files='user.js'}
+</head>
+<body>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+</script>
+{insert_scripts files='utils.js'}
+<script type="text/javascript" src="themes/360buy/images/misc/lib/js/e/jquery-1.2.6.pack.js"></script>
+<script type="text/javascript" src="themes/360buy/images/misc/lib/js/2012/base-2011.js"></script>
+<script type="text/javascript" src="themes/360buy/images/misc/lib/js/2012/base-v1.js"></script>
+<script type="text/javascript" src="themes/360buy/images/misc/lib/js/e/transport.js"></script>
+<script type="text/javascript" src="themes/360buy/images/misc/lib/js/e/common.js"></script>
+
+<div id="shortcut">
+  <div class="w">
+    <ul class="fl lh">
+      <li class="fore1 ld"><b></b><a href="javascript:add_to_favorite()">收藏{$shop_name}</a></li>
+    </ul>
+    <ul class="fr lh">
+      <li class="fore1 ld" id="loginbar" clstag="homepage|keycount|home2012|01e">{insert name='member_info'}</li>
+      <li class="fore2" clstag="homepage|keycount|home2012|01f"><a href="user.php?act=order_list">我的订单</a></li>
+      <li class="fore6 menu" data-widget="dropdown" clstag="homepage|keycount|home2012|01j">
+        <dl>
+          <dt class="ld"><a>客户服务<b></b></a></dt>
+          <dd>
+            <!-- {foreach name=nav_top_list from=$navigator_list.top item=nav} -->
+            <div><a href="{$nav.url}" 
+              
+              
+              
+              <!-- {if $nav.opennew eq 1} -->
+              target="_blank"
+              <!-- {/if} -->
+              >{$nav.name}</a></div>
+            <!-- {/foreach} -->
+          </dd>
+        </dl>
+      </li>
+    </ul>
+    <span class="clr"></span> </div>
+</div>
+<!--shortcut end-->
+<!-- shortcut end -->
+<div id="o-header" style=" margin-bottom:0px">
+<div class="w" id="header">
+<div id="logo" class="ld"><a href="index.php" hidefocus="true"><b></b><img src="themes/360buy/images/logo.gif" width="259" height="50"></a></div>
+<!--logo end-->
+
+</div>
+
+
+</div>
+<!-- header end -->
+<!-- header end -->
+
+<div id="body" style="margin-bottom:20px; margin-top:0px">
+  <!-- {if $action eq 'login'} -->
+  <form name="formLogin" action="user.php" method="post" onSubmit="return userLogin()">
+    <div class="w" id="entry">
+      <div class="mt">
+        <h2>用户登录</h2>
+        <b></b> </div>
+      <div class="mc" style="padding-top:20px;">
+        <div class="form">
+          <div class="item"> <span class="label">用户名：</span>
+            <div class="fl">
+              <input type="text" id="username" name="username" class="text" tabindex="1"
+                               value=""/>
+              <label id="loginname_succeed" class="blank invisible"></label>
+              <span class="clr"></span>
+              <label id="loginname_error"></label>
+            </div>
+          </div>
+          <div class="item"> <span class="label">密码：</span>
+            <div class="fl">
+              <input type="password" id="password" name="password" class="text" tabindex="2"/>
+              <label id="loginpwd_succeed" class="blank invisible"></label>
+              <label><a href="user.php?act=get_password"
+                                  class="flk13">忘记密码?</a></label>
+              <span class="clr"></span>
+              <label id="loginpwd_error"></label>
+            </div>
+          </div>
+		  <!-- 判断是否启用验证码{if $enabled_captcha} -->
+          <div class="item" id="o-authcode"> <span class="label">验证码：</span>
+            <div class="fl">
+              <input type="text" id="captcha" style="ime-mode:disabled" name="captcha" class="text text-1"
+                               tabindex="6"/>
+              <label class="img"> <img src="captcha.php?is_login=1&{$rand}" alt="captcha" style="vertical-align: middle;cursor: pointer;" onClick="this.src='captcha.php?is_login=1&'+Math.random()"  id="login_captcha"/> </label>
+              <label class="ftx23">&nbsp;看不清？<a href="javascript:void(0)" onclick="verc()"
+                                                          class="flk13">换一张</a></label>
+              <label id="authcode_succeed" class="blank invisible"></label>
+              <span class="clr"></span>
+              <label id="authcode_error"></label>
+            </div>
+          </div>
+		  <script language="javascript">
+		  function verc(){
+		  	$('#login_captcha').attr('src', 'captcha.php?is_login=1&{$rand}');
+		  }
+		  </script>
+		  <!--{/if}-->
+          <div class="item" id="autoentry"> <span class="label">&nbsp;</span>
+            <div class="fl">
+			<table cellpadding="0" cellspacing="0">
+			<tr><td style="padding:0px"><input type="checkbox" value="1" name="remember" id="remember" /></td>
+			<td style="padding:0px">记住用户名</td></tr>
+			</table>
+			
+
+            </div>
+          </div>
+          <div class="item"> <span class="label">&nbsp;</span>
+		  <input type="hidden" name="act" value="act_login" />
+            <input type="hidden" name="back_act" value="{$back_act}" />
+            <input type="submit" name="submit" class="btn-img btn-entry" value="登录" tabindex="8"/>
+          </div>
+        </div>
+        <!--[if !ie]>form end<![endif]-->
+        <div id="guide">
+          <h5>还不是商城用户？</h5>
+          <div class="content">现在免费注册成为商城用户，便能立刻享受便宜又放心的购物乐趣。</div>
+          <a href="user.php?act=register" class="btn-link btn-personal">注册新用户</a> </div>
+        <!--[if !ie]>guide end<![endif]-->
+        <span class="clr"></span> </div>
+      <!--[if !ie]>mc end<![endif]-->
+    </div>
+    <!--[if !ie]>regist end<![endif]-->
+  </form>
+
+  <!--{/if}-->
+  <!--{if $action eq 'register'}-->
+  <div class="w" id="regist">
+    <div class="mt">
+      <h2> 注册新用户</h2>
+      <b></b><span>我已经注册，现在就&nbsp;<a href="user.php" class="flk13">登录</a></span> </div>
+    <div class="mc">
+	<style>
+	.reg_table td{ padding-top:10px; padding-bottom:10px;}
+	.reg_table .title{ font-size:14px}
+	</style>
+	<form action="user.php" method="post" name="formUser" onsubmit="return register();">
+      <table width="100%"  border="0" align="left" cellpadding="5" cellspacing="3" class="reg_table">
+        <tr>
+          <td width="35%" align="right" class="title">{$lang.label_username}</td>
+          <td width="65%">
+          <input name="username" type="text" size="25" id="username" onblur="is_registered(this.value);" class="text"/>
+            <span id="username_notice" style="color:#FF0000"> *</span>
+          </td>
+        </tr>
+		<!-- 隐藏email
+	   <tr>
+          <td align="right" class="title">{$lang.label_email}</td>
+          <td>
+          <input name="email" type="text" size="25" id="email" onblur="checkEmail(this.value);"  class="text"/>
+            <span id="email_notice" style="color:#FF0000"> *</span>
+          </td>
+        </tr>
+		-->
+        <tr>
+          <td align="right" class="title">{$lang.label_password}</td>
+          <td>
+          <input name="password" type="password" id="password1" onblur="check_password(this.value);" onkeyup="checkIntensity(this.value)" class="text"  />
+            <span style="color:#FF0000" id="password_notice"> *</span>
+          </td>
+        </tr>
+        <tr>
+          <td align="right" class="title">{$lang.label_password_intensity}</td>
+          <td>
+            <table width="248" border="0" cellspacing="0" cellpadding="1" bgcolor="#f2f2f2" style=" height:20px; border:1px solid  #FFFFFF">
+              <tr align="center">
+                <td width="33%" id="pwd_lower" style="padding:5px 0px" class="title">{$lang.pwd_lower}</td>
+                <td width="33%" id="pwd_middle" style="padding:0px" class="title">{$lang.pwd_middle}</td>
+                <td width="33%" id="pwd_high" style="padding:0px" class="title">{$lang.pwd_high}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td align="right" class="title">{$lang.label_confirm_password}</td>
+          <td>
+          <input name="confirm_password" type="password" id="conform_password" onblur="check_conform_password(this.value);"  class="text" />
+            <span style="color:#FF0000" id="conform_password_notice"> *</span>
+          </td>
+        </tr>
+        <!-- {foreach from=$extend_info_list item=field} -->
+	<!-- {if $field.id eq 6} -->
+
+	<!-- {else} -->
+        <tr>
+          <td  class="title" align="right" <!-- {if $field.is_need} -->id="extend_field{$field.id}i"<!--{/if}-->>{$field.reg_field_name}
+          <td>
+          <input name="extend_field{$field.id}" type="text" size="25" class="text" /><!-- {if $field.is_need} --><span style="color:#FF0000"> *</span><!-- {/if} -->
+          </td>
+        </tr>
+	<!-- {/if} -->
+	<!-- {/foreach} -->
+      <!-- 判断是否启用验证码{if $enabled_captcha} -->
+      <tr>
+      <td align="right" class="title">{$lang.comment_captcha}</td>
+      <td>
+	  <table cellpadding="0" cellspacing="0">
+	  <tr><td><input type="text" size="8" name="captcha" class="text" style="width:100px" maxlength="4" /></td>
+	  <td style="padding-left:2px"><img src="captcha.php?{$rand}" alt="captcha" style="vertical-align: middle;cursor: pointer;" onClick="this.src='captcha.php?'+Math.random()" /></td></tr>
+	  </table>
+	  
+       </td>
+      </tr>
+      <!--{/if}-->
+        <tr>
+          <td>&nbsp;</td>
+          <td><label>
+            <input name="agreement" type="checkbox" value="1" checked="checked" />
+            {$lang.agreement}</label></td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td align="left">
+          <input name="act" type="hidden" value="act_register" >
+          <input type="hidden" name="back_act" value="{$back_act}" />
+          <input  name="Submit" type="submit" class="btn-img btn-regist" value="同意协议，提交" tabindex="8"/>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">&nbsp;</td>
+        </tr>
+      
+      </table>
+    </form>
+      
+    </div>
+    <!--[if !ie]>mc end<![endif]-->
+  </div>
+  <!--{/if}-->
+  <!--{if $action eq 'get_password'} -->
+  {insert_scripts files='utils.js'}
+  <script type="text/javascript">
+    {foreach from=$lang.password_js item=item key=key}
+      var {$key} = "{$item}";
+    {/foreach}
+    </script>
+  <div class="w" id="entry">
+    <div class="mt">
+      <h2>找回密码</h2>
+      <b></b> </div>
+	  <form action="user.php" method="post" name="getPassword" onsubmit="return submitPwdInfo();">
+    <div class="mc" style="padding-top:20px;">
+      <div class="form">
+        <div class="ac flk13 ftx24" style="width:480px;height:21px;line-height:21px;padding:2px 4px;margin:0 auto 20px;">忘记了密码？请输入用户名和注册时填写的邮箱，我们会把重设密码邮件发送到您的邮箱！</div>
+        <div class="item"> <span class="label">用户名：</span>
+          <div class="fl">
+            <input type="text" id="user_name" name="user_name" class="text" tabindex="1"/>
+            <label id="tbxNickname_succeed" class="blank invisible"></label>
+            <span class="clr"></span>
+            <label id="tbxNickname_error"></label>
+          </div>
+        </div>
+        <script type="text/javascript">
+			</script>
+        <div class="item"> <span class="label">邮箱：</span>
+          <div class="fl">
+            <input type="text" id="email" name="email" class="text" tabindex="2"/>
+            <label id="tbxEmail_succeed" class="blank invisible"></label>
+            <span class="clr"></span>
+            <div id="tbxEmail_error"></div>
+          </div>
+        </div>
+        
+        <div class="item"> <span class="label">&nbsp;</span>
+		<input type="hidden" name="act" value="send_pwd_email" />
+          <input  type="submit" name="submit" class="btn-img btn-entry" value="完成" tabindex="5"/>
+        </div>
+      </div>
+      <!--[if !ie]>form end<![endif]-->
+      <span class="clr"></span> </div>
+	  
+	  </form>
+    <!--[if !ie]>mc end<![endif]-->
+  </div>
+  
+  
+  <!--{/if}-->
+  <!-- {if $action eq 'reset_password'} -->
+  <script type="text/javascript">
+    {foreach from=$lang.password_js item=item key=key}
+      var {$key} = "{$item}";
+    {/foreach}
+    </script>
+	<div class="w" id="entry">
+    <div class="mt">
+      <h2>重设密码</h2>
+      <b></b> </div>
+	   <form action="user.php" method="post" name="getPassword2" onSubmit="return submitPwd()">
+    <div class="mc" style="padding-top:20px;">
+      <div class="form">
+       
+        <div class="item"> <span class="label">{$lang.new_password}：</span>
+          <div class="fl">
+            <input type="password" id="new_password" name="new_password" class="text" tabindex="1"/>
+            <label id="tbxNickname_succeed" class="blank invisible"></label>
+            <span class="clr"></span>
+            <label id="tbxNickname_error"></label>
+          </div>
+        </div>
+        <script type="text/javascript">
+			</script>
+        <div class="item"> <span class="label">{$lang.confirm_password}：</span>
+          <div class="fl">
+            <input type="password" id="confirm_password" name="confirm_password" class="text" tabindex="2"/>
+            <label id="tbxEmail_succeed" class="blank invisible"></label>
+            <span class="clr"></span>
+            <div id="tbxEmail_error"></div>
+          </div>
+        </div>
+        
+        <div class="item"> <span class="label">&nbsp;</span>
+		 <input type="hidden" name="act" value="act_edit_password" />
+            <input type="hidden" name="uid" value="{$uid}" />
+            <input type="hidden" name="code" value="{$code}" />
+          <input  type="submit" name="submit" class="btn-img btn-entry" value="完成" tabindex="5"/>
+        </div>
+      </div>
+      <!--[if !ie]>form end<![endif]-->
+      <span class="clr"></span> </div>
+	  
+	  </form>
+    <!--[if !ie]>mc end<![endif]-->
+  </div>
+  <!--{/if}-->
+</div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<script language="javascript">
+(function($) {
+	$('.text').focus(
+		function(){
+			$(this).addClass('highlight1');
+		}
+	).blur(
+		function(){
+			$(this).removeClass('highlight1');
+		}
+	);
+})(jQuery);
+</script>
+<script language="javascript">$('#service').hide();</script>
+<script type="text/javascript">
+var process_request = "{$lang.process_request}";
+{foreach from=$lang.passport_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+var username_exist = "{$lang.username_exist}";
+</script>
+</body>
+</html>
+

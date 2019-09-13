@@ -1,0 +1,164 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<form method="GET" class="sort" name="listform">
+	<script language="javascript">
+function display_mode(mode){
+	document.listform.display.value = mode;
+	document.listform.submit();
+}
+
+function display_order(sort, order){
+	document.listform.sort.value = sort;
+	document.listform.order.value = order;
+	document.listform.submit();
+}
+
+</script>
+    <div id="filter"  clstag="thirdtype|keycount|thirdtype|filter">
+      <div class="fore item">排序&nbsp;</div>
+      <ul class="item tab">
+        <li <!-- {if $pager.sort == 'sell_number' && $pager.order == 'DESC'} -->class='curr'<!--{/if}-->><a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=sell_number&order=DESC">销量</a><span></span></li>
+		<!-- {if $pager.sort == 'shop_price' && $pager.order == 'ASC'} -->
+		<li class='price curr up'><b></b><a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=shop_price&order=DESC" rel='nofollow'>价格</a><span></span></li>
+		<!-- {elseif $pager.sort == 'shop_price' && $pager.order == 'DESC'} -->
+		<li class='price curr down'><b></b><a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=shop_price&order=ASC" rel='nofollow'>价格</a><span></span></li>
+		<!--{else}-->
+        <li  ><b></b><a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=shop_price&order=ASC" rel='nofollow'>价格</a><span></span></li>
+		<!--{/if}-->
+		
+        <li <!-- {if $pager.sort == 'comment_count' && $pager.order == 'DESC'} -->class='curr'<!--{/if}-->><a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=comment_count&order=DESC" rel='nofollow'>评论数</a><span></span></li>
+        <li <!-- {if $pager.sort == 'goods_id' && $pager.order == 'DESC'} -->class='curr'<!--{/if}-->><a href="{$script_name}.php?category={$category}&display={$pager.display}&brand={$brand_id}&price_min={$price_min}&price_max={$price_max}&filter_attr={$filter_attr}&page={$pager.page}&sort=goods_id&order=DESC" rel='nofollow'>上架时间</a><span></span></li>
+      </ul>
+      <div class="pagin pagin-m fr">
+	  <span class="text">{$pager.page}/{$pager.page_count}</span>
+	  <!-- {if $pager.page_prev} -->
+	  <a href="{$pager.page_prev}" class="prev" >上一页<b></b></a>
+	  <!-- {else} -->
+	  <span class="prev-disabled">上一页<b></b></span>
+	  <!-- {/if} -->
+	  <!-- {if $pager.page_next} -->
+	  <a href="{$pager.page_next}" class="next" >下一页<b></b></a>
+	  <!-- {else} -->
+	  <span class="next-disabled">下一页<b></b></span>
+	  <!-- {/if} -->
+
+	  </div>
+      <span class="clr" style="display:block;overflow:hidden;clear:both;height:0;line-height:0;font-size:0;"></span>
+      <div class="extra">
+        <div class='total fr'><span>共<strong>{$pager.record_count}</strong>个商品</span></div>
+        <span class='clr' style="display:block;overflow:hidden;clear:both;height:0;line-height:0;font-size:0;"></span></div>
+    </div>
+	<input type="hidden" name="category" value="{$category}" />
+  <input type="hidden" name="display" value="{$pager.display}" id="display" />
+  <input type="hidden" name="brand" value="{$brand_id}" />
+  <input type="hidden" name="price_min" value="{$price_min}" />
+  <input type="hidden" name="price_max" value="{$price_max}" />
+  <input type="hidden" name="filter_attr" value="{$filter_attr}" />
+  <input type="hidden" name="page" value="{$pager.page}" />
+  <input type="hidden" name="sort" value="{$pager.sort}" />
+  <input type="hidden" name="order" value="{$pager.order}" />
+  </form>
+    <!--filter end-->
+<div class="m" id="plist">
+	<!-- {if $goods_list} -->
+      <ul class="list-h">
+        
+		<!--{foreach from=$goods_list item=goods}-->
+    <!-- {if $goods.goods_id} -->
+        <li>
+          <div class='p-img'><a target='_blank' href='{$goods.url}'><img onerror="this.src='themes/360buy/images/none_150.gif'" src='{$goods.goods_thumb}' width="160" height="160" alt='{$goods.name|escape:html}' /></a>
+             <!-- {if $goods.is_promote} -->
+             <div class="pi7"></div>
+			 <!-- {elseif $goods.is_hot}-->
+			 <div class="pi2"></div>
+			 <!-- {elseif $goods.is_best}-->
+			 <div class="pi8"></div>
+			 <!-- {elseif $goods.is_new}-->
+			 <div class="pi1"></div>
+			 <!--{/if}--> 
+          </div>
+          <div class='p-name'><a target='_blank' href='{$goods.url}'>{$goods.goods_name}<font style='color:#ff0000' class='adwords' name='573692'></font></a></div>
+          <div  class='p-price' style="color:#FF0000; font-weight:bold"><!--{if $goods.promote_price neq "" } -->{$goods.promote_price}<!--{else}-->{$goods.shop_price}<!--{/if}--></div>
+          <div class='extra'><span class='evaluate'><a target='_blank' href='{$goods.url}'>已有{$goods.comment_count}人评价</a></span><span class='reputation'>(95%好评)</span></div>
+          <div class='btns' style="text-align:center;">
+          <div style="float:left;padding-right:2px;line-height:23px;height:23px;">数量:<input type="text" name="goods_number{$goods.goods_id}" id="goods_number_{$goods.goods_id}"  value="1" size="4" style="text-align:center" onkeydown="showdiv(this)"/></div>
+          <a href='javascript:addToCart({$goods.goods_id})' class='btn-buy'>购买</a>
+            <input type='button' class='btn-coll' value='收藏' onclick='javascript:collect({$goods.goods_id});' />
+            
+          </div>
+        </li>
+        <!--{/if}-->
+    <!--{/foreach}-->
+		
+      </ul>
+	<!-- {else} -->  
+	<div style="font-size: 14px; text-align: center;">抱歉！没有找到符合条件的结果</div>
+	 <!-- {/if} --> 
+    </div>    
+    <!--plist end-->
+<script type="text/javascript">
+window.onload = function()
+{
+  //Compare.init();
+  fixpng();
+}
+function addToCart(goodsId, parentId)
+{
+  var goods        = new Object();
+  var spec_arr     = new Array();
+  var fittings_arr = new Array();
+  var number       = 1;
+  var formBuy      = document.forms['ECS_FORMBUY'];
+  var formBuy1      = document.forms['compareForm'];
+  var quick		   = 0;
+    var fid = "goods_number_"+goodsId;
+if(document.getElementById(fid)){
+  
+number = document.getElementById(fid).value;
+  
+}
+
+  // 检查是否有商品规格 
+  if (formBuy)
+  {
+    spec_arr = getSelectedAttributes(formBuy);
+
+    if (formBuy.elements['number'])
+    {
+      number = formBuy.elements['number'].value;
+    }
+
+	quick = 1;
+  }
+  
+  if(formBuy1)
+    {
+    	alert(formBuy1.elements['goods_number_'+goodsId].value);
+      obj=document.getElementById('goods_number_'+goodsId);
+     if (obj)
+      {
+      	number = obj.value;
+      	}
+
+      }
+
+  goods.quick    = quick;
+  goods.spec     = spec_arr;
+  goods.goods_id = goodsId;
+  goods.number   = number;
+  goods.parent   = (typeof(parentId) == "undefined") ? 0 : parseInt(parentId);
+  //888
+  Ajax.call('flow.php?step=add_to_cart', 'goods=' + objToJSONString(goods), addToCartResponse, 'POST', 'JSON');
+}
+
+{foreach from=$lang.compare_js item=item key=key}
+{if $key neq 'button_compare'}
+var {$key} = "{$item}";
+{else}
+var button_compare = '';
+{/if}
+{/foreach}
+var compare_no_goods = "{$lang.compare_no_goods}";
+var btn_buy = "{$lang.btn_buy}";
+var is_cancel = "{$lang.is_cancel}";
+var select_spe = "{$lang.select_spe}";
+</script>

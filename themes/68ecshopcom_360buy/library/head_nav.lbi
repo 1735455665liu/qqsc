@@ -1,0 +1,7 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<ul class="allMenu Left">
+  <li ><a class=" index nav" href="index.php" title="首页" style="font-size:15px">首页</a></li>
+  <!-- {foreach name=nav_middle_list from=$navigator_list.middle item=nav } --> 
+  <li><a href="{$nav.url}"  class="nav"  title="{$nav.name}" style="font-size:15px">{$nav.name}</a></li>  
+  <!-- {/foreach} -->
+</ul>

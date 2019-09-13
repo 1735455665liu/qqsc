@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>在线客服 - {$shop_name}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="ecy.cc">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="style/base2013.css" />
+<link rel="stylesheet" type="text/css" href="style/all_html5.css" />
+<link rel="stylesheet" type="text/css" href="style/chapter.css" />
+<script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="js/common1.js" type="text/javascript"></script>
+</head>
+<body>
+{include file='head2.dwt'}
+<div class="kefu mc radius">
+	<ul>
+		<li>商店名称：{$shop_name}</li>
+		<li>商店地址：{$shop_address}</li>
+		<li>客服QQ：{$qq}</li>
+		<li>淘宝旺旺：{$ww}</li>
+		<li>客服邮箱：1850302635@qq.com{$service_email}</li>
+		<li style="border:none;"><a class="telephonelink" href="tel:{$service_phone}" style="color:#FFF;">{$service_phone}</a></li>
+	</ul>
+	<div>
+<iframe id='mapbarframe' border='0' vspace='0' hspace='0' marginwidth='0' marginheight='0' framespacing='0' frameborder='0'scrolling='no' width='300' height='300' src='http://trader.sanhaostreet.com/TraderOnAMap/PoiSearch_Small.asp?traderId=40590'></iframe>
+	</div>
+
+</div>
+{include file='foot.dwt'}
+</body>
+</html>

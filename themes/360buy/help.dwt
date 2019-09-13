@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link type="text/css" rel="stylesheet" href="themes/360buy/images/misc/help/misc/skin/helpcenter.css" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<script type="text/javascript">
+window.pageConfig={
+	compatible:false
+};
+</script>
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<script type="text/javascript" src="themes/360buy/images/misc/lib/js/2012/base-2011.js"></script>
+<!--[if !ie]>顶部内容结束<![endif]-->
+<!--[if !ie]>Main 开始<![endif]-->
+<div class="w main" style="margin-bottom:15px">
+  <!--[if !ie]>Position 开始<![endif]-->
+  <div class="m" style="padding-left:5px"><!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem -->  </div>
+  <!--[if !ie]>Position 结束<![endif]-->
+  <!--[if !ie]>left 开始<![endif]-->
+  <div class="left">
+    <h2>帮助中心</h2>
+    <div class="help_side">
+	<!-- {foreach from=$helps item=help_cat name=helps} -->
+      <h4>{$help_cat.cat_name}</h4>
+      <ul>
+	  <!-- {foreach from=$help_cat.article item=item} -->
+        <li> <a href="help.php?id={$item.article_id}">{$item.short_title}</a> </li>
+      <!-- {/foreach} -->
+      </ul>
+    <!-- {/foreach} -->
+    </div>
+  </div>
+  <!--[if !ie]>left 结束<![endif]-->
+  <!--[if !ie]>right 开始<![endif]-->
+  <div class="right" id="top">
+    <!--[if !ie]>内容 开始<![endif]-->
+    <a class="h-1px" id="help222" name="help222"></a>
+    <h3 class="help_tit">{$article.title|escape:html}</h3>
+    <div class="help_box">
+      
+	  {$article.content}
+    </div>
+
+    <!--[if !ie]>内容 结束<![endif]-->
+    <!--[if !ie]>help_tips 开始<![endif]-->
+    <!--[if !ie]>help_tips 结束<![endif]-->
+  </div>
+  <!--[if !ie]>right 结束<![endif]-->
+  <div class="clr"></div>
+</div>
+<!--[if !ie]>Main 结束<![endif]-->
+<!--[if !ie]>底部内容开始<![endif]-->
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>
+

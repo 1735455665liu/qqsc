@@ -1,0 +1,38 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<a name="top"></a>
+<header>
+		    <div class="new-header" id="_jdBox">
+        	<a href="javascript:pageBack();" class="new-a-back"><span>返回</span></a>
+        	<a href="javascript:void(0)" id="btnJdBox" class="new-srch-box2">请输入关键词</a>
+            <a href="javascript:void(0)" id="btnJdkey" class="new-a-jd"><span>京东键</span></a>
+    	</div>
+		<div class="new-header" id="_jdSearch" style="display:none">
+			 <form name="searchForm" method="get" action="search.php" class="search" id="searchForm">
+        	<div class="new-srch-box new-srch-box-v1">
+            	<input type="text" class="new-srch-input" name="keywords" id="newkeyword" cleardefault="no" value="" placeholder="请输入关键词"><a href="javascript:void(0)" target="_self" onclick="$('#searchForm').submit();" class="new-s-srch"><span></span></a>
+                <div class="new-srch-lst" id="shelper" style="display:none">
+                </div>
+            </div>
+			</form>
+		</div>
+		<div class="new-jd-tab" style="display:none" id="jdkey">
+        	<div class="new-tbl-type">
+                <a href="index.php" class="new-tbl-cell">
+                	<span class="icon">首页</span>
+					<p style="color:#6e6e6e;">首页</p>
+                </a>
+                <a href="category.php" class="new-tbl-cell">
+                	<span class="icon2">分类搜索</span>
+					<p style="color:#6e6e6e;">分类搜索</p>
+                </a>
+                <a href="cart.php" id="html5_cart" class="new-tbl-cell">
+                	<span class="icon3">购物车</span>
+					<p style="color:#6e6e6e;">购物车</p>
+                </a>
+                <a href="user.php?act=user_center" class="new-tbl-cell">
+                	<span class="icon4">会员中心</span>
+					<p style="color:#6e6e6e;">会员中心</p>
+                </a>
+            </div>
+        </div>
+	</header>

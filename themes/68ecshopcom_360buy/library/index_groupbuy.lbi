@@ -1,0 +1,70 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<div class="groupbuy"> 
+          <script >
+var Tday = new Array();
+var daysms = 24 * 60 * 60 * 1000
+var hoursms = 60 * 60 * 1000
+var Secondms = 60 * 1000
+var microsecond = 1000
+var DifferHour = -1
+var DifferMinute = -1
+var DifferSecond = -1
+function clock(key)
+  {
+   var time = new Date()
+   var hour = time.getHours()
+   var minute = time.getMinutes()
+   var second = time.getSeconds()
+   var timevalue = ""+((hour > 12) ? hour-12:hour)
+   timevalue +=((minute < 10) ? ":0":":")+minute
+   timevalue +=((second < 10) ? ":0":":")+second
+   timevalue +=((hour >12 ) ? " PM":" AM")
+   var convertHour = DifferHour
+   var convertMinute = DifferMinute
+   var convertSecond = DifferSecond
+   var Diffms = Tday[key].getTime() - time.getTime()
+   DifferHour = Math.floor(Diffms / daysms)
+   Diffms -= DifferHour * daysms
+   DifferMinute = Math.floor(Diffms / hoursms)
+   Diffms -= DifferMinute * hoursms
+   DifferSecond = Math.floor(Diffms / Secondms)
+   Diffms -= DifferSecond * Secondms
+   var dSecs = Math.floor(Diffms / microsecond)
+   
+   if(convertHour != DifferHour) a="<em>"+DifferHour+"</em> 天";
+   if(convertMinute != DifferMinute) b="<em>"+DifferMinute+"</em> 时";
+   if(convertSecond != DifferSecond) c="<em>"+DifferSecond+"</em> 分"
+     d="<em>"+dSecs+"</em> 秒"
+     if (DifferHour>0) {a=a} 
+     else {a=''}
+   document.getElementById("leftTime"+key).innerHTML = a + b + c + d; //显示倒计时信息
+  
+  }
+</script>
+          <div class="title"><i>团</i>近期团购</div>
+          <ul>
+            <!--{foreach from=$promotion_goods item=goods name=index_goods key=key}--> 
+            {if $smarty.foreach.index_goods.iteration < 6}
+            <li>
+              <dl style="background-image:url({$goods.thumb}) 90px 90px">
+                <dt>{$goods.short_style_name}</dt>
+                <dd class="price"><span class="groupbuy-price"><!-- {if $goods.promote_price neq ""} -->{$goods.promote_price}<!-- {else}-->{$goods.shop_price}<!--{/if}--></span><span class="buy-button"><a href="pro_goods.php?id={$goods.id}">立即团</a></span></dd>
+                <dd class="time"><span class="sell">折扣<em>{$goods.zhekou}</em></span> <span class="time-remain" id="leftTime{$key}"> {$lang.please_waiting} </span></dd>
+              </dl>
+            </li>
+            <script>
+
+Tday[{$key}] = new Date("{$goods.gmt_end_time}");
+
+window.setInterval(function()     
+
+{clock({$key});}, 1000);     
+
+</script> 
+            {/if} 
+            <!--{/foreach}-->
+          </ul>
+          <div class="pagination"><span style="opacity: 0.4;"></span><span style="opacity: 0.4;"></span><span style="opacity: 0.4;"></span><span style="opacity: 0.4;"></span><span style="opacity: 0.4;"></span><span style="opacity: 0.4;"></span><span style="opacity: 1;"></span><span style="opacity: 0.4;"></span><span style="opacity: 0.4;"></span></div>
+          <div class="arrow pre" style="opacity: 0;"></div>
+          <div class="arrow next" style="opacity: 0;"></div>
+        </div>

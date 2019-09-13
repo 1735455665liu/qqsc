@@ -1,0 +1,69 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<form id="formCart" name="formCart" method="post" action="flow.php" >
+  <div class="top">
+    <h3>我的购物车</h3>
+    <a href="javascript:void(0);" class="close" title="隐藏" onclick="close_cbox()"></a> </div>
+  <div id="rtoolbar_cartlist"> 
+    <!-- {if $goods} -->
+    <div class="div_scroll_cart">
+        <ul class="cart-list">
+          {foreach from=$goods item=goods name=goods}
+          <li>
+            <div class="goods-pic"> 
+            	<a href="{$goods.url}" title="{$goods.short_name}" target="_blank">
+                <!-- {if $goods.goods_thumb} -->
+                <img src="{$goods.goods_thumb}" alt="{$goods.short_name}">
+                <!--{else}-->
+                <img src="images/no_picture.gif" alt="{$goods.short_name}">
+                <!--{/if}-->
+                </a> 
+            </div>
+            <dl class="aa">
+              <dt class="goods-name"><a href="{$goods.url}" title="{$goods.short_name}" target="_blank">{$goods.short_name}</a></dt>
+              <dd><em class="goods-price">{$goods.goods_price}</em>×{$goods.goods_number}</dd>
+              <dd style="float:left;display:inline-block;margin-top:-50px;margin-left:125px"><i class="del-btn" title="删除" onClick="deleteCartGoods({$goods.rec_id})">×</i></dd>
+            </dl>
+          </li>
+          {/foreach}
+        </ul>
+    </div>
+    <div class="btn-box"> <a href="flow.php">结算购物车中的商品</a> </div>
+    <!-- {else} -->
+    <div class="div_scroll_cart">
+      <ul class="cart-list">
+        <li>
+          <dl>
+            <dd style="text-align: center; ">暂无商品</dd>
+          </dl>
+        </li>
+      </ul>
+    </div>
+    <div class="btn-box"></div>
+    <!-- {/if} --> 
+  </div>
+<script type="text/javascript">
+/**
+ * 接收返回的信息
+ */
+function deleteCartGoodsResponse(res)
+{
+  if (res.error)
+  {
+    alert(res.err_msg);
+  }
+  else
+  {
+	  document.getElementById('ECS_CARTINFO').innerHTML = res.content;
+  }
+}
+function deleteCartGoods(rec_id)
+{
+Ajax.call('delete_cart_goods.php', 'id='+rec_id, deleteCartGoodsResponse, 'POST', 'JSON');
+}
+
+function close_cbox()
+{
+	$(".content-box").animate({right:'-230px'});
+}
+</script>
+</form>

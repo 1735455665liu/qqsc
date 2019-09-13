@@ -1,0 +1,6 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<ul id="fullScreenSlides" class="full-screen-slides">
+  <!--{foreach from=$flash name=myflash item=flash}-->
+  <li style=" background:url({$flash.src}) center no-repeat;{if !$smarty.foreach.myflash.first}display: none; {else} display:list-item{/if}"> <a href="{$flash.url}" target="_blank" title="{$flash.title}">&nbsp;</a></li>
+  <!--{/foreach}-->
+</ul>

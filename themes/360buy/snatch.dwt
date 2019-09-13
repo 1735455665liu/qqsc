@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link rel="stylesheet" type="text/css" href="themes/360buy/images/misc/201007/skin/df/plist20120221.css" media="all" />
+<link rel="stylesheet" type="text/css" href="themes/360buy/images/misc/201007/skin/df/plist_2.css" media="all" />
+<link href="{$ecs_css_path}" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<!-- header end -->
+<div class="w">
+  <div class="breadcrumb"> <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --> </div>
+</div>
+<div class="w main">
+  <div class="right-extra">
+    <div class="content fr" id="right" style="width:100%">
+      <div class="m">
+        <div class="mt">
+          <h2>{$lang.treasure_info}</h2>
+          <div class="extra"></div>
+        </div>
+        <div class="mc">
+          <div class="boxCenterList">
+            <ul class="group clearfix" style="background-color:#FFFFFF">
+              <li style="margin-right:8px; text-align:center;"> <a href="{$snatch_goods.url}"><img src="{$snatch_goods.goods_thumb}" alt="{$snatch_goods.goods_name|escape:html}" /></a> </li>
+              <li   id="goods_list_right" style=" line-height:23px; float:right"> {insert_scripts files='lefttime.js'} <a href="{$snatch_goods.url}"><strong style="color:#FF6600">{$snatch_goods.goods_name|escape:html}</strong>{if $snatch_goods.product_id > 0}&nbsp;[{$products_info}]{/if}</a><br />
+                {$lang.shop_price} <font class="shop">{$snatch_goods.formated_shop_price}</font><br />
+                {$lang.market_price} <font class="market">{$snatch_goods.formated_market_price}</font> <br />
+                {$lang.residual_time} <font color="red"><span id="leftTime">{$lang.please_waiting}</span></font><br />
+                {$lang.activity_desc}：<br />
+                {$snatch_goods.desc|escape:html|nl2br} </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content fr" id="right" style="width:100%">
+      <div class="m">
+        <div class="mt">
+          <h2>{$lang.activity_intro}</h2>
+          <div class="extra"></div>
+        </div>
+        <div class="mc">
+          <div class="boxCenterList" style="padding:10px"> {$snatch_goods.snatch_time}<br />
+            {$lang.price_extent}{$snatch_goods.formated_start_price} - {$snatch_goods.formated_end_price} <br />
+            {$lang.user_to_use_up}{$snatch_goods.cost_points} {$points_name}<br />
+            {$lang.snatch_victory_desc}<br />
+            <!--{if $snatch_goods.max_price neq 0}-->
+            {$lang.price_less_victory}{$snatch_goods.formated_max_price}，{$lang.price_than_victory}{$snatch_goods.formated_max_price}，{$lang.or_can}{$snatch_goods.formated_max_price}{$lang.shopping_product}。
+            <!--{else}-->
+            {$lang.victory_price_product}
+            <!--{/if}-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="ECS_SNATCH"> <!-- #BeginLibraryItem "/Library/snatch.lbi" --><!-- #EndLibraryItem --> </div>
+  </div>
+  <!--right-extra end-->
+  <div class="left"> 
+  <!-- #BeginLibraryItem "/library/category_tree.lbi" --><!-- #EndLibraryItem -->
+   <div id="ECS_PRICE_LIST">
+    <!-- #BeginLibraryItem "/Library/snatch_price.lbi" --><!-- #EndLibraryItem -->
+    </div>
+	<div class="m rank">
+      <div class="mt">
+        <h2>{$lang.activity_list}</h2>
+      </div>
+      <div class="mc">
+        <ul class="tabcon">
+ <!--{foreach from=$snatch_list item=item}-->
+          <li>
+            <div class="p-name"><a href="{$item.url}">{$item.snatch_name}</a>&nbsp;&nbsp;
+          <!--{if $item.overtime }-->
+          ({$lang.end})
+          <!--{/if}--></div>
+          </li>
+    <!--{/foreach}-->     
+        </ul>
+      </div>
+    </div> 
+  <!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem -->
+   </div>
+  <!--left end-->
+  <span class="clr"></span> </div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+<script type="text/javascript">
+var gmt_end_time = {$snatch_goods.gmt_end_time|default:0};
+var id = {$id};
+{foreach from=$lang.snatch_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+{foreach from=$lang.goods_js item=item key=key}
+var {$key} = "{$item}";
+{/foreach}
+<!-- {literal} -->
+
+onload = function()
+{
+  try
+  {
+    window.setInterval("newPrice(" + id + ")", 8000);
+    onload_leftTime();
+  }
+  catch (e)
+  {}
+}
+<!-- {/literal} -->
+</script>
+</body>
+</html>
+

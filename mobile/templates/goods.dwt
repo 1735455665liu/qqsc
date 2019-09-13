@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{$goods_info.goods_name} - {$shop_name}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="ecy.cc">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="style/base2013.css" />
+<link rel="stylesheet" type="text/css" href="style/all_html5.css" />
+<link rel="stylesheet" type="text/css" href="style/chapter.css" />
+<link rel="stylesheet" type="text/css" href="style/view.css" />
+{insert_scripts files='common.js,../js/transport.js,../js/utils.js'}
+<script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="js/common1.js" type="text/javascript"></script>
+</head>
+<body>
+{include file='head2.dwt'}
+<div id="mainLayout" style="display:-webkit-box;">
+<div class="new-ct" id="mainStay" style="-webkit-box-flex: 1;width: 100%;">
+	<div class="new-goods-details">
+		<div class="new-gd-img">
+			            <div class="new-fl" id="_zoom">
+                  <script type="text/javascript">
+			var widths=200;
+			var heights=200;
+			var counts={$picturesnum};
+			<!-- {foreach from=$pictures item=picture name=picture}-->
+				img{$smarty.foreach.picture.iteration}=new Image();img{$smarty.foreach.picture.iteration}.src='./../{if $picture.thumb_url}{$picture.thumb_url}{else}{$picture.img_url}{/if}';
+				url{$smarty.foreach.picture.iteration}=new Image();url{$smarty.foreach.picture.iteration}.src='javascript:;';
+			<!--{/foreach}-->
+			var nn=1;
+			var key=0;
+			function change_img(){
+				if(key==0){
+					key=1;
+				}else if(document.all) {
+					document.getElementById("pic").filters[0].Apply();document.getElementById("pic").filters[0].Play(duration=2);
+				}
+				eval('document.getElementById("pic").src=img'+nn+'.src');
+				eval('document.getElementById("url").href=url'+nn+'.src');
+				for (var i=1;i <=counts;i++){
+					document.getElementById("xxjdjj"+i).className='axx';
+				}
+				document.getElementById("xxjdjj"+nn).className='bxx';
+				nn++;if(nn>counts){
+					nn=1;
+				}
+				tt=setTimeout('change_img()',4000);
+			}
+			function changeimg(n){
+				nn=n;window.clearInterval(tt);change_img();
+			}
+			document.write('<style type="text/css">');
+			document.write('.axx,.bxx{display:inline-block;width:14px;height:6px;margin:0 4px;overflow: hidden;text-indent: -99px;border: 1px solid #a5a5a5;box-shadow: 0 0 1px #999;border-radius: 5px;-webkit-border-radius: 5px;-moz-border-radius: 5px;}');
+			document.write('a.axx:link,a.axx:visited{background-color:#F5F0E1;}');
+			document.write('a.axx:active,a.axx:hover{background-color:#999;}');
+			document.write('a.bxx:link,a.bxx:visited{background-color:#B5B5B5;}');
+			document.write('a.bxx:active,a.bxx:hover{background-color:#B5B5B5;}');
+			document.write('</style>');
+			document.write('<div style="width:'+widths+'px;height:'+heights+';overflow:hidden;text-overflow:clip;margin:0px auto;padding-top:20px;text-align: center;">');
+			document.write('<div><a id="url"><img id="pic" style="border:0px;box-shadow: -2px 2px 2px #999;" width='+widths+' height='+heights+' /> </a> </div>');
+			document.write('<div style="margin-top:6px;">');
+			for(var i=1;i <counts+1;i++){
+				document.write('<a href="javascript:changeimg('+i+');" id="xxjdjj'+i+'" class="axx" target="_self">'+i+' </a>');
+			}
+			document.write('</div></div>');
+			change_img();
+		</script>
+			</div>
+            <div class="new-fl" id="price">
+                <strong class="new-gd-price" style="margin-left:12px"><font id="ECS_SHOPPRICE">{if $promote_price_org}{$goods_info.promote_price}{else}{$goods_info.shop_price_formated}{/if}</font></strong>
+				<div class="new-mark"><del class="market">{$goods_info.market_price}</del></div>
+                <span class="new-gd-star on" id="attention"><a href="javascript:collect({$goods_info.goods_id});"><span class="icon"></span><span>加收藏</span></a></span>
+            </div>
+        </div> 
+		<form action="javascript:addToCart({$goods_info.goods_id})" method="post" name="ECS_FORMBUY" id="ECS_FORMBUY" >       
+        <div class="new-gd-tit">
+        	<p class="new-txt6c" id="title">{$goods_info.goods_name}<font color="red">{$goods_info.goods_brief}</font></p>
+            <p class="new-gd-txt2" id="promotionInfo" style=" display:none "><span class="new-fl"></span><span class="new-gd-txt3"><span class="new-txt-rd2"></span></span></p>
+            <p class="new-gd-txt2" id="vender" style=" "><span class="new-fl">分类：{foreach from=$cat_array item=cat_data}<a href='category.php?cid={$cat_data.cat_id}'>{$cat_data.cat_name}</a> &gt; {/foreach}{$goods_info.goods_name}</span></p>
+            <p class="new-gd-txt2"><span class="new-fl">商品编号：</span><span class="new-gd-txt3" id="wareNo"> {$goods_info.goods_sn}</span></p>
+        </div>
+        <div id="spinner1" class="spinner" style="left:30%;position: absolute;height:120px;margin-top:50px;z-index:1000"></div>
+<div class="new-gd-option"><span class="new-txt2">销量</span></span></span><span class="">{$goods_info.sold_num}</span></div>
+<div class="new-gd-option"><span class="mu_lh">购买数量：</span> <span><input name="number" type="text" id="number" value="1" size="4" onBlur="changePrice()" class="buynum" style="border:1px solid #ccc;"/></span></div>
+<div class="new-gd-option"><span class="mu_lh">商品总价：</span> <span class="mu_lc red q-txt" id="ECS_GOODS_AMOUNT"></span></div>
+	<!-- {if $goods_info.is_shipping} 为免运费商品则显示-->
+	<div class="new-gd-option"> <span class="mu_lh2">免邮费：</span><span class="red mgn-bt">此商品为免运费商品，计算配送金额时将不计入配送费用</span> </div>
+	<!-- {/if} -->	
+<!--{if $volume_price_list } -->
+<div class="new-gd-option"><font class="f1">购买商品达到以下数量区间时可享受的优惠价格：</font>
+				<table width="100%" border="0" cellpadding="3" cellspacing="1" bgcolor="#aad6ff">
+					<tr>
+						<td bgcolor="#FFFFFF"><strong>数量</strong></td>
+						<td bgcolor="#FFFFFF"><strong>优惠价格</strong></td>
+					</tr>
+					<!-- {foreach from=$volume_price_list item=price_list key=price_key} -->
+					<tr>
+						<td bgcolor="#FFFFFF" class="shop">{$price_list.number}</td>
+						<td bgcolor="#FFFFFF" class="shop">{$price_list.format_price}</td>
+					</tr>
+					<!-- {/foreach} -->
+				</table>
+			</div>
+			<!--{/if}-->
+      <div class="new-gd-option2 clearfix">
+        	<!-- {* 开始循环所有可选属性 *} -->
+      <!-- {foreach from=$specification item=spec key=spec_key} -->
+      <div class="te">{$spec.name}:</div> 
+        <!-- {* 判断属性是复选还是单选 *} -->
+                    <!-- {if $spec.attr_type eq 1} -->
+                      <!-- {if $cfg.goodsattr_style eq 1} -->
+                       
+                        <!-- {else} -->
+                        <div class="catt">
+                        <ul>
+                       <!-- {foreach from=$spec.values item=value key=key} -->
+                       <li style="border:0px;">
+  <a onclick="changeP('spec_{$spec_key}','{$value.id}')" name="sp_url_{$spec_key}" id="url_{$value.id}"  title="{if $value.price gt 0}{$lang.plus}{elseif $value.price lt 0}{$lang.minus}{/if} {$value.format_price|abs}" {if $key eq 0}class="selected"{/if}>{$value.label}<input style="display:none" id="spec_value_{$value.id}" type="radio" name="spec_{$spec_key}" value="{$value.id}" {if $key eq 0}checked{/if} /></a>
+                      </li>
+                      <!-- {/foreach} -->
+                      </ul>
+					  </div>
+                        <input type="hidden" name="spec_list" value="{$key}" />
+                      <!-- {/if} -->
+                    <!-- {else} -->
+                      <!-- {foreach from=$spec.values item=value key=key} -->
+                      <label for="spec_value_{$value.id}">
+                      <input type="checkbox" name="spec_{$spec_key}" value="{$value.id}" id="spec_value_{$value.id}" onclick="changePrice()" />
+                      {$value.label} [{if $value.price gt 0}{$lang.plus}{elseif $value.price lt 0}{$lang.minus}{/if} {$value.format_price|abs}] </label><br />
+                      <!-- {/foreach} -->
+                      <input type="hidden" name="spec_list" value="{$key}" />
+                    <!-- {/if} -->
+      <!-- {/foreach} -->
+      <!-- {* 结束循环可选属性 *} -->
+        </div>
+		<div id="spinner2" class="spinner" style="left:43%;position: absolute;height:120px;"></div>
+        <div class="new-gd-btn new-mg-t10">
+        	<div class="new-tbl-type">
+				<span class="new-tbl-cell w50"><a href="javascript:addToCart({$goods_info.goods_id}, 'quk_buy');" class="new-abtn-type3 new-gd-on new-mg-r12">立即购买</a></span>
+				<span class="new-tbl-cell w50"><a href="javascript:addToCart({$goods_info.goods_id}, 'add_cart');" class="new-abtn-type2 new-gd-on new-mg-l12">加入购物车</a></span>
+		</div>
+        </div>
+</form>
+        <ul class="new-gd-reply new-mg-t10">
+            <li>
+            	<a href="goods.php?act=view_img&amp;id={$goods_id}" class="new-tbl-type">
+                	<span class="new-tbl-cell">详细介绍、规格参数</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="new-gd-reply new-mg-t10">
+            <li>
+            	<a href="comment.php?g_id={$goods_id}" class="new-tbl-type">
+                	<span class="new-tbl-cell">商品评论</span>
+                    <span class="new-tbl-cell new-txt-rd2" id="orderNum"></span>
+                </a>
+            </li>
+        </ul>
+			{if $properties}
+		<div class="prosx clearfix"><!-- {foreach from=$properties item=property_group key=key} -->
+			 <!-- {foreach from=$property_group item=property} -->
+			<p>{$property.name|escape:html}：{$property.value}</p>
+			<!-- {/foreach}-->
+			<!-- {/foreach}-->
+		</div>
+		{/if}
+    </div>
+</div>
+</div>
+{include file='foot.dwt'}
+<script type="text/javascript">
+var addto_cart_success = "该商品已添加到购物车。";
+var goods_id = {$goods_info.goods_id};
+var goodsattr_style = {$cfg.goodsattr_style|default:1};
+var goodsId = {$goods_info.goods_id};
+var now_time = {$now_time};
+onload = function(){
+  changePrice();
+  try {onload_leftTime();}
+  catch (e) {}
+}
+/**
+ * 点选可选属性或改变数量时修改商品价格的函数
+ */
+function changePrice()
+{
+  var attr = getSelectedAttributes(document.forms['ECS_FORMBUY']);
+  var qty = document.forms['ECS_FORMBUY'].elements['number'].value;
+  Ajax.call('goods.php', 'act=price&id=' + goodsId + '&attr=' + attr + '&number=' + qty, changePriceResponse, 'GET', 'JSON');
+}
+/**
+ * 接收返回的信息
+ */
+function changePriceResponse(res)
+{
+  if (res.err_msg.length > 0)
+  {
+    alert(res.err_msg);
+  }
+  else
+  {
+    document.forms['ECS_FORMBUY'].elements['number'].value = res.qty;
+    if (document.getElementById('ECS_GOODS_AMOUNT'))
+      document.getElementById('ECS_GOODS_AMOUNT').innerHTML = res.result;
+  }
+}
+/*
+*选择信息处理
+*/
+function changeP(b, c) {
+	var frm=document.forms['ECS_FORMBUY'];
+	var cur_id="";
+    document.getElementById('spec_value_' + c).checked=true;
+	document.getElementById('url_' + c).className="selected";
+	for (var i = 0; i < frm.elements[b].length; i++) {
+		cur_id=frm.elements[b][i].id.substr(11);
+        document.getElementById('url_' + cur_id).className="";
+		if (frm.elements[b][i].checked)
+		{
+		   document.getElementById('url_' + c).className="selected";
+		}
+    }
+	changePrice();
+}
+//
+var btn_buy = "购买";
+var is_cancel = "取消";
+var select_spe = "请选择商品属性";
+</script>
+</body>
+</html>

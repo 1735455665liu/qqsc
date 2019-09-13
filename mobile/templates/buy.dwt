@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>填写订单 - {$shop_name}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="ecy.cc">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="style/base2013.css" />
+<link rel="stylesheet" type="text/css" href="style/all_html5.css" />
+<link rel="stylesheet" type="text/css" href="style/chapter.css" />
+{insert_scripts files="../../js/utils.js,../js/transport.js"}
+{insert_scripts files="../../js/region.js"}
+<script type="text/javascript">
+	region.isAdmin=true;
+	function submit(obj){
+		obj.submit();
+	}
+	function check(theForm){
+		if(theForm.selProvinces.value == 0){
+			alert("请选择省");theForm.selProvinces.focus();return false;
+		}
+		if(theForm.selCities.value == 0){
+			alert("请选择市");theForm.selCities.focus();return false;
+		}
+		if(theForm.consignee.value==""){
+			alert("请输入收货人姓名!");theForm.consignee.focus();return false;
+		}
+		if(theForm.address.value==""){
+			alert("请输入您的详细地址!");theForm.address.focus();return false;
+		}
+		if(theForm.mobile.value==""){
+			alert("请输入收货人手机!");theForm.mobile.focus();return false;
+		}
+		theform.submit();
+	}
+</script>
+<script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="js/common1.js" type="text/javascript"></script>
+</head>
+<body>
+{include file='head2.dwt'}
+ <div class="pagepadd">
+{if $buy_type eq 1}
+	<h3 style="margin-bottom:10px; line-height:35px;border-bottom: 1px solid #DED6C9;">收货人信息</h3>
+	<form onSubmit="javascript:return check(theForm);" action="order.php?act=order_lise" method="post" name="theForm" id="theForm">
+		<ul>
+			<li>
+				<select name="province" id="selProvinces" onChange="region.changed(this, 2, 'selCities')">
+					<option value="0">请选择省</option>
+					<!-- {foreach from=$province_list item=province} -->
+					<option value="{$province.region_id}" {if $consignee.province eq $province.region_id}selected{/if}>{$province.region_name}</option>
+					<!-- {/foreach} -->
+				</select><span style="color:#F00;">(必填)</span>
+			</li>
+			<li>
+				<select name="city" id="selCities" onChange="region.changed(this, 3, 'selDistricts')">
+					<option value="0">请选择市</option>
+					<!-- {foreach from=$city_list item=city} -->
+					<option value="{$city.region_id}" {if $consignee.city eq $city.region_id}selected{/if}>{$city.region_name}</option>
+					<!-- {/foreach} -->
+				</select><span style="color:#F00;">(必填)</span>
+			</li>
+			<li>
+				<select name="district" id="selDistricts">
+					<option value="0">请选择区</option>
+					<!-- {foreach from=$district_list item=district} -->
+					<option value="{$district.region_id}"  {if $consignee.district eq $district.region_id}selected{/if}>{$district.region_name}</option>
+					<!-- {/foreach} -->
+				</select>
+			</li>
+			<li>
+				<label>详细地址<span style="color:#F00;">(必填)</span>:</label>
+				<br>
+				<input name="address" type="text" class="common-input"  id="address" value="{$consignee.address|escape}" style="width:99%;height:auto;margin-top:10px;" />
+			</li>
+			<li>
+				<label>收货人姓名<span style="color:#F00;">(必填)</span>:</label>
+				<br>
+				<input name="consignee" type="text" class="common-input" id="consignee" value="{$consignee.consignee|escape}" style="width:99%;height:auto;margin-top:10px;" />
+			</li>
+			<li>
+				<label>联系方式:<span style="color:#F00;">
+				(电话或者手机，必填)</span></label>
+				<br>
+				<input name="tel" type="text" class="common-input"  id="tel" value="{$consignee.tel|escape}" style="width:99%;height:auto;margin-top:10px;" />
+			</li>
+			<li>
+				<label>货栈:</label>
+				<br>
+				<input name="sign_building" type="text"  class="common-input" id="best_time" value="{$consignee.sign_building|escape}" style="width:99%;height:60px;margin-top:10px;"/>
+			<li>
+				<input type="submit" name="Submit" id="address_submit" class="new-abtn-type" value="配送这个地址" autocomplete="off" style="width:100%;border:0;cursor:pointer;margin-left:0" />
+			</li>
+			<li>
+				<input name="address_id" type="hidden" value="{$consignee.address_id}" />
+			</li>
+		</ul>
+	</form>
+	{else}
+	您还没有登陆<br>
+	您可以选择<a href='user.php?act=login' style="color:#F00;font-weight:bold;">会员登陆</a>或者<a href='user.php?act=register' style="color:#F00;font-weight:bold;">注册用户</a><!--或者<a href='buy.php?act=consignee' class="new-abtn-type" style="display: inline-block;height: 27px;line-height: 27px;">不登陆直接购买</a--> {/if} </div>
+{include file='foot.dwt'}
+<script type="text/javascript">
+var process_request = "正在处理您的请求...";
+</script>
+</body>
+</html>

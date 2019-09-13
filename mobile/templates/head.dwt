@@ -1,0 +1,19 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<a name="top"></a>
+<header>
+			<div class="new-jd-logo">
+			<h1><a href="index.php"><img src="./../mobile/images/logo.jpg" width="106" height="40"></a></h1>
+				<div class="new-hlogo-btn">
+					<a href="user.php?act=user_center" class="new-m-myjd"><span>我的京东</span></a>
+					<a href="cart.php" class="new-m-cart"><span>购物车</span></a>
+				</div>
+		</div>
+    	<div class="new-header">
+			<form name="searchForm" method="get" action="search.php" class="search">
+                  <div class="new-srch-box new-srch-box-v2">
+					<input type="text" name="keywords" id="keyword" class="new-srch-input"  value="" placeholder="请输入关键词">
+                </div>
+				<input type="submit" value="搜&nbsp;索" class="new-a-search">
+			</form>
+    	 </div>
+</header>

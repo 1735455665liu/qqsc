@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>{$page_title}</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" -->
+<!-- TemplateEndEditable -->
+<link rel="shortcut icon" href="favicon.ico" />
+<link rel="icon" href="animated_favicon.gif" type="image/gif" />
+<link type="text/css" rel="stylesheet" href="themes/68ecshopcom_360buy/css/help.css" />
+<script type="text/javascript" src="themes/68ecshopcom_360buy/js/jquery-1.9.1.min.js"></script>
+{insert_scripts files='jquery.json.js,transport.js'}
+{insert_scripts files='common.js'}
+</head>
+<body>
+<div id="site-nav"> 
+  <!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+  <div class="blank"></div>
+  <div class="w main"> 
+    <!--[if !ie]>Position 开始<![endif]-->
+    <div class="m breadcrumb">当前位置：<a href="help.php?id=9" >帮助中心</a> &gt; {$article.title|escape:html} </div>
+    <!--[if !ie]>Position 结束<![endif]--> 
+    <!--[if !ie]>left 开始<![endif]--> 
+    <!-- #BeginLibraryItem "/library/left_help.lbi" --><!-- #EndLibraryItem --> 
+    <!--[if !ie]>left 结束<![endif]--> 
+    <!--[if !ie]>right 开始<![endif]-->
+    <div class="right" > 
+      <!--[if !ie]>内容 开始<![endif]-->
+      <h3 class="help_tit"><strong>{$article.title|escape:html}</strong></h3>
+      <div class="help_box"> 
+        <!-- {if $article.content } --> 
+        {$article.content} 
+        <!-- {/if} --> 
+      </div>
+      <a class="h-1px" id="help160" name="help160"></a> 
+      
+      <!--[if !ie]>内容 结束<![endif]--> 
+      <!--[if !ie]>help_tips 开始<![endif]--> 
+      <!--[if !ie]>help_tips 结束<![endif]--> 
+    </div>
+    <!--[if !ie]>right 结束<![endif]-->
+    <div class="clr"></div>
+  </div>
+  <script type="text/javascript">
+    jQuery("#sortlist h4").bind("click",function() {
+        var element = $(this).parent();
+        if (element.hasClass("current")) {
+            element.removeClass("current");
+        } else {
+            element.addClass("current");
+        }
+    })
+</script>
+  <div class="blank"></div>
+  <!-- #BeginLibraryItem "/library/help.lbi" --><!-- #EndLibraryItem --> 
+  <!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem --> 
+</div>
+</body>
+</html>

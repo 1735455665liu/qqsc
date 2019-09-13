@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{if $all_cat}分类列表{else}{$cat_name}{/if} - {$shop_name}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="ecy.cc">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="style/base2013.css" />
+<link rel="stylesheet" type="text/css" href="style/all_html5.css" />
+<link rel="stylesheet" type="text/css" href="style/chapter.css" />
+<script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="js/common1.js" type="text/javascript"></script>
+</head>
+<body id="body">
+{if $all_cat}
+{include file='head1.dwt'}
+<div class="new-ct">
+    <div class="new-category">
+     	<ul class="new-category-lst">
+		{foreach from=$cat_array item=cat_data name=curn}
+    		 <li class="new-category-li">
+    			<a href="javascript:void(0)" id="{$smarty.foreach.curn.iteration}" class="new-category-a"><span class="icon"></span>{$cat_data.name}</a>
+    			<ul class="new-category2-lst" id="category{$smarty.foreach.curn.iteration}" style="display:none">
+    			     <li class="new-category2-li" >
+    				  {foreach from=$cat_data['cat_id'] item=ccat_data}<a href='category.php?cid={$ccat_data.id}' class="new-category2-a"><span class="new-bar"></span>{$ccat_data.name}</a>{/foreach}</li>
+    			</ul>
+        </li>
+		{/foreach}
+    	 </ul>
+    </div>
+</div>
+<script language="javascript">
+	$(function(){
+		$("li.new-category-li>a").click(function(){
+    		var obj = $(this).parent().children().eq(1);
+    		if(obj.css('display')=='none'){
+    			$(".new-category2-lst").hide();
+    			obj.fadeIn();
+    			$("li.new-category-li>a").removeClass("new-category-a new-on").addClass("new-category-a");
+    			$(this).addClass("new-category-a new-on");
+    		}else{
+    			obj.fadeOut();
+    			$("li.new-category-li>a").removeClass("new-category-a new-on").addClass("new-category-a");
+    			$(this).removeClass("new-category-a new-on").addClass("new-category-a");
+    		}
+    	})
+	});
+</script>
+
+{else}
+
+{if $cat_children}
+{include file='head1.dwt'}
+<div class="list p-sort radius">
+    <div class="mc" >
+      <ul>
+	  {foreach from=$cat_children item=child_data name=curn}
+		        <a href='category.php?cid={$child_data.id}'>
+			<li class="first">
+				<strong class="name1">{$child_data.name}</strong>
+				<span class="menu-botton-arrow"></span>
+			</li>
+		</a>
+		   {/foreach}    
+		      </ul>
+    </div>
+</div>
+{/if}
+
+{if $cat_children}
+{else}
+{include file='head2.dwt'}
+<div class="new-ct">
+	<div class="new-search">
+
+		<div class="new-tab-type2" style="overflow:hidden;height:34px">
+        	<div class="new-tbl-type">
+
+<a href='category.php?cid={$smarty.get.cid}&order_price=1{if $smarty.get.page}&page={$smarty.get.page}{/if}' class="new-tbl-cell"><span{if $smarty.get.order_price eq 1} class="on"{/if}>价格↓</span></a>
+<a href='category.php?cid={$smarty.get.cid}&order_price=2{if $smarty.get.page}&page={$smarty.get.page}{/if}' class="new-tbl-cell"><span{if $smarty.get.order_price eq 2} class="on"{/if}>价格↑</span></a>
+<a href='category.php?cid={$smarty.get.cid}&order_click=1{if $smarty.get.page}&page={$smarty.get.page}{/if}' class="new-tbl-cell"><span{if $smarty.get.order_click eq 1} class="on"{/if}>热度↓</span></a>
+<a href='category.php?cid={$smarty.get.cid}&order_click=2{if $smarty.get.page}&page={$smarty.get.page}{/if}' class="new-tbl-cell"><span{if $smarty.get.order_click eq 2} class="on"{/if}>热度↑</span></a>
+         </div>
+        </div>
+																																																																																																																																																																															
+	<ul class="new-mu_l2w">	   
+	 			 {foreach from=$goods_data item=goods name=goodsit}
+            <li class="new-mu_l2">
+                <a href="goods.php?id={$goods.id}" class="new-mu_l2a">
+                    <span class="new-mu_tmb"><img src="./../{$goods.thumb}" alt="{$goods.name}" width="100" height="100" /></span>
+                    <span class="new-mu_l2cw">
+                        <strong class="new-mu_l2h">{$goods.name}</strong>
+						<span class="new-mu_l2h"><span class="new-txt-rd2 new-elps">{$goods.brief}</span></span>
+                        <span class="new-mu_l2c"><strong class="new-txt-rd2">{$goods.price}</strong></span>
+                        <span class="new-mu_l2c new-p-re"><span class="new-txt market">{$goods.market_price}</span></span>
+				</span>
+                </a>
+            </li>
+				{foreachelse}
+    暂无此类商品
+{/foreach}	
+			  </ul>
+    </div>
+	
+	{if $pagebar}
+	{$pagebar}
+	{/if}
+	
+
+{/if}
+
+{/if}
+{include file='foot.dwt'}
+</body>
+</html>

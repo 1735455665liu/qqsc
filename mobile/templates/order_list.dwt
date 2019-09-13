@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>我的订单 - {$shop_name}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="ecy.cc">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="style/base2013.css" />
+<link rel="stylesheet" type="text/css" href="style/all_html5.css" />
+<link rel="stylesheet" type="text/css" href="style/chapter.css" />
+<script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="js/common1.js" type="text/javascript"></script>
+</head>
+<body>
+{include file='head2.dwt'}
+<div class="order_info mc radius" style="margin-top:10px;">
+	<ul>
+	{foreach from=$orders item=order_data name=orderit}
+	<li{if $smarty.foreach.goodsit.iteration neq 1} style="border:none"{/if}>
+	订单号：<a href="user.php?act=order_info&id={$order_data.order_id}">{$order_data.order_sn}</a><br/>
+	状态：{$order_data.order_status}<br/>
+	操作：{$order_data.handler}
+	</li>
+	{foreachelse}
+	<li>暂时您没有订单</li>
+	{/foreach}</ul></div>
+{if $pagebar}
+	{$pagebar}
+{/if}
+{include file='foot.dwt'}
+</body>
+</html>

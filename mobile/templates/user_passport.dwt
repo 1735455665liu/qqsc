@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>注册 - {$shop_name}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="ecy.cc">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="style/base2013.css" />
+<link rel="stylesheet" type="text/css" href="style/all_html5.css" />
+<link rel="stylesheet" type="text/css" href="style/chapter.css" />
+<script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="js/common1.js" type="text/javascript"></script>
+<script type="text/javascript">
+	function submit(obj){
+		obj.submit();
+	}
+	function check(theForm){
+		if(theForm.username.value == ""){
+			alert("请输入用户名!");theForm.username.focus();return false;
+		}
+		if(theForm.email.value == ""){
+			alert("请输入Email!");theForm.email.focus();return false;
+		}
+		if(theForm.password1.value == ""){
+			alert("请输入登录密码!");theForm.password1.focus();return false;
+		}
+		<!-- {foreach from=$extend_info_list item=field} -->
+		<!-- {if $field.is_need} -->
+			<!-- {if $field.id eq 6} -->
+				if(theForm.sel_question.value == 0){
+					alert("请选择提示问题!");theForm.sel_question.focus();return false;
+				}
+				if(theForm.passwd_answer.value == ""){
+					alert("请输入问题答案!");theForm.passwd_answer.focus();return false;
+				}
+			<!-- {else} -->
+				if(theForm.extend_field{$field.id}.value == ""){
+					alert("请输入{$field.reg_field_name}!");theForm.extend_field{$field.id}.focus();return false;
+				}
+			<!-- {/if} -->
+		<!-- {/if} -->
+		<!-- {/foreach} -->
+		theform.submit();
+	}
+</script>
+
+</head>
+<body>
+{include file='head2.dwt'}
+ <div class="new-ct">
+	
+    <div class="new-login">
+	        	<div class="new-lg-logo">
+            	<img src="./../mobile/images/logo.jpg" width="106" height="40" alt="logo">
+            </div>
+		
+	<form onSubmit="javascript:return check(formUser);" action="user.php?act=act_register" method="post" name="formUser">
+		<table width="100%">
+			<tr>
+				<td align="right" width="8%" height="40px">用户名&nbsp;</td>
+				<td><input name="username" type="text" id="username" class="common-input" placeholder="请使用手机号或者QQ号码注册" style="width:90%;" />
+					<span id="username_notice" style="color:#FF0000"> *</span></td>
+			</tr>
+			<tr>
+				<td align="right" height="40px">Email&nbsp;</td>
+				<td><input name="email" type="text" id="email" class="common-input" style="width:90%;" placeholder="请填写常用邮箱" />
+					<span id="email_notice" style="color:#FF0000"> *</span></td>
+			</tr>
+			<tr>
+				<td align="right" height="40px">登录密码&nbsp;</td>
+				<td><input name="password" type="text" id="password1" class="common-input" style="width:90%;" />
+					<span style="color:#FF0000" id="password_notice"> *</span></td>
+			</tr>
+			<!-- {foreach from=$extend_info_list item=field} -->
+			<!-- {if $field.id eq 6} -->
+			<tr>
+				<td align="right" height="40px">提示问题&nbsp;</td>
+				<td><select name='sel_question' id='sel_question' style="height:30px;">
+						<option value='0'>请选择提示问题</option>
+						{html_options options=$passwd_questions}
+					</select></td>
+			</tr>
+			<tr>
+				<td align="right" 
+			
+				<!-- {if $field.is_need} -->
+				id="passwd_quesetion"
+				<!--{/if}-->
+				>问题答案&nbsp;
+				</td>
+				<td><input name="passwd_answer" id="passwd_answer" type="text" maxlengt='20' class="common-input" style="width:90%;" />
+					<!-- {if $field.is_need} -->
+					<span style="color:#FF0000"> *</span>
+					<!-- {/if} --></td>
+			</tr>
+			<!-- {else} -->
+			<tr>
+				<td align="right" <!-- {if $field.is_need} -->
+				id="extend_field{$field.id}i"
+				<!--{/if}-->
+				 height="40px">{$field.reg_field_name}&nbsp;
+				<td><input name="extend_field{$field.id}" id="extend_field{$field.id}" type="text" class="common-input" style="width:90%;" />
+					<!-- {if $field.is_need} -->
+					<span style="color:#FF0000"> *</span>
+					<!-- {/if} --></td>
+			</tr>
+			<!-- {/if} -->
+			<!-- {/foreach} -->
+			<tr>
+				<td></td>
+				<td align="left"><span style="color:#FF0000; text-align:center"> 用电脑登陆时，请完善个人信息！</span></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input name="act" type="hidden" value="act_register" />
+					<input type="hidden" name="back_act" value="{$back_act}" />
+					<input name="Submit" type="submit" class="new-abtn-type new-mg-t15" style="border:0;width:90%;cursor:pointer" value="立即注册" /></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>已经有账号了，直接 <a href="user.php">登录</a></td>
+			</tr>
+		</table>
+	</form>
+</div>
+</div>
+{include file='foot.dwt'}
+</body>
+</html>

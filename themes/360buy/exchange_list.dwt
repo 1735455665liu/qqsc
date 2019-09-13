@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Keywords" content="{$keywords}" />
+<meta name="Description" content="{$description}" />
+<title>{$page_title}</title>
+<link rel="stylesheet" type="text/css" href="themes/360buy/images/misc/201007/skin/df/plist20120221.css" media="all" />
+<link rel="stylesheet" type="text/css" href="themes/360buy/images/misc/201007/skin/df/plist_2.css" media="all" />
+</head>
+<body>
+<!-- #BeginLibraryItem "/library/page_header.lbi" --><!-- #EndLibraryItem -->
+<div class="w">
+  <div class="breadcrumb"> <!-- #BeginLibraryItem "/library/ur_here.lbi" --><!-- #EndLibraryItem --> </div>
+</div>
+
+<div class="w main">
+  <div class="right-extra">
+
+    <!-- #BeginLibraryItem "/library/exchange_list.lbi" --><!-- #EndLibraryItem -->
+	<!-- #BeginLibraryItem "/library/pages_cat.lbi" --><!-- #EndLibraryItem --> 
+	</div>
+
+  <div class="left"> <!-- #BeginLibraryItem "/library/category_tree.lbi" --><!-- #EndLibraryItem -->
+
+    <?php
+		 $GLOBALS['smarty']->assign('new_goods', get_cat_recommend_goods('new', get_children(0), 5));
+	?>
+    <!-- #BeginLibraryItem "/library/goods_new.lbi" --><!-- #EndLibraryItem -->
+    <?php
+		 $GLOBALS['smarty']->assign('hot_goods', get_cat_recommend_goods('hot', get_children(0), 10));
+	?>
+    <!-- #BeginLibraryItem "/library/goods_hot.lbi" --><!-- #EndLibraryItem -->
+    <div id="alsobuy" class="hide m m0"></div>
+    <!-- #BeginLibraryItem "/library/history.lbi" --><!-- #EndLibraryItem --> </div>
+  <span class="clr"></span>
+
+</div>
+<!-- #BeginLibraryItem "/library/page_footer.lbi" --><!-- #EndLibraryItem -->
+</body>
+</html>
+

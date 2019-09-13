@@ -1,0 +1,24 @@
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="themes/360buy/images/misc/lib/js/2012/lib-v1.js"></script>
+<!-- service home end -->
+<div class="w">
+  <div id="footer">
+    <div class="copyright">
+      
+	   {$copyright}&nbsp;<!-- ICP 证书{if $icp_number} -->
+	  {$lang.icp_number}:<a href="http://www.miibeian.gov.cn/" target="_blank">{$icp_number}</a>
+	  <!-- 结束ICP 证书{/if} -->
+	  <br>
+	  {if $stats_code}
+    <div>{$stats_code}</div>
+    {/if}
+	  </div>
+    <div class="authentication"><a href="http://www.uuecs.com/" target="_blank"><img src="themes/360buy/images/da/108_40_zZOKnl.gif" width="108" height="40" alt="经营性网站备案中心"></a>
+      <a href="#" tabindex="-1" id="urlknet" target="_blank"><img name="seal" border="true" src="themes/360buy/images/da/112_40_EAWZul.jpg" width="112" height="40"></a><a href="http://blog.uuecs.com/" target="_blank"><img src="themes/360buy/images/da/112_40_WvArIl.png" width="112" height="40"></a></div>
+  </div>
+</div>
+<!-- footer end -->
+<!-- footer end -->
+<SCRIPT LANGUAGE="JavaScript"><!--Hide
+function killErrors() {return true;} window.onerror = killErrors;//--></SCRIPT>
+<script type="text/javascript" src="kf/chat.float.zhankai.js"></script>

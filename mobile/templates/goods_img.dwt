@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{$goods_info.goods_name}的详细介绍 - {$shop_name}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="ecy.cc">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="style/base2013.css" />
+<link rel="stylesheet" type="text/css" href="style/all_html5.css" />
+<link rel="stylesheet" type="text/css" href="style/chapter.css" />
+<link rel="stylesheet" type="text/css" href="style/view.css" />
+<script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="js/common1.js" type="text/javascript"></script>
+</head>
+<body>
+{include file='head2.dwt'}
+<div style="margin-top: 8px;padding: 10px;background-color: #f2ebe3;border-top: 1px solid #ddd2c0;border-bottom: 1px solid #ddd2c0;box-shadow: inset 0 1px 0 #fff;"> <span class="red">{$goods_info.goods_name}的详细介绍</span></div>
+<style>
+.desc table{ width:100% !important;height:auto;}
+.desc img{ width:100%;height:auto;line-height:1.8em;font-size: .800em;color:#5a5a5a}
+</style>
+<div class="mc radius desc">
+	{$goods_desc}
+</div>
+{include file='foot.dwt'}
+</body>
+</html>

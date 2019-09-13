@@ -1,0 +1,198 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/*订单信息*/
+.u-selected {
+	padding: 0 0 10px 58px;
+	height: 24px;
+	line-height: 24px;
+	font-weight: bold;
+	color: #333;
+}
+.u-selected span {
+	color: #cc0000;
+	padding-left: 10px;
+}
+/*订单信息结束*/
+/*商品描述结束*/
+/*放大镜*/
+.jqzoom {
+	position: relative;
+	padding: 0px;
+}
+.zoomdiv {
+	Z-INDEX: 999;
+	POSITION: absolute;
+	TEXT-ALIGN: left;
+	WIDTH: 800px;
+	DISPLAY: none;
+	BACKGROUND: #fff no-repeat center center;
+	HEIGHT: 800px;
+	OVERFLOW: hidden;
+	BORDER: #e4e4e4 1px solid;
+	TOP: 1px;
+	LEFT: 0px
+}
+.bigimg {
+	WIDTH: 800px;
+	HEIGHT: 800px;
+}
+.jqZoomPup {
+Z-INDEX: 3 BORDER-BOTTOM: #aaa 1px solid;
+	POSITION: absolute;
+	FILTER: alpha(Opacity=50);
+	BORDER-LEFT: #aaa 1px solid;
+	WIDTH: 40px;
+	BACKGROUND: #fede4f no-repeat 30% top;
+	HEIGHT: 40px;
+	VISIBILITY: hidden;
+	BORDER-TOP: #aaa 1px solid;
+	CURSOR: move;
+	BORDER-RIGHT: #aaa 1px solid;
+	TOP: 0px;
+	LEFT: 0px;
+	opacity: 0.5;
+	-moz-opacity: 0.5;
+	-khtml-opacity: 0.5
+}
+.sych1 span {
+	float: left;
+	width: 197px;
+	text-align: center;
+}
+.img_mayLike {
+	width: 160px;
+	height: 160px;
+}
+#choose ul li dt ,#choose ul li dd{ float:left;}
+
+.buyNub-buy-wrap{ height:40px; padding:10px 0 10px 0px;margin-left:15px;}
+/*详情活动列表*/
+#summary .padd-promotion .dd {
+	width: 85%;
+	float:left;
+	margin-bottom: 5px;
+}
+#summary .padd-promotion .J_MenuItem {
+	z-index:2
+}
+#summary .padd-promotion .dd a {
+	height: 25px;
+	line-height: 25px;
+	display: inline-block;
+}
+#summary .padd-promotion .dd a.activity_con {
+	margin-left: 10px;
+	padding: 0x 10px;
+	font-weight: 100;
+	color: #F52648;
+	float: left
+}
+#summary .padd-promotion .dd a.activity_1 {
+	background: url(../images/upgrade_ad/zhijiang.gif) no-repeat;
+	width: 45px;
+	text-align: center;
+	line-height: 25px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+	color: #fff
+}
+#summary .padd-promotion .dd a.activity_2 {
+	background: url(../images/upgrade_ad/manzeng.gif) no-repeat;
+	width: 45px;
+	text-align: center;
+	line-height: 25px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+	color: #fff;
+}
+#summary .padd-promotion .dd a.activity_3 {
+	background: url(../images/upgrade_ad/hongbao.gif) no-repeat;
+	width: 45px;
+	text-align: center;
+	line-height: 25px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+	color: #fff
+}
+#summary .padd-promotion .dd a.activity_4 {
+	background: url(../images/upgrade_ad/act_bg4.gif) no-repeat;
+	width: 75px;
+	text-align: center;
+	line-height: 25px;
+	height: 25px;
+	display: inline-block;
+	float: left;
+	color: #fff
+}
+#summary .padd-promotion .dd i {
+	background: url(../images/upgrade_ad/xiala.gif) no-repeat;
+	width: 7px;
+	height: 5px;
+	display: inline-block;
+	margin-top: -1px;
+	margin-left: 5px;
+	vertical-align: middle
+}
+#summary .padd-promotion #aa {
+	padding: 5px 10px 10px;
+	zoom: 1;
+	border: 1px solid #E8DCBB;
+	z-index: 3;
+	position: absolute;
+	top: 25px;
+*top:22px;
+	_top: 25px;
+	left: 55px;
+*left:55px;
+	background-color: #FCFBF8;
+	white-space: nowrap;
+	width: 280px;
+	height: auto;
+}
+#summary .padd-promotion #aa b.tip_flag {
+	background-position: -191px -40px;
+	height: 59px;
+	position: absolute;
+	right: 0;
+	width: 9px;
+	height: 6px;
+	background: url(../images/upgrade_ad/jian4.gif) 0px 0px no-repeat;
+	left: 35px;
+	top: -5px;
+}
+#summary .padd-promotion #aa h3 {
+	clear: both;
+	padding: 5px 0 0;
+	color: #666;
+}
+#summary .padd-promotion #aa ul {
+	display: inline-block;
+	width: 280px;
+	padding-top: 10px
+}
+#summary .padd-promotion #aa ul li {
+	width: 50px;
+	padding: 0px 10px;
+	height: 75px;
+	display: block;
+	float: left;
+	text-align: center;
+}
+#summary .padd-promotion #aa ul li a {
+	width: 50px;
+	height: 50px;
+	display: block;
+}
+#summary .padd-promotion #aa ul li img {
+	width: 50px;
+	height: 50px;
+}
+#summary .padd-promotion #aa ul li p {
+	width: 50px;
+	height: 25px;
+	line-height: 25px;
+	text-align: center;
+}

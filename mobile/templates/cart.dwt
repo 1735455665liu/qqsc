@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>我的购物车 - {$shop_name}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="author" content="ecy.cc">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=0">
+<meta name="apple-touch-fullscreen" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/all_html5.css" />
+<link rel="stylesheet" type="text/css" href="style/chapter.css" />
+{insert_scripts files='../../js/transport.js,../js/utils.js'}
+<script type="text/javascript">
+function add_num(rec_id,goods_id){
+	document.getElementById("goods_number_"+rec_id+"").value++;
+	var number = document.getElementById("goods_number_"+rec_id+"").value;
+	//Ajax.call('cart.php', 'act=update_group_cart&rec_id=' + rec_id +'&number=' + number+'&goods_id=' + goods_id, changePriceResponse, 'GET', 'JSON');
+	Ajax.call('cart.php?act=update_group_cart', 'rec_id=' + rec_id +'&number=' + number+'&goods_id=' + goods_id, changePriceResponse, 'GET', 'JSON');
+
+}
+
+function red_num(rec_id,goods_id){
+	if (document.getElementById("goods_number_"+rec_id+"").value>1){
+		document.getElementById("goods_number_"+rec_id+"").value--;
+	}
+	var number = document.getElementById("goods_number_"+rec_id+"").value;
+	Ajax.call('cart.php', 'act=update_group_cart&rec_id=' + rec_id +'&number=' + number+'&goods_id=' + goods_id, changePriceResponse, 'GET', 'JSON');
+}
+
+function change_price(rec_id,goods_id){
+	var number = document.getElementById("goods_number_"+rec_id+"").value;
+	Ajax.call('cart.php','act=update_group_cart&rec_id=' + rec_id +'&number=' + number+'&goods_id=' + goods_id, changePriceResponse, 'GET', 'JSON');
+}
+
+function changePriceResponse(result){
+	if(result.error == 1){
+		alert(result.content);
+		document.getElementById("goods_number_"+result.rec_id+"").value =result.number;
+	}else{
+		document.getElementById('subtotal_'+result.rec_id).innerHTML = result.subtotal;//商品总价
+		document.getElementById('cart_amount_desc').innerHTML = result.cart_amount_desc;//购物车商品总价说明
+	}
+}
+</script>
+<script src="js/jquery-1.6.2.min.js" type="text/javascript"></script>
+<script src="js/common1.js" type="text/javascript"></script>
+</head>
+<body>
+<a name="top"></a>
+<header>
+			<div class="new-header">
+        	<a href="javascript:pageBack();" class="new-a-back"><span>返回</span></a>
+							<h2>购物车</h2>
+			            <a href="javascript:void(0)" id="btnJdkey" class="new-a-jd"><span>京东键</span></a>
+    	</div>
+		<div class="new-jd-tab" style="display:none" id="jdkey">
+        	<div class="new-tbl-type">
+                <a href="index.php" class="new-tbl-cell">
+                	<span class="icon">首页</span>
+					<p style="color:#6e6e6e;">首页</p>
+                </a>
+                <a href="category.php" class="new-tbl-cell">
+                	<span class="icon2">分类搜索</span>
+					<p style="color:#6e6e6e;">分类搜索</p>
+                </a>
+                <a href="cart.php" id="html5_cart" class="new-tbl-cell">
+                	<span class="icon3">购物车</span>
+					<p style="color:#6e6e6e;">购物车</p>
+                </a>
+                <a href="user.php?act=user_center" class="new-tbl-cell">
+                	<span class="icon4">会员中心</span>
+					<p style="color:#6e6e6e;">会员中心</p>
+                </a>
+            </div>
+        </div>
+	</header>
+
+<!--{if $goods_list}-->
+<!--{if !$user_name}-->
+<div class="w" style="margin:10px 0 0; text-align:center">现在 <a href="user.php">登录</a> ，您购物车中的商品将被永久保存 </div>
+<!--{/if}-->
+<div class="my-cart">
+		<span class="red">
+        	<a class="chk-type on" id="checkAll">check</a>
+        </span>
+    	<span class="red">共<span id="cart_totalnum">{$total.real_goods_count}</span>件商品</span>
+        <div class="btn-area-rt">
+        	<a href='index.php' class="link ft15">继续购买 |</a><a href="buy.php?act=checkout" class="btn-type ft15" id="submit1">去结算</a>
+        </div>
+    </div>
+	
+<div class="mc cart-list tl">
+            <ul>
+		<!-- {foreach from=$goods_list item=goods} -->
+		<li class="first">
+			<div class="clear">
+				<div class="p-img p-img-v1 fl"> <a href="goods.php?id={$goods.goods_id}" class="pay-img"><img width="50" alt="{$goods.goods_name|escape:html}" src="./../{$goods.goods_thumb}"></a> </div>
+				<div class="fl fl-v1">
+					<p class="p-name"><a href="goods.php?id={$goods.goods_id}" target="_blank" class="f6">{$goods.goods_name}</a>
+						<!-- {if $goods.parent_id > 0} -->
+						<span style="color:#FF0000">（相关配件）</span>
+						<!-- {elseif $goods.is_gift} -->
+						<span style="color:#FF0000">（赠品）</span>
+						<!-- {/if} -->
+						<!-- {if $goods.is_shipping} -->
+						（免运费商品）
+						<!-- {/if} -->
+						
+					</p>
+					<!-- {if $show_marketprice} -->
+					<p class="p-price">市场价：<span class="red">{$goods.market_price}</span></p>
+					<!-- {/if} -->
+					<p class="p-price">价格：{$goods.goods_price}</p>
+					<p class="p-price2"></p>
+					<p class="p-amount">{$goods.goods_attr|nl2br}</p>
+					<p class="p-amount">数量：
+						<!-- {if $goods.goods_id gt 0 && $goods.is_gift eq 0 && $goods.parent_id eq 0} 普通商品可修改数量 -->
+						<a href="javascript:;" onclick="red_num({$goods.rec_id},{$goods.goods_id});" title="减少数量" class="redu">-</a> 
+						<input type="text" name="goods_number[{$goods.rec_id}]" id="goods_number_{$goods.rec_id}" value="{$goods.goods_number}" size="3"  class="common-input" onblur="change_price({$goods.rec_id},{$goods.goods_id})" />
+						 <a href="javascript:;" onclick="add_num({$goods.rec_id},{$goods.goods_id})" title="增加数量" class="add">+</a><a href="javascript:if (confirm('您确实要把该商品移出购物车吗？')) location.href='cart.php?act=drop_goods&id={$goods.rec_id}';" class="btn">删除</a>
+						<!-- {else} -->
+						{$goods.goods_number}
+						<!-- {/if} -->
+					</p>
+					<p class="p-price2"></p>
+					<p class="p-price">小记：<span class="red" id="subtotal_{$goods.rec_id}">{$goods.subtotal}</span></p>
+				</div>
+			</div>
+		</li>
+		<!-- {/foreach} -->
+	</ul>
+</div>
+<div class="pay-tip"> <p 
+	
+	<!-- {if $show_marketprice} -->
+	class="common-border"
+	<!--{/if}-->
+	>购物金额：<span id="cart_amount_desc" class="red">{$total.goods_price}</span>
+	</p>
+	<!-- {if $show_marketprice} -->
+	<p>比市场价 <span class="red">{$total.market_price}</span> 节省了 {$total.saving} ($total.save_rate)</p>
+	<!--{/if}-->
+</div>
+<a href="buy.php?act=checkout"  class="sub_btn">去结算</a>
+<div class="back"><a href='index.php'><span></span>继续购物</a></div>
+<!--{else}-->
+<div class="m" id="m">
+	<div class="blank"></div>
+    <div class="mt"><h2>我的购物车</h2></div>
+    <div class="mc">
+       	<div class="icon-cart">
+        	<span></span>
+							<p>您的购物车暂时没有商品，
+				                    <a href="user.php?act=login">登录&gt;&gt;</a>
+								将显示您之前保存的商品</p>
+            <p>去<a href="goods_list.php">首页</a>挑选喜欢的商品</p>		
+					</div>
+    </div>
+</div>
+<!--{/if}-->
+{include file='foot.dwt'}
+</body>
+</html>
